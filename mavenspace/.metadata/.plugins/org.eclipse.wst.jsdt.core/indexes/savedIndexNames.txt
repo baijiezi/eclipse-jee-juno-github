@@ -1,0 +1,6 @@
+INDEX VERSION 1.122+D:\eclipse-jee-juno\mavenspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3152613893.index
+829485661.index
+2309258802.index
+3875043266.index
+2195154610.index

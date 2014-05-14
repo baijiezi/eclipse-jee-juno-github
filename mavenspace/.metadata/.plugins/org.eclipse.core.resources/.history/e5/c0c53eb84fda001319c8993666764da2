@@ -1,0 +1,5 @@
+package jms.activemq.myexample.spring;
+
+public class TextListener {
+
+}

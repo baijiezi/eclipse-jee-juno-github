@@ -1,0 +1,5 @@
+package cc.monggo.web.controller;
+
+public class LoginController {
+
+}
