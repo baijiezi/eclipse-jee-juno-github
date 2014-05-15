@@ -1,0 +1,11 @@
+INDEX VERSION 1.122+D:\eclipse-jee-juno-github\workspaces\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+186471443.index
+3456544053.index
+1044666138.index
+534474922.index
+4246177058.index
+3248677658.index
+1135161539.index
+3030623856.index
+1487706065.index
+3934421658.index

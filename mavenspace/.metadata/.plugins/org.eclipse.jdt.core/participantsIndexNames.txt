@@ -1,4 +1,6 @@
 INDEX VERSION 1.126
+D:\eclipse-jee-juno-github\mavenspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1984391280.index
+\maven.springhibernate.test\src\main\java
 D:\eclipse-jee-juno\mavenspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2989164460.index
 \maven.wb\src\main\resources
 D:\eclipse-jee-juno\mavenspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1816085131.index
@@ -7,6 +9,8 @@ D:\eclipse-jee-juno\mavenspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspse
 \maven.springmvc\src\main\java
 D:\eclipse-jee-juno\mavenspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\91336280.index
 \maven.springmvc\src\main\java
+D:\eclipse-jee-juno-github\mavenspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2143669503.index
+\maven.database\src\main\resources
 D:\eclipse-jee-juno\mavenspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\789185097.index
 \maven.springmvc\src\main\java
 D:\eclipse-jee-juno\mavenspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\76827624.index

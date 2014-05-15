@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="first" namespace="/first" extends="struts-default">  
+		<action name="firstaction" class="com.test.struts.action.First" method="execute">  
+			<result name="success">/first.jsp</result>  
+		</action>  
+		<action name="firstaction2" class="com.test.struts.action.First" method="execute2">  
+			<result name="success">/first.jsp</result>  
+		</action> 
+	</package>    
+
+</struts>

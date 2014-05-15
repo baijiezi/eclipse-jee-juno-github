@@ -30,6 +30,7 @@
 	</section>
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="D:\eclipse-jee-juno-github\mavenspace\maven.springmvc\pom.xml"/>
 			<item value="D:\eclipse-jee-juno\mavenspace\maven.springmvc\pom.xml"/>
 			<item value="D:\eclipse-jee-juno\mavenspace\maven.webapp"/>
 		</list>
@@ -43,16 +44,19 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="groupId">
+			<item value="maven.database"/>
 			<item value="maven.springmvc"/>
 			<item value="maven.wb"/>
 		</list>
 		<list key="package">
+			<item value="maven.database"/>
 			<item value="maven.springmvc"/>
 			<item value="maven.wb"/>
 			<item value="maven.springmvc.maven.springmvc"/>
 			<item value="foo"/>
 		</list>
 		<list key="artifactId">
+			<item value="maven.database"/>
 			<item value="maven.springmvc"/>
 			<item value="maven.wb"/>
 		</list>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>SpringTest</display-name>
+    
+    <!-- 一个web工程自动加载的配置文件只有web.xml，想要加载其他.xml必须在web.xml里面进行配置 -->
+    
+    <!-- 指定spring配置文件 -->
+    <listener>
+    	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <!-- <context-param>是可选项，如果没有的话就加载applicationContext.xml，也可以用它指定其他配置文件 -->
+    <context-param>
+    	<param-name>contextConfigLocation</param-name>
+    	<param-value>/WEB-INF/conf/*.xml</param-value>
+    </context-param>
+    
+    <!-- 我们需要配置Spring的配置文件，默认DispatcherServlet会加载
+    WEB-INF/[DispatcherServlet的Servlet名字]-servlet.xml配置文件 -->
+    <servlet>  
+	    <servlet-name>chapter2</servlet-name>  
+	    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class> 
+	    <init-param>
+	    	<param-name>contextConfigLocation</param-name>
+	    	<param-value>/WEB-INF/conf/springmvc.xml</param-value>  <!-- 指定servlet配置文件 -->
+	    </init-param> 
+	    <load-on-startup>1</load-on-startup>  <!-- 表示启动容器时初始化该Servlet -->
+	</servlet>  
+	<servlet-mapping>  
+	    <servlet-name>chapter2</servlet-name>  
+	    <url-pattern>/</url-pattern>  <!-- 表示哪些请求交给Spring Web MVC处理 -->
+	</servlet-mapping> 
+
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

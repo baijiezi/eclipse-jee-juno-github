@@ -1,0 +1,2 @@
+[ERROR] 2013-11-07 14:34:20,187(0) --> [main] mywebprj.test.com.log4j.Log4jTest.main(Log4jTest.java:14): error  
+[FATAL] 2013-11-07 14:34:20,198(11) --> [main] mywebprj.test.com.log4j.Log4jTest.main(Log4jTest.java:16): fatal  

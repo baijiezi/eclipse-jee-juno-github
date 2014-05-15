@@ -1,0 +1,3 @@
+Web项目部署到Tomcat的方法：
+选中项目右键 -> Export -> WAR File -> 指定目录到Tomcat的webapps目录下
+导出成功后，启动外部Tomcat即可。
