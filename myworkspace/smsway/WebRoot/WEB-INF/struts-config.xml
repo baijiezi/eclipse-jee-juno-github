@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+  <data-sources />
+  <form-beans />
+  <global-exceptions />
+  <global-forwards />
+  <action-mappings >
+    <action
+      path="/messagesAction"
+      type="com.sun309.gateway.action.MessagesAction"
+      validate="false" />
+    <action
+      path="/test"
+      type="com.sun309.gateway.action.TestAction"
+      validate="false" />
+    <action
+      path="/monitorThreadAction"
+      type="com.sun309.gateway.action.MonitorThreadAction"
+      validate="false" />
+    <action path="/deleteMessagesAction" type="com.sun309.gateway.action.DeleteMessagesAction" />
+
+  </action-mappings>
+
+  <message-resources parameter="com.sun309.gateway.ApplicationResources" />
+</struts-config>
+

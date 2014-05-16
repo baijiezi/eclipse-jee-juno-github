@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee   http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+  <filter>
+    <filter-name>Set Character Encoding</filter-name>
+    <filter-class>com.sun309.filter.SetCharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  
+  <filter-mapping>
+    <filter-name>Set Character Encoding</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <servlet>
+    <description>StartThread</description>
+    <display-name>StartThread</display-name>
+    <servlet-name>StartThread</servlet-name>
+    <servlet-class>com.sun309.thread.StartThread</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>XFireServlet</servlet-name>
+    <servlet-class>org.codehaus.xfire.transport.http.XFireConfigurableServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+  <servlet>
+    <description>AliPayPostData</description>
+    <display-name>接收来自远程POST返回的交易结果数据</display-name>
+    <servlet-name>AliPayServlet</servlet-name>
+    <servlet-class>com.sun309.servlet.AliPayReceive</servlet-class>
+  </servlet>
+   <servlet>
+    <description>AliPayRefundPostData</description>
+    <display-name>接收来自远程POST返回的交易结果数据</display-name>
+    <servlet-name>AliPayRefundReceive</servlet-name>
+    <servlet-class>com.sun309.servlet.AliPayRefundReceive</servlet-class>
+  </servlet>
+  <servlet>
+    <description>ChinaPayPostData</description>
+    <display-name>接收来自远程POST返回的交易结果数据</display-name>
+    <servlet-name>ChinaPayServlet</servlet-name>
+    <servlet-class>com.sun309.servlet.ChinaPayReceive</servlet-class>
+  </servlet>
+  <servlet>
+    <description>TenPayServlet</description>
+    <display-name>接收来自远程POST返回的交易结果数据</display-name>
+    <servlet-name>TenPayServlet</servlet-name>
+    <servlet-class>com.sun309.servlet.TenPayReceive</servlet-class>
+  </servlet>
+  <servlet>
+    <description>TenPayPackagePostData</description>
+    <display-name>接收来自远程POST返回的交易结果数据</display-name>
+    <servlet-name>TenPayPackageServlet</servlet-name>
+    <servlet-class>com.sun309.servlet.TenPayPackageReceive</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>Test</servlet-name>
+    <servlet-class>com.sun309.servlet.Test</servlet-class>
+  </servlet>
+
+  
+  <servlet-mapping>
+    <servlet-name>XFireServlet</servlet-name>
+    <url-pattern>/services/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AliPayServlet</servlet-name>
+    <url-pattern>/servlet/AliPayReceive</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AliPayRefundReceive</servlet-name>
+    <url-pattern>/servlet/AliPayRefundReceive</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ChinaPayServlet</servlet-name>
+    <url-pattern>/servlet/ChinaPayReceive</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TenPayServlet</servlet-name>
+    <url-pattern>/servlet/TenPayReceive</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TenPayPackageServlet</servlet-name>
+    <url-pattern>/servlet/TenPayPackageReceive</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Test</servlet-name>
+    <url-pattern>/servlet/Test</url-pattern>
+  </servlet-mapping>
+  
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
+

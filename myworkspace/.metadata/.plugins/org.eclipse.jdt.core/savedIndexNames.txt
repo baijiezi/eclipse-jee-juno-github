@@ -1,0 +1,20 @@
+INDEX VERSION 1.126+D:\eclipse-jee-juno-github\myworkspace\.metadata\.plugins\org.eclipse.jdt.core
+918189355.index
+2174309973.index
+213409710.index
+315971613.index
+2861962406.index
+500949181.index
+2317698746.index
+2691020780.index
+3296630214.index
+1597717667.index
+3193282604.index
+1800682828.index
+3030623856.index
+3270868476.index
+1960921471.index
+4116651490.index
+350535502.index
+3597250072.index
+740957920.index

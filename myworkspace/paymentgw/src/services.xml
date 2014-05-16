@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://xfire.codehaus.org/config/1.0">
+	<service>
+		<name>PaymentGwService</name>
+		<namespace>http://www.sun309.com/PaymentGwService</namespace>
+		<serviceClass>com.sun309.ws.WsService</serviceClass>
+		<implementationClass>com.sun309.ws.Ws</implementationClass>
+		<style>rpc</style>
+		<use>literal</use>
+		<scope>application</scope> 
+	</service>
+</beans>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<OPCN><![CDATA[http://opc-gw-new.sun309.com:8080/opc/otherPayAction.do]]></OPCN>
+	<CZ><![CDATA[http://opc.sun309.com/kz.php?c=manage/KzCardChare-fromAli]]></CZ>
+	<YM><![CDATA[http://opc-gw-new.sun309.com:8080/opc/otherPayAction.do]]></YM>
+	<MALLGD><![CDATA[http://opc.sun309.com/mall.php?c=OrderManage]]></MALLGD>
+	<MALLSC><![CDATA[http://opc.sun309.com/mall.php?c=OrderManage]]></MALLSC>
+	<MALL><![CDATA[http://opc.sun309.com/mall.php?c=OrderManage]]></MALL>
+	<DS><![CDATA[http://opc.sun309.com/default.php?c=api/ds/Pay-index]]></DS>
+	<MCB><![CDATA[http://localhost:8080/mobilecombo/servlet/MobileComboPayAction]]></MCB>
+	<PZ><![CDATA[http://www.sun309.com]]></PZ>
+	<PE><![CDATA[http://www.sun309.com]]></PE>
+	<SC><![CDATA[http://www.sun309.com]]></SC>
+</root>

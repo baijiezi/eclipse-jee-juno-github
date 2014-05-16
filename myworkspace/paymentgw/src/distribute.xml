@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<items>
+		<item>
+			<key>OPCN</key> 
+			<url><![CDATA[http://localhost:8080/paymentgw/servlet/Test]]></url> 
+		</item> 
+		
+		<item>
+			<key>PE</key>
+			<url><![CDATA[http://opc.sun309.com/kz.php?c=api/PayResult&type=1]]></url>
+		</item>
+		
+		<item>
+			<key>CZ</key>
+			<url><![CDATA[http://opc.sun309.com/kz.php?c=api/PayResult&type=2]]></url>
+		</item>
+		
+		<item>
+			<key>sunkzcb</key>
+			<url><![CDATA[http://opc.sun309.com/kz.php?c=api/PayResult&type=3]]></url>
+		</item>
+		
+		<item>
+			<key>Kzcard_ComboUpgrade</key>
+			<url><![CDATA[http://opc.sun309.com/kz.php?c=api/PayResult&type=4]]></url>
+		</item>
+		
+		<item>
+			<key>KzCombo</key>
+			<url><![CDATA[http://opc.sun309.com/kz.php?c=api/PayResult&type=5]]></url>
+		</item>
+		
+		<item>
+			<key>callkzcb</key>
+			<url><![CDATA[http://opc.sun309.com/kz.php?c=api/PayResult&type=6]]></url>
+		</item>
+		
+		<item>
+			<key>MALL</key>
+			<url><![CDATA[http://mall.sun309.com/respond.php?code=healthCard]]></url>
+		</item>
+	</items>
+</root>

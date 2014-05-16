@@ -8,6 +8,12 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+/**
+ * 运行本类时，注意将hibernate.cfg.xml文件的 使用二级缓存时 mapping配置注释掉，
+ * 将 不使用二级缓存时 的mapping配置开启
+ * @author BaiJiezi
+ *
+ */
 public class Client { 
     public static void main(String[] args) { 
     	Log logger = LogFactory.getLog(Client.class);

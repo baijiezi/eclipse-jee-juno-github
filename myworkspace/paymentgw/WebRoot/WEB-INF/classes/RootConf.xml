@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root-element name="Root" class ="com.sun309.dto.Root">
+	<element field="node"/>
+</root-element>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://xfire.codehaus.org/config/1.0">
+  <service>
+    <name>abc</name><!-- 服务名称 -->
+    <serviceClass>ws.WebService</serviceClass><!-- 指定服务的接口 -->
+    <implementationClass>ws.WS</implementationClass><!-- 指定接口的实现类 -->
+    <style>wrapped</style> 
+	<use>literal</use> 
+	<scope>application</scope>  
+  </service>
+</beans>

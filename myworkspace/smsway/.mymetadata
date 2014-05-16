@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="smsway"
+  id="myeclipse.1323337692796"
+  context-root="/smsway"
+  j2ee-spec="5.0"
+  archive="smsway.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

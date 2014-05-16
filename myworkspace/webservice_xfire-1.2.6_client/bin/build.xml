@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="gb2312"?>
+<project name="facet" default="help" basedir=".">
+	<!-- =================================================================== -->
+	<!-- 设置属性                                                           -->
+	<!-- =================================================================== -->
+	<property name="optimize" value="false" />
+	<property name="debug" value="on" />
+	<property name="deprecation" value="false" />
+	<property name="build.lib" value="${basedir}/../lib" />
+	<property name="sources" value="${basedir}" />
+	<property name="build.classes" value="${basedir}/bin" />
+	<!-- =================================================================== -->
+	<!-- 设置类路径                                                           -->
+	<!-- =================================================================== -->
+	<path id="classpath">
+		<pathelement location="${build.classes}" />
+		<fileset dir="${build.lib}">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+	<taskdef name="wsgen" classname="org.codehaus.xfire.gen.WsGenTask" classpathref="classpath" />
+	<!-- ================================================ -->
+	<!-- 帮助                                                     -->
+	<!-- ================================================ -->
+	<target name="help" description="显示帮助信息">
+		<echo message="target                 描述" />
+		<echo message="-----------------------------------------------------------------" />
+		<echo message="compile                编译 " />
+		<echo message="create_code           创建代码" />
+	</target>
+
+	<!-- =============================================== -->
+	<!-- 编译代码                                               -->
+	<!-- =============================================== -->
+	
+	<!--
+	<target name="compile" description="编译代码">
+		<echo>编译程序代码</echo>
+		<javac srcdir="${sources}" destdir="${build.classes}" classpathref="classpath" 
+		debug="${debug}" optimize="${optimize}" deprecation="${deprecation}" />
+	</target>
+	-->
+	
+	<!-- =============================================== -->
+	<!-- 创建客户端代码                                               -->
+	<!-- =============================================== -->
+	<target name="create_code" description="创建代码">
+		<echo>创建代码</echo>
+		<echo>${sources}</echo>
+		<echo>${basedir}</echo>
+		<wsgen outputDirectory="${sources}" wsdl="${basedir}/HelloService.wsdl" 
+		package="com.googlepages.smallnest.facet" overwrite="true" />
+	</target>
+</project>

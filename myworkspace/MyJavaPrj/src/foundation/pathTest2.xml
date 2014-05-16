@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<items>
+    <item>
+        <id>Sun01</id>
+        <name>内科</name>
+        <parentDeptId>0</parentDeptId>
+    </item>
+    <item>
+        <id>Sun02</id>
+        <name>外科</name>
+        <parentDeptId>0</parentDeptId>
+    </item>
+</items>

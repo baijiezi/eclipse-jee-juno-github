@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://xfire.codehaus.org/config/1.0">
+  <service>
+    <serviceClass>com.googlepages.smallnest.facet.HelloServiceImpl</serviceClass>
+    <wsdlURL>file:/E:/MyEclipse%207.1/myworkspace/webservice_xfire-1.2.6_client/src/HelloService.wsdl</wsdlURL>
+    <serviceFactory>org.codehaus.xfire.jaxb2.JaxbServiceFactory</serviceFactory>
+  </service>
+</beans>
+

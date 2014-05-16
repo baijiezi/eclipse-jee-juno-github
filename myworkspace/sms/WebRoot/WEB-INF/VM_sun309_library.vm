@@ -1,0 +1,9 @@
+##服务器端返回的信息，显示出来
+#macro(struts_message $__key)
+#if($messages.exist($__key)) <div class="message">$!messages.get($__key)</div> #end
+#end
+
+#macro(req_message $__key)
+#if($__key != "") <div class="message">$__key</div> #end
+#end
+

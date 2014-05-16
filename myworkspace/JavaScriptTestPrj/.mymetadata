@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="JavaScriptTestPrj"
+  id="myeclipse.1309932283890"
+  context-root="/JavaScriptTestPrj"
+  j2ee-spec="1.4"
+  archive="JavaScriptTestPrj.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

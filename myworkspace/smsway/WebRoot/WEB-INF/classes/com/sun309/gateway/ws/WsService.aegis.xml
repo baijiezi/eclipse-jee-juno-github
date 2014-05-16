@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings>
+	<mapping>
+		<!-- 短息发送接口 -->
+		<method name="send">
+			<parameter index="0" mappedName="input"/>
+		</method>
+		
+		<!-- 简式短信发送接口 -->
+		<method name="simpleSend">
+			<parameter index="0" mappedName="sendInput"/>
+		</method>
+		
+		<!-- 短信删除接口 -->
+		<method name="delete">
+			<parameter index="0" mappedName="deleteInput"/>
+		</method>
+		
+		<!-- 短信测试接口 -->
+		<method name="sysTest">
+			<parameter index="0" mappedName="userName"/>
+			<parameter index="1" mappedName="userAge"/>
+		</method>
+	
+	
+	</mapping>
+
+</mappings>

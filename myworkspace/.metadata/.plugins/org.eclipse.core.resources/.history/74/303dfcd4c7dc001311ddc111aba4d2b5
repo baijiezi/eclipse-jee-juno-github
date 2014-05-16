@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="webservice_xfire-1.2.6">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <property name="context-root" value="webservice_xfire-1.2.6"/>
+        <property name="java-output-path" value="/webservice_xfire-1.2.6/WebRoot/WEB-INF/classes"/>
+    </wb-module>
+</project-modules>

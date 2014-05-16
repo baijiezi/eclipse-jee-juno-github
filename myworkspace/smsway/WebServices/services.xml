@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://xfire.codehaus.org/config/1.0">
+
+	<service>
+		<name>smsService</name>
+		<namespace>http://www.sun309.com/smsService</namespace>
+		<serviceClass>com.sun309.gateway.ws.WsService</serviceClass>
+		<implementationClass>com.sun309.gateway.ws.Ws</implementationClass>
+		<style>rpc</style>
+		<use>literal</use>
+		<scope>application</scope> 
+	</service>
+</beans>
