@@ -1,5 +1,0 @@
-package cc.monggo.web.controller;
-
-public class LoginForm {
-
-}
