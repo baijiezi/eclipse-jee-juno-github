@@ -41,8 +41,8 @@
 		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
         
         <!-- 不使用二级缓存时 -->
-        <!-- <mapping resource="hibernate/test/com/basehibernate/model/UserModel.hbm.xml"/>  -->
+        <mapping resource="hibernate/test/com/basehibernate/model/UserModel.hbm.xml"/>  
         <!-- 使用二级缓存时 -->
-        <mapping resource="hibernate/test/com/cache/secondlevelcache/model/UserModel.hbm.xml"/> 
+        <!-- <mapping resource="hibernate/test/com/cache/secondlevelcache/model/UserModel.hbm.xml"/> --> 
     </session-factory> 
 </hibernate-configuration> 
