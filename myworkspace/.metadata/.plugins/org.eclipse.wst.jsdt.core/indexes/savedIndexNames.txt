@@ -1,2 +1,0 @@
-INDEX VERSION 1.122+D:\eclipse-jee-juno-github\myworkspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-3030623856.index
