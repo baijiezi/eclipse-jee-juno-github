@@ -15,8 +15,13 @@ public class InnerClassTest
 		TalkingClock clock = new TalkingClock(1000, true);
 		clock.start();
 		
-		JOptionPane.showMessageDialog(null, "Quit program?");
-		System.exit(0);
+//		JOptionPane.showMessageDialog(null, "Quit program?");
+//		System.exit(0);
+		try{
+		Thread.sleep(5000);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 }
 

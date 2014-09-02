@@ -18,6 +18,7 @@ public class Encoding {
 			byte[] bytes = new byte[(int)length];
 			fileInputString.read(bytes, 0, (int)length);
 			printHexString(bytes);
+			System.out.println(new String(bytes, "GBK"));
 			System.out.println();
 			
 			
@@ -29,6 +30,7 @@ public class Encoding {
 			bytes = new byte[(int)length];
 			fileInputString.read(bytes, 0, (int)length);
 			printHexString(bytes);
+			System.out.println(new String(bytes, "Unicode"));
 			System.out.println();
 			
 			
@@ -40,6 +42,7 @@ public class Encoding {
 			bytes = new byte[(int)length];
 			fileInputString.read(bytes, 0, (int)length);
 			printHexString(bytes);
+			System.out.println(new String(bytes, "utf-8"));
 			System.out.println();
 			
 			

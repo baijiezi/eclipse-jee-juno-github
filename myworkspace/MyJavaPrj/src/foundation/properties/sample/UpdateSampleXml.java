@@ -18,11 +18,11 @@ public class UpdateSampleXml
 
         prop.setProperty("foo", "Hello World!");
         prop.setProperty("new-name", "new-value");
-        FileOutputStream fos = new FileOutputStream("src/foundation/xml/sample/sample.xml");
+        FileOutputStream fos = new FileOutputStream("src/foundation/properties/sample/sample.xml");
         prop.storeToXML(fos, "Store Sample");
         fos.close();
 
-        fis = new FileInputStream("src/foundation/xml/sample/sample.xml");
+        fis = new FileInputStream("src/foundation/properties/sample/sample.xml");
         prop.loadFromXML(fis);
         prop.list(System.out);
         System.out.println("The foo property: " + prop.getProperty("foo"));

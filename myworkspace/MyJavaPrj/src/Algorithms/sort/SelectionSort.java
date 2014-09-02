@@ -23,8 +23,20 @@ public class SelectionSort {
                 elements[i] = elements[k];
                 elements[k] = temp;
             }
+            
+            System.out.print("第" + (i + 1) + "次排序结果：");
+            for(int a = 0; a < elements.length; a++){
+                System.out.print(elements[a] + "\t");
+            }
+            System.out.println("");
         }
 	}
+	public static void main(String[] args){
+		int score[] = {67, 65, 75, 87, 98, 90, 99, 100};
+		SelectionSort selectionSort = new SelectionSort();
+		selectionSort.selectionSort(score);
+	}
+	
 	
 	
 }
