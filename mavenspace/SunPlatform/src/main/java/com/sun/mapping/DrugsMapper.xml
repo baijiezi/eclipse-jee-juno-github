@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sun.dao.DrugsMapper">
+	<resultMap id="BaseResultMap" type="com.sun.entity.DrugsEntity">
+		<id column="id" property="id" jdbcType="VARCHAR" />
+		<result column="MEDICINECODE" property="medicineCode" jdbcType="VARCHAR" />
+		<result column="MEDICINENAME" property="medicineName" jdbcType="VARCHAR" />
+		<result column="SPECIFICATION" property="specifiCation" jdbcType="VARCHAR" />
+		<result column="OUTPATIENTUNIT" property="outpatienTunit" jdbcType="VARCHAR" />
+		<result column="PRICE" property="price" jdbcType="VARCHAR" />
+		<result column="PFPRICE" property="pfPrice" jdbcType="VARCHAR" />
+		<result column="MEDICINETYPE" property="medicineType" jdbcType="VARCHAR" />
+		<result column="STATE" property="state" jdbcType="VARCHAR" />
+		<result column="YBTYPE" property="ybType" jdbcType="VARCHAR" />
+		<result column="WBCODE" property="wbCode" jdbcType="VARCHAR" />
+		<result column="PYCODE" property="pyCode" jdbcType="VARCHAR" />
+		<result column="CREATETIME" property="createTime" jdbcType="VARCHAR" />
+		<result column="TYPECODE" property="typeCode" jdbcType="VARCHAR" />
+		<result column="HOSPITALNAME" property="hospitalName" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+		HOSPITAL_ID,HOSPITAL_NAME,MEDICAL_CARD_NO
+	</sql>
+	
+	<insert id="insert" parameterType="com.sun.entity.DrugsEntity">
+		insert into FRONTEND_DRUGS (MEDICINECODE,MEDICINENAME,SPECIFICATION,
+		OUTPATIENTUNIT,PRICE,PFPRICE,MEDICINETYPE,STATE,YBTYPE,WBCODE,PYCODE,CREATETIME,TYPECODE,HOSPITALNAME)
+		values (#{medicineCode,jdbcType=VARCHAR},#{medicineName,jdbcType=VARCHAR}, #{specifiCation,jdbcType=VARCHAR},#{outpatienTunit,jdbcType=VARCHAR},
+				#{price,jdbcType=VARCHAR},#{pfPrice,jdbcType=VARCHAR},#{medicineType,jdbcType=VARCHAR},#{state,jdbcType=VARCHAR},
+				#{ybType,jdbcType=VARCHAR},#{wbCode,jdbcType=VARCHAR},#{pyCode,jdbcType=VARCHAR},#{createTime,jdbcType=VARCHAR},#{typeCode,jdbcType=VARCHAR},
+				#{hospitalName,jdbcType=VARCHAR})
+	</insert>
+	
+	<select id="getAll" resultMap="BaseResultMap">
+		select HOSPITAL_ID, HOSPITAL_NAME, MEDICAL_CARD_NO, PATIENT_NAME,ORDER_NO,REAL_PAY_FEE,PAY_CARD_NO,OPTION_PAYMENTS,MOBILE,PAYMENT_ID,USER_NAME,PAY_TIME from FRONTEND_CONFIRM_AUTO_PAY
+	</select>
+	
+	
+	<!-- 查询所有西药 -->
+	<select id="getWhereEntity" parameterType="com.sun.entity.DrugsEntity" resultMap="BaseResultMap">
+		 SELECT * from FRONTEND_DRUGS ST WHERE ST.MEDICINETYPE='西药' AND id&lt;1000 LIMIT 1,100
+		 
+	</select>
+	
+	<!-- 查询所有常规项目 -->
+	<select id="getCgEntity" parameterType="com.sun.entity.DrugsEntity" resultMap="BaseResultMap">
+		 SELECT * from FRONTEND_DRUGS ST WHERE ST.MEDICINETYPE='a' AND id&lt;1000 LIMIT 1,100
+	</select>
+	
+	<!-- 查询化验类药品 -->
+	<select id="getHyEntity" parameterType="com.sun.entity.DrugsEntity" resultMap="BaseResultMap">
+		 SELECT * from FRONTEND_DRUGS ST
+		 <where>
+		  <if test="hospitalName!= null and hospitalName!= ''">
+		  	ST.HOSPITALNAME = #{hospitalName}
+		  </if>
+		  AND ST.TYPECODE='3' 
+ 		</where>
+	</select>
+	
+	<!-- 查询放射类药品 -->
+	<select id="getFsEntity" parameterType="com.sun.entity.DrugsEntity" resultMap="BaseResultMap">
+		 SELECT * from FRONTEND_DRUGS ST
+		 <where>
+		  <if test="hospitalName!= null and hospitalName!= ''">
+		  	ST.HOSPITALNAME = #{hospitalName}
+		  </if>
+		  AND ST.TYPECODE='4'
+ 		</where>
+	</select>
+	
+	<!-- 查询超声波药品 -->
+	<select id="getCsEntity" parameterType="com.sun.entity.DrugsEntity" resultMap="BaseResultMap">
+		 SELECT * from FRONTEND_DRUGS ST
+		 <where>
+		  <if test="hospitalName!= null and hospitalName!= ''">
+		  	ST.HOSPITALNAME = #{hospitalName}
+		  </if>
+		  AND ST.TYPECODE='5'
+ 		</where>
+	</select>
+	 
+	 <!-- 按药品名称查询 -->
+	 <select id="getNameEntity" parameterType="com.sun.entity.DrugsEntity" resultMap="BaseResultMap">
+		 SELECT * from FRONTEND_DRUGS ST
+		 <where>
+		  <if test="medicineName!= null and medicineName!=''">
+		  	ST.MEDICINENAME = #{name}
+		  </if>
+		  <if test="code!= null and code!=''">
+		  	AND ST.WBCODE = #{code} OR ST.PYCODE=#{code}
+		  </if>
+ 		</where>
+	</select>
+	 
+	<select id="getAutoById" resultMap="BaseResultMap" parameterType="com.sun.entity.DrugsEntity">
+		select 	
+		<include refid="Base_Column_List" /> from FRONTEND_DRUGS
+		where FRONT_ORDER_NO = #{frontOrderNo,jdbcType=VARCHAR}
+	</select>
+	
+	<insert id="batchInsertB2B" parameterType="ArrayList" >
+		insert into FRONTEND_DRUGS(MEDICINECODE,MEDICINENAME,SPECIFICATION,
+		OUTPATIENTUNIT,PRICE,PFPRICE,MEDICINETYPE,STATE,YBTYPE,WBCODE,PYCODE,CREATETIME,TYPECODE,HOSPITALNAME)
+		<foreach collection="list" item="item" index="index" separator="union all">
+			select #{item.medicineCode,jdbcType=VARCHAR},#{item.medicineName,jdbcType=VARCHAR}, #{item.specifiCation,jdbcType=VARCHAR},#{item.outpatienTunit,jdbcType=VARCHAR},
+				   #{item.price,jdbcType=VARCHAR},#{item.pfPrice,jdbcType=VARCHAR},#{item.medicineType,jdbcType=VARCHAR},#{item.state,jdbcType=VARCHAR},
+					#{item.ybType,jdbcType=VARCHAR},#{item.wbCode,jdbcType=VARCHAR},#{item.pyCode,jdbcType=VARCHAR},#{item.createTime,jdbcType=VARCHAR},#{item.typeCode,jdbcType=VARCHAR},
+					#{item.hospitalName,jdbcType=VARCHAR} from dual
+		</foreach>
+	</insert>
+</mapper>

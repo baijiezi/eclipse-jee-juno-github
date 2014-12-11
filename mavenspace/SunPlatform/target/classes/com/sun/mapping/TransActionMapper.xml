@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sun.dao.TransActionMapper">
+	<resultMap id="BaseResultMap" type="com.sun.entity.TransActionEntity">
+		<id column="ID" property="id" jdbcType="VARCHAR" />
+		<result column="HOSPITAL_ID" property="hospitalId" jdbcType="VARCHAR" />
+		<result column="HOSPITAL_NAME" property="hospitalName" jdbcType="VARCHAR" />
+		<result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+		<result column="SCHEDULE_ID" property="scheduleId" jdbcType="VARCHAR" />
+		<result column="ID_CARD" property="idCard" jdbcType="VARCHAR" />
+		<result column="BIRTHDAY" property="birthday" jdbcType="VARCHAR" />
+		<result column="MEDICAL_CARD_NO" property="medicalCardNo" jdbcType="VARCHAR" />
+		<result column="MOBILE" property="mobile" jdbcType="VARCHAR" />
+		<result column="PATIENT_NAME" property="patientName" jdbcType="VARCHAR" />
+		<result column="PATIENT_SEX" property="patientSex" jdbcType="VARCHAR" />
+		<result column="ADDRESS" property="address" jdbcType="VARCHAR" />
+		<result column="DEPT_NAME" property="deptName" jdbcType="VARCHAR" />
+		<result column="DOCTOR_NAME" property="doctorName" jdbcType="VARCHAR" />
+		<result column="ORDER_DATE_TIME" property="orderTime" jdbcType="VARCHAR" />
+		<result column="VISIT_DATE_TIME" property="visitTime" jdbcType="VARCHAR" />
+		<result column="SERIAL_NO" property="serialNo" jdbcType="VARCHAR" />
+		<result column="FEE" property="fee" jdbcType="VARCHAR" />
+		<result column="PAY_CARD_NO" property="payCardNo" jdbcType="VARCHAR" />
+		<result column="SETTLEMENT_TYPE" property="settlementType" jdbcType="VARCHAR" />
+		<result column="PAYMENT_ID" property="paymentId" jdbcType="VARCHAR" />
+		<result column="OPTION_PAYMENTS" property="optionPayments" jdbcType="VARCHAR" />
+		<result column="ORDER_NO" property="orderNo" jdbcType="VARCHAR" />
+		<result column="OPER_ID" property="operId" jdbcType="VARCHAR" />
+		<result column="STATES" property="states" jdbcType="VARCHAR" />
+		<result column="REMARK" property="remark" jdbcType="VARCHAR" />
+		<result column="IS_TODAY" property="isToday" jdbcType="VARCHAR" />
+		<result column="FRONT_ORDER_NO" property="frontOrderNo" jdbcType="VARCHAR" />
+		<result column="JZFEE" property="jzFee" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+		HOSPITAL_ID,HOSPITAL_NAME,USER_NAME,SCHEDULE_ID,ID_CARD,BIRTHDAY,MEDICAL_CARD_NO,MOBILE,PATIENT_NAME,PATIENT_SEX,ADDRESS,DEPT_NAME,DOCTOR_NAME
+	</sql>
+
+	<insert id="insert" parameterType="com.sun.entity.TransActionEntity">
+		insert into FRONTEND_BOOKING_ORDER (HOSPITAL_ID, HOSPITAL_NAME,
+		USER_NAME,SCHEDULE_ID,ID_CARD,BIRTHDAY,MEDICAL_CARD_NO,MOBILE,PATIENT_NAME,PATIENT_SEX,ADDRESS,DEPT_NAME,DOCTOR_NAME,ORDER_DATE_TIME,VISIT_DATE_TIME,
+		SERIAL_NO,FEE,PAY_CARD_NO,SETTLEMENT_TYPE,PAYMENT_ID,OPTION_PAYMENTS,ORDER_NO,OPER_ID,STATES,REMARK,IS_TODAY,FRONT_ORDER_NO,JZFEE)
+		values (#{hospitalId,jdbcType=VARCHAR}, #{hospitalName,jdbcType=VARCHAR},#{userName,jdbcType=VARCHAR},
+				#{scheduleId,jdbcType=VARCHAR},#{idCard,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR},#{medicalCardNo,jdbcType=VARCHAR},
+				#{mobile,jdbcType=VARCHAR},#{patientName,jdbcType=VARCHAR},#{patientSex,jdbcType=VARCHAR},#{address,jdbcType=VARCHAR},
+				#{deptName,jdbcType=VARCHAR},#{doctorName,jdbcType=VARCHAR},#{orderTime,jdbcType=VARCHAR},#{visitTime,jdbcType=VARCHAR},
+				#{serialNo,jdbcType=VARCHAR},#{fee,jdbcType=VARCHAR},#{payCardNo,jdbcType=VARCHAR},#{settlementType,jdbcType=VARCHAR},
+				#{paymentId,jdbcType=VARCHAR},#{optionPayments,jdbcType=VARCHAR},#{orderNo,jdbcType=VARCHAR},#{operId,jdbcType=VARCHAR},
+				#{states,jdbcType=VARCHAR},#{remark,jdbcType=VARCHAR},#{isToday,jdbcType=VARCHAR},#{frontOrderNo,jdbcType=VARCHAR},#{jzFee,jdbcType=VARCHAR})
+	</insert>
+
+	<select id="getWhereEntity" parameterType="com.sun.entity.TransActionEntity" resultMap="BaseResultMap">
+		 SELECT OPTION_PAYMENTS,OPER_ID,HOSPITAL_NAME,ORDER_NO,MEDICAL_CARD_NO,FEE,JZFEE,ORDER_DATE_TIME,VISIT_DATE_TIME,SERIAL_NO,DEPT_NAME,DOCTOR_NAME,ID_CARD,MOBILE,PATIENT_NAME,ADDRESS,PAY_CARD_NO,CASE PATIENT_SEX WHEN 1 THEN '男' WHEN 0 THEN '女' END AS PATIENT_SEX FROM FRONTEND_BOOKING_ORDER ST
+		 <where>
+		  <if test="patientName!= null and patientName!= ''"><!-- 患者姓名 -->
+		  	ST.PATIENT_NAME = #{patientName}
+		  </if>
+		  <if test="hospitalName!= null and hospitalName!= ''"> <!-- 医院名称 -->
+		  	AND ST.HOSPITAL_NAME = #{hospitalName}
+		  </if>
+		  <if test="medicalCardNo!= null and medicalCardNo!= ''"><!-- 诊疗卡号 -->
+		  	AND ST.MEDICAL_CARD_NO = #{medicalCardNo}
+		  </if>
+		  <if test="payCardNo!= null and payCardNo!= ''"><!-- 支付卡号 -->
+		  	AND ST.PAY_CARD_NO = #{payCardNo}
+		  </if>
+		  <if test="mobile!= null and mobile!= ''"><!-- 手机号码 -->
+		  	AND ST.MOBILE = #{mobile}
+		  </if>
+		  <if test="orderNo!= null and orderNo!= ''"><!-- 订单号码 -->
+		  	AND ST.ORDER_NO = #{orderNo}
+		  </if>
+		  <if test="startDate!= null and startDate!= ''"><!-- 日期 -->
+		  	AND ORDER_DATE_TIME BETWEEN #{startDate} AND #{endDate}
+		  </if>
+		  <if test="jzstarTime!= null and jzstarTime!= ''"><!-- 日期 -->
+		  	AND VISIT_DATE_TIME BETWEEN #{jzstarTime} AND #{jzendTime}
+		  </if>
+ 		</where>
+ 		ORDER BY ORDER_DATE_TIME DESC
+	</select>
+	
+	
+	<select id="getCout" parameterType="com.sun.entity.TransActionEntity" resultType="Integer">
+		 SELECT  COUNT(1) FROM FRONTEND_BOOKING_ORDER ST
+		 <where>
+		  <if test="patientName!= null and patientName!= ''"><!-- 患者姓名 -->
+		  	ST.PATIENT_NAME = #{patientName}
+		  </if>
+		  <if test="hospitalName!= null and hospitalName!= ''"> <!-- 医院名称 -->
+		  	AND ST.HOSPITAL_NAME = #{hospitalName}
+		  </if>
+		  <if test="medicalCardNo!= null and medicalCardNo!= ''"><!-- 诊疗卡号 -->
+		  	AND ST.MEDICAL_CARD_NO = #{medicalCardNo}
+		  </if>
+		  <if test="payCardNo!= null and payCardNo!= ''"><!-- 支付卡号 -->
+		  	AND ST.PAY_CARD_NO = #{payCardNo}
+		  </if>
+		  <if test="mobile!= null and mobile!= ''"><!-- 手机号码 -->
+		  	AND ST.MOBILE = #{mobile}
+		  </if>
+		  <if test="orderNo!= null and orderNo!= ''"><!-- 订单号码 -->
+		  	AND ST.ORDER_NO = #{orderNo}
+		  </if>
+		  <if test="startDate!= null and startDate!= ''"><!-- 日期 -->
+		  	AND ORDER_DATE_TIME BETWEEN #{startDate} AND #{endDate}
+		  </if>
+		  <if test="jzstarTime!= null and jzstarTime!= ''"><!-- 日期 -->
+		  	AND VISIT_DATE_TIME BETWEEN #{jzstarTime} AND #{jzendTime}
+		  </if>
+ 		</where>
+	</select>
+	
+	<select id="getBookingById" resultMap="BaseResultMap" parameterType="com.sun.entity.TransActionEntity">
+		select
+		<include refid="Base_Column_List" />  
+		from FRONTEND_BOOKING_ORDER where FRONT_ORDER_NO = #{frontOrderNo,jdbcType=VARCHAR}
+	</select>	
+	
+	<select id="findPageBreakByCondition" resultMap="BaseResultMap" parameterType="map">
+		 SELECT OPTION_PAYMENTS,OPER_ID,HOSPITAL_NAME,ORDER_NO,MEDICAL_CARD_NO,FEE,JZFEE,ORDER_DATE_TIME,VISIT_DATE_TIME,SERIAL_NO,DEPT_NAME,DOCTOR_NAME,ID_CARD,MOBILE,PATIENT_NAME,ADDRESS,PAY_CARD_NO,CASE PATIENT_SEX WHEN 1 THEN '男' WHEN 0 THEN '女' END AS PATIENT_SEX FROM FRONTEND_BOOKING_ORDER ST
+		<where>
+		  <if test="patientName!= null and patientName!= ''"><!-- 患者姓名 -->
+		  	ST.PATIENT_NAME = #{patientName}
+		  </if>
+		  <if test="hospitalName!= null and hospitalName!= ''"> <!-- 医院名称 -->
+		  	AND ST.HOSPITAL_NAME = #{hospitalName}
+		  </if>
+		  <if test="medicalCardNo!= null and medicalCardNo!= ''"><!-- 诊疗卡号 -->
+		  	AND ST.MEDICAL_CARD_NO = #{medicalCardNo}
+		  </if>
+		  <if test="payCardNo!= null and payCardNo!= ''"><!-- 支付卡号 -->
+		  	AND ST.PAY_CARD_NO = #{payCardNo}
+		  </if>
+		  <if test="mobile!= null and mobile!= ''"><!-- 手机号码 -->
+		  	AND ST.MOBILE = #{mobile}
+		  </if>
+		  <if test="orderNo!= null and orderNo!= ''"><!-- 订单号码 -->
+		  	AND ST.ORDER_NO = #{orderNo}
+		  </if>
+		   <if test="startDate!= null and startDate!= ''"><!-- 日期 -->
+		  	AND ORDER_DATE_TIME BETWEEN #{startDate} AND #{endDate}
+		  </if>
+		  <if test="jzstarTime!= null and jzstarTime!= ''"><!-- 日期 -->
+		  	AND VISIT_DATE_TIME BETWEEN #{jzstarTime} AND #{jzendTime}
+		  </if>
+		</where>
+		ORDER BY ORDER_DATE_TIME DESC
+	</select>
+</mapper>

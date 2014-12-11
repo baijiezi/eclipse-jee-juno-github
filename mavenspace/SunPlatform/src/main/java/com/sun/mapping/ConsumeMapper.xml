@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sun.dao.ConsumeMapper">
+	<resultMap id="BaseResultMap" type="com.sun.entity.ConsumEntity">
+		<id column="id" property="id" jdbcType="VARCHAR" />
+		<result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+		<result column="OPTION_PAYMENTS" property="optionMents" jdbcType="VARCHAR" />
+		<result column="MEMBER_CARD" property="memberCard" jdbcType="VARCHAR" />
+		<result column="FEE" property="fee" jdbcType="VARCHAR" />
+		<result column="OPER_ID" property="operId" jdbcType="VARCHAR" />
+		<result column="TERMINAL_TRADE_LINE" property="tradeLine" jdbcType="VARCHAR" />
+		<result column="EXT_ORDER" property="extOrder" jdbcType="VARCHAR" />
+		<result column="PAY_CARD_NO" property="payCardNo" jdbcType="VARCHAR" />
+		<result column="STATES" property="states" jdbcType="VARCHAR" />
+		<result column="CREATE_TIME" property="createTime" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<insert id="insert" parameterType="com.sun.entity.ConsumEntity">
+		insert into FRONTEND_CONSUME (USER_NAME, OPTION_PAYMENTS,
+		MEMBER_CARD, FEE, OPER_ID,TERMINAL_TRADE_LINE,EXT_ORDER,PAY_CARD_NO,STATES,CREATE_TIME)
+		values (#{kzCardNo,jdbcType=VARCHAR}, #{total,jdbcType=VARCHAR},
+		#{terminalId,jdbcType=VARCHAR}, #{extOrder,jdbcType=VARCHAR},#{payMentId,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE})
+	</insert>
+	
+	<select id="getWhereEntity" parameterType="com.sun.entity.ConsumEntity" resultMap="BaseResultMap">
+		 SELECT * FROM FRONTEND_CONSUME FC
+		 <where>
+		  <if test="userName!= null and userName!= ''">
+		  	FC.USER_NAME = #{userName}
+		  </if>
+		  <if test="optionMents!= null and optionMents!= ''">
+		  	AND FC.OPTION_PAYMENTS = #{optionMents}
+		  </if>
+		  <if test="extOrder!= null and extOrder!= ''">
+		  	AND FC.EXT_ORDER = #{extOrder}
+		  </if>
+		   <if test="operId!= null and operId!= ''">
+		  	AND FC.OPER_ID = #{operId}
+		  </if>
+ 		</where>
+	</select>
+	
+</mapper>

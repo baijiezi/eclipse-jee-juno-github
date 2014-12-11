@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sun.dao.MannerMapper">
+	<resultMap id="BaseResultMap" type="com.sun.entity.MannerEntity">
+		<id column="id" property="id" jdbcType="VARCHAR" />
+		<result column="HOSPITAL_NAME" property="hospitalName" jdbcType="VARCHAR" />
+		<result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+		<result column="HOSPITAL_ID" property="hosptialId" jdbcType="VARCHAR" />
+		<result column="MEDICAL_CARD_NO" property="medicalCardNo" jdbcType="VARCHAR" />
+		<result column="MANNER_DOCTOR_ID" property="mannerDoctId" jdbcType="VARCHAR" />
+		<result column="MANNER_DOCTOR_REMARK" property="mannerDoctRemark" jdbcType="VARCHAR" />
+		<result column="MANNER_NURSE_ID" property="mannerNursetId" jdbcType="VARCHAR" />
+		<result column="MANNER_NURSE_REMARK" property="mannerNursetRemark" jdbcType="VARCHAR" />
+		<result column="MANNER_CHECK_ID" property="mannerCheckId" jdbcType="VARCHAR" />
+		<result column="MANNER_CHECK_REMARK" property="mannerCheckRemark" jdbcType="VARCHAR" />
+		<result column="MANNER_PHARMACY_ID" property="mannerPhamacyId" jdbcType="VARCHAR" />
+		<result column="MANNER_PHARMACY_REMARK" property="mannerPhamacyRemark" jdbcType="VARCHAR" />
+		<result column="MANNER_CHARGE_ID" property="mannerChargeId" jdbcType="VARCHAR" />
+		<result column="MANNER_CHARGE_REMARK" property="mannerChargeRemark" jdbcType="VARCHAR" />
+		<result column="MANNER_VISIT_ID" property="mannerVisitId" jdbcType="VARCHAR" />
+		<result column="MANNER_VISIT_REMARK" property="mannerVisitRemark" jdbcType="VARCHAR" />
+		<result column="MANNER_TIME" property="mannerTime" jdbcType="VARCHAR" />
+		<result column="MOBILE" property="mobile" jdbcType="VARCHAR" />
+		<result column="PATIENT_NAME" property="patientName" jdbcType="VARCHAR" />
+		<result column="OPER_ID" property="operId" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+		HOSPITAL_ID,HOSPITAL_NAME,MEDICAL_CARD_NO
+	</sql>
+
+	<insert id="insert" parameterType="com.sun.entity.MannerEntity">
+		insert into FRONTEND_MANNER (HOSPITAL_NAME,USER_NAME,HOSPITAL_ID,
+		MEDICAL_CARD_NO,MANNER_DOCTOR_ID,MANNER_DOCTOR_REMARK,MANNER_NURSE_ID,MANNER_NURSE_REMARK,
+		MANNER_CHECK_ID,MANNER_CHECK_REMARK,MANNER_PHARMACY_ID,
+		MANNER_PHARMACY_REMARK,	MANNER_CHARGE_ID,MANNER_CHARGE_REMARK,
+		MANNER_VISIT_ID,MANNER_VISIT_REMARK,MANNER_TIME,
+		MOBILE,PATIENT_NAME,OPER_ID)
+		values (#{hospitalName,jdbcType=VARCHAR},#{userName,jdbcType=VARCHAR}, #{hosptialId,jdbcType=VARCHAR},
+				#{medicalCardNo,jdbcType=VARCHAR},#{mannerDoctId,jdbcType=VARCHAR},#{mannerDoctRemark,jdbcType=VARCHAR},
+				#{mannerNursetId,jdbcType=VARCHAR},#{mannerNursetRemark,jdbcType=VARCHAR},
+				#{mannerCheckId,jdbcType=VARCHAR},#{mannerCheckRemark,jdbcType=VARCHAR},#{mannerPhamacyId,jdbcType=VARCHAR},
+				#{mannerPhamacyRemark,jdbcType=VARCHAR},#{mannerChargeId,jdbcType=VARCHAR},#{mannerChargeRemark,jdbcType=VARCHAR},
+				#{mannerVisitId,jdbcType=VARCHAR},#{mannerVisitRemark,jdbcType=VARCHAR},#{mannerTime,jdbcType=VARCHAR},
+				#{mobile,jdbcType=VARCHAR},#{patientName,jdbcType=VARCHAR},#{operId,jdbcType=VARCHAR})
+	</insert>
+	
+	<select id="getAll" resultMap="BaseResultMap">
+		select HOSPITAL_ID, HOSPITAL_NAME, MEDICAL_CARD_NO, PATIENT_NAME,ORDER_NO,REAL_PAY_FEE,PAY_CARD_NO,OPTION_PAYMENTS,MOBILE,PAYMENT_ID,USER_NAME,PAY_TIME from FRONTEND_CONFIRM_AUTO_PAY
+	</select>
+	<select id="getWhereEntity" parameterType="com.sun.entity.MannerEntity" resultMap="BaseResultMap">
+		 SELECT * from FRONTEND_MANNER ST
+		 <where>
+		  <if test="hospitalName!= null and hospitalName!= ''">
+		  	ST.HOSPITAL_NAME = #{hospitalName}
+		  </if>
+		  <if test="medicalCardNo!= null and medicalCardNo!= ''">
+		  	AND ST.MEDICAL_CARD_NO = #{medicalCardNo}
+		  </if>
+		   <if test="mobile!= null and mobile!= ''">
+		  	AND ST.MOBILE = #{mobile}
+		  </if>
+		  <if test="patientName!= null and patientName!= ''">
+		  	AND ST.PATIENT_NAME = #{patientName}
+		  </if>
+		  <if test="userName!= null and userName!= ''">
+		  	AND ST.USER_NAME = #{userName}
+		  </if>
+		  <if test="operId!= null and operId!= ''">
+		  	AND ST.OPER_ID = #{operId}
+		  </if>
+ 		</where>
+ 		ORDER BY ID DESC;
+	</select>
+	
+	<select id="getMannerById" resultMap="BaseResultMap" parameterType="com.sun.entity.MannerEntity">
+		select 	
+		<include refid="Base_Column_List" /> from FRONTEND_MANNER
+		where FRONT_ORDER_NO = #{frontOrderNo,jdbcType=VARCHAR}
+	</select>
+	
+		
+	<select id="getCout" parameterType="com.sun.entity.MannerEntity" resultType="Integer">
+		 SELECT COUNT(1) from FRONTEND_MANNER ST
+		  <where>
+		  <if test="hospitalName!= null and hospitalName!= ''">
+		  	ST.HOSPITAL_NAME = #{hospitalName}
+		  </if>
+		  <if test="medicalCardNo!= null and medicalCardNo!= ''">
+		  	AND ST.MEDICAL_CARD_NO = #{medicalCardNo}
+		  </if>
+		   <if test="mobile!= null and mobile!= ''">
+		  	AND ST.MOBILE = #{mobile}
+		  </if>
+		  <if test="patientName!= null and patientName!= ''">
+		  	AND ST.PATIENT_NAME = #{patientName}
+		  </if>
+		  <if test="userName!= null and userName!= ''">
+		  	AND ST.USER_NAME = #{userName}
+		  </if>
+		  <if test="operId!= null and operId!= ''">
+		  	AND ST.OPER_ID = #{operId}
+		  </if>
+ 		</where>
+	</select>
+	
+	<select id="findPageBreakByCondition" resultMap="BaseResultMap" parameterType="map">
+		 SELECT * FROM FRONTEND_MANNER ST
+		<where>
+		  <if test="hospitalName!= null and hospitalName!= ''">
+		  	ST.HOSPITAL_NAME = #{hospitalName}
+		  </if>
+		  <if test="medicalCardNo!= null and medicalCardNo!= ''">
+		  	AND ST.MEDICAL_CARD_NO = #{medicalCardNo}
+		  </if>
+		   <if test="mobile!= null and mobile!= ''">
+		  	AND ST.MOBILE = #{mobile}
+		  </if>
+		  <if test="patientName!= null and patientName!= ''">
+		  	AND ST.PATIENT_NAME = #{patientName}
+		  </if>
+		  <if test="userName!= null and userName!= ''">
+		  	AND ST.USER_NAME = #{userName}
+		  </if>
+		  <if test="operId!= null and operId!= ''">
+		  	AND ST.OPER_ID = #{operId}
+		  </if>
+ 		</where>
+ 		ORDER BY ID DESC;
+	</select>
+</mapper>
