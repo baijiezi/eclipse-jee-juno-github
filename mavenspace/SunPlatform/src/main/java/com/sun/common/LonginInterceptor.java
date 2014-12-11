@@ -9,11 +9,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.sun.entity.User;
 
 /** 
- * ´¦Àísession³¬Ê±µÄÀ¹½ØÆ÷ 
+ * å¤„ç†sessionè¶…æ—¶çš„æ‹¦æˆªå™¨ 
  */  
 public class LonginInterceptor  implements HandlerInterceptor{  
       
-    public String[] allowUrls;//»¹Ã»·¢ÏÖ¿ÉÒÔÖ±½ÓÅäÖÃ²»À¹½ØµÄ×ÊÔ´£¬ËùÒÔÔÚ´úÂëÀïÃæÀ´ÅÅ³ı  
+    public String[] allowUrls;//è¿˜æ²¡å‘ç°å¯ä»¥ç›´æ¥é…ç½®ä¸æ‹¦æˆªçš„èµ„æºï¼Œæ‰€ä»¥åœ¨ä»£ç é‡Œé¢æ¥æ’é™¤  
       
     public void setAllowUrls(String[] allowUrls) {  
         this.allowUrls = allowUrls;  
@@ -31,10 +31,10 @@ public class LonginInterceptor  implements HandlerInterceptor{
             }
         User user = (User) request.getSession().getAttribute("user1");
         if(user != null) {    
-            return true;  //·µ»Øtrue£¬ÔòÕâ¸ö·½Ãæµ÷ÓÃºó»á½Ó×Åµ÷ÓÃpostHandle(),  afterCompletion()  
+            return true;  //è¿”å›trueï¼Œåˆ™è¿™ä¸ªæ–¹é¢è°ƒç”¨åä¼šæ¥ç€è°ƒç”¨postHandle(),  afterCompletion()  
         }else{
-            // Î´µÇÂ¼  Ìø×ªµ½µÇÂ¼Ò³Ãæ
-            throw new SessionTimeoutException();//·µ»Øµ½ÅäÖÃÎÄ¼şÖĞ¶¨ÒåµÄÂ·¾¶  
+            // æœªç™»å½•  è·³è½¬åˆ°ç™»å½•é¡µé¢
+            throw new SessionTimeoutException();//è¿”å›åˆ°é…ç½®æ–‡ä»¶ä¸­å®šä¹‰çš„è·¯å¾„  
         }
     }
     public void afterCompletion(HttpServletRequest arg0,  

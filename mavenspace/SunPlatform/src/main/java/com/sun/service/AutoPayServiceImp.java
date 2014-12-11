@@ -33,21 +33,21 @@ public class AutoPayServiceImp implements AutoPayServiceI {
 //		if (!ctxFile.isDirectory()) {
 //			ctxFile.mkdirs();
 //		}
-//		// 文件的存储的相对路径
+//		// 鏂囦欢鐨勫瓨鍌ㄧ殑鐩稿璺緞
 //		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-//		String ctxPath = "订单-" + sdf.format(new Date()).toString() + ".xls";
+//		String ctxPath = "璁㈠崟-" + sdf.format(new Date()).toString() + ".xls";
 //		String filePath = SUPPLIER_ORDERS_UPLOAD_PATH + ctxPath;
-//		// 新建立一个jxl文件,即在e盘下生成testJXL.xls
+//		// 鏂板缓绔嬩竴涓猨xl鏂囦欢,鍗冲湪e鐩樹笅鐢熸垚testJXL.xls
 //		OutputStream os = new FileOutputStream(filePath);
 //		WritableWorkbook wwb = Workbook.createWorkbook(os);
-//		WritableSheet sheet = wwb.createSheet("全部订单", 0);
+//		WritableSheet sheet = wwb.createSheet("鍏ㄩ儴璁㈠崟", 0);
 //		
 //		Label label = null;
 //		createHead(label, sheet);
 //		List<OrderInfoosBean> dataList = autoPayMapper.getAll();
 //		createData(label, sheet, dataList);
 //
-//		// 分类
+//		// 鍒嗙被
 //				int n = 1;
 //				for (int i = 0; i < orderList.size(); i++) {
 //					model.setId(orderList.get(i));
@@ -58,7 +58,7 @@ public class AutoPayServiceImp implements AutoPayServiceI {
 //					n++;
 //				}
 //				wwb.write();
-//				// 关闭文件
+//				// 鍏抽棴鏂囦欢
 //				wwb.close();
 //				os.close();
 //				return filePath;

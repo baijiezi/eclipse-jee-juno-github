@@ -6,9 +6,9 @@ import com.sun.entity.ConsumEntity;
 
 
 /**
- * ×÷ÓÃ:Ïû·ÑDAO²ã
- * ÈÕÆÚ:2014-03-20
- * ×÷Õß:caolei
+ * ä½œç”¨:æ¶ˆè´¹DAOå±‚
+ * æ—¥æœŸ:2014-03-20
+ * ä½œè€…:caolei
  * @author Administrator
  *
  */

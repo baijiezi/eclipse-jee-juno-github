@@ -13,9 +13,9 @@ import com.sun.service.ConsumServiceI;
 @RequestMapping("/consumDelta")
 public class ConsumController {
 	/**
-	 * ÈÕÆÚ£º2014-03-12
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:Ìø×ª²éÑ¯Ïû·ÑÒ³Ãæ 
+	 * æ—¥æœŸï¼š2014-03-12
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:è·³è½¬æŸ¥è¯¢æ¶ˆè´¹é¡µé¢ 
 	 */
 	private ConsumServiceI consumService;
 	
@@ -27,9 +27,9 @@ public class ConsumController {
 	}
 	
 	/**
-	 * ÈÕÆÚ:2014-08-31
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:²éÑ¯Ïû·ÑÏêÏ¸ÁĞ±í
+	 * æ—¥æœŸ:2014-08-31
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:æŸ¥è¯¢æ¶ˆè´¹è¯¦ç»†åˆ—è¡¨
 	 */
 	@RequestMapping(value="/consumDelta")
 	public String consumDelta(HttpServletRequest request,@ModelAttribute("pojo") ConsumEntity pojo){

@@ -37,9 +37,9 @@ public class ChargeServiceImpl implements ChargeServiceI {
 	}
 	
 	/**
-	 * ×÷ÓÃ:³äÖµ×ª·¢±¨ÎÄ
-	 * ÈÕÆÚ:2014-03-31
-	 * ×÷Õß:caolei
+	 * ä½œç”¨:å……å€¼è½¬å‘æŠ¥æ–‡
+	 * æ—¥æœŸ:2014-03-31
+	 * ä½œè€…:caolei
 	 * @throws IOException
 	 */
 	public String Communication(String json){
@@ -58,13 +58,13 @@ public class ChargeServiceImpl implements ChargeServiceI {
 			result=ConnUtil.ConnApiService(url, apikey, consumesecretKey, entity);
 			result="{\"success\":true,\"data\":\"YX20232311111\"}";
 			JSONObject job=JSONObject.fromObject(result);
-			if(job.getBoolean("success")==true){//´¦Àí³É¹¦µÇ¼Ç¼ÇÂ¼
+			if(job.getBoolean("success")==true){//å¤„ç†æˆåŠŸç™»è®°è®°å½•
 				String mpcEntity=ChargeServiceImpl.toJson(json,job.get("data").toString()).toString();
 				String mpcurl=ChargeServiceImpl.toUrl(proper.get("mpcchargeUrl").toString(),json);//proper.get("mpcchargeUrl").toString();
 				String mpcapikey=proper.get("mpcchargeApiKey").toString();
 				String mpcsecretKey=proper.get("mpcchargesecretkey").toString();
 				mpcresult=ConnUtil.ConnApiService(mpcurl, mpcapikey, mpcsecretKey, mpcEntity);
-				System.out.println("MPC·µ»ØµÄÊı¾İÎª:"+mpcresult);
+				System.out.println("MPCè¿”å›çš„æ•°æ®ä¸º:"+mpcresult);
 				JSONObject mpcjob=JSONObject.fromObject(mpcresult);
 				if(mpcjob.getBoolean("success")==true){
 					System.out.println("===========================");
@@ -72,7 +72,7 @@ public class ChargeServiceImpl implements ChargeServiceI {
 					System.out.println("===========================");
 				}
 			}else{
-				System.out.println("Ö§¸¶³öÏÖ´íÎó:"+result);
+				System.out.println("æ”¯ä»˜å‡ºç°é”™è¯¯:"+result);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -81,7 +81,7 @@ public class ChargeServiceImpl implements ChargeServiceI {
 	}
 	
 	/**
-	 * ×÷ÓÃ:×ª»»JSON¸ñÊ½
+	 * ä½œç”¨:è½¬æ¢JSONæ ¼å¼
 	 * @param Json
 	 * @return
 	 * @throws JSONException
@@ -90,18 +90,18 @@ public class ChargeServiceImpl implements ChargeServiceI {
 		//jsonObj.get("Total")
 		JSONObject jsonObj=JSONObject.fromObject(Json);
 		Map<String, Object> map=new HashMap<String, Object>();
-		//map.put("Id",jsonObj.get("UserId"));	//ÓÃ»§ID
+		//map.put("Id",jsonObj.get("UserId"));	//ç”¨æˆ·ID
 		map.put("extOrder",extOrder);//
-		map.put("total",jsonObj.get("Fee"));			//³äÖµ½ğ¶î
+		map.put("total",jsonObj.get("Fee"));			//å……å€¼é‡‘é¢
 		map.put("optionPayments",jsonObj.get("OptionPayments"));
 		JSONObject js=JSONObject.fromObject(map);
-		System.out.println("×ª»»ºóµÄÊı¾İÎª:"+js.toString());
+		System.out.println("è½¬æ¢åçš„æ•°æ®ä¸º:"+js.toString());
 		return js;
 	}
 	/**
-	 * ×÷ÓÃ:×ª»»½ğ¶î ·Ö×ªÔª
-	 * ÈÕÆÚ:2014-03-21
-	 * ×÷Õß:caolei
+	 * ä½œç”¨:è½¬æ¢é‡‘é¢ åˆ†è½¬å…ƒ
+	 * æ—¥æœŸ:2014-03-21
+	 * ä½œè€…:caolei
 	 * @param total
 	 * @return
 	 */
@@ -109,7 +109,7 @@ public class ChargeServiceImpl implements ChargeServiceI {
 		String CURRENCY_FEN_REGEX="\\-?[0-9]+";
 		if(!total.matches(CURRENCY_FEN_REGEX)){
 			try {
-				throw new Exception("½ğ¶î¸ñÊ½ÓĞÎó");
+				throw new Exception("é‡‘é¢æ ¼å¼æœ‰è¯¯");
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -118,34 +118,34 @@ public class ChargeServiceImpl implements ChargeServiceI {
 		return BigDecimal.valueOf(Long.valueOf(total)).divide(new BigDecimal(100)).toString();
 	}
 	/**
-	 * ×÷ÓÃ:×ª»»ÒøÁªËùĞèÒªµÄjson
-	 * ÈÕÆÚ:2014-03-21
-	 * ×÷Õß:caolei
+	 * ä½œç”¨:è½¬æ¢é“¶è”æ‰€éœ€è¦çš„json
+	 * æ—¥æœŸ:2014-03-21
+	 * ä½œè€…:caolei
 	 */
 	public static JSONObject uniontoJson(String ujson){
 		JSONObject jsonObj=JSONObject.fromObject(ujson);
 		Map<String, Object> map=new HashMap<String, Object>();
-		map.put("memberCard",jsonObj.get("MemberCard"));	//¿¨ºÅ
-		map.put("password",jsonObj.get("Password"));	//ÃÜÂë
-		map.put("total",jsonObj.get("Fee"));			//½ğ¶î
-		map.put("terminalId",jsonObj.get("TerminalId"));//²Ù×÷ÕßID
-		map.put("traderId",jsonObj.get("OptionPayments"));//½áËãÉÌ»§ID
-		map.put("extOrder",jsonObj.get("CreateTime"));	//Íâ²¿¶©µ¥ºÅ
+		map.put("memberCard",jsonObj.get("MemberCard"));	//å¡å·
+		map.put("password",jsonObj.get("Password"));	//å¯†ç 
+		map.put("total",jsonObj.get("Fee"));			//é‡‘é¢
+		map.put("terminalId",jsonObj.get("TerminalId"));//æ“ä½œè€…ID
+		map.put("traderId",jsonObj.get("OptionPayments"));//ç»“ç®—å•†æˆ·ID
+		map.put("extOrder",jsonObj.get("CreateTime"));	//å¤–éƒ¨è®¢å•å·
 		JSONObject js=JSONObject.fromObject(map);
-		System.out.println("×ª»»ºóµÄÊı¾İÎª:"+js.toString());
+		System.out.println("è½¬æ¢åçš„æ•°æ®ä¸º:"+js.toString());
 		return js;		
 	}
 	
 	/**
-	 * ×÷ÓÃ:×ª»»URL
-	 * ÈÕÆÚ:2014-03-28
-	 * ×÷Õß:caolei
+	 * ä½œç”¨:è½¬æ¢URL
+	 * æ—¥æœŸ:2014-03-28
+	 * ä½œè€…:caolei
 	 */
 	public static String toUrl(String url,String json){
-		System.out.println("»ñÈ¡µÄURL£º"+url+";»ñÈ¡µÄJSON£º"+json);
+		System.out.println("è·å–çš„URLï¼š"+url+";è·å–çš„JSONï¼š"+json);
 		JSONObject jsonob=JSONObject.fromObject(json);
 		String newurl=url.replaceAll("\'id\'", jsonob.get("UserId").toString());
-		System.out.println("×ª»»ºóµÄURL£º"+newurl);
+		System.out.println("è½¬æ¢åçš„URLï¼š"+newurl);
 		return newurl;
 	}
 }

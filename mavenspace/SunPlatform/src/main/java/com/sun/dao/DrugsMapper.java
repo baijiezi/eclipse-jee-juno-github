@@ -7,9 +7,9 @@ import com.sun.entity.DrugsEntity;
 
 
 /**
- * ÈÕÆÚ:2014-10-22
- * ×÷ÓÃ:Ò©Æ·²éÑ¯DAO
- * ×÷Õß:caolei
+ * æ—¥æœŸ:2014-10-22
+ * ä½œç”¨:è¯å“æŸ¥è¯¢DAO
+ * ä½œè€…:caolei
  * @author Administrator
  *
  */
@@ -24,6 +24,6 @@ public interface DrugsMapper {
 	List<DrugsEntity> getNameEntity(DrugsEntity drugsEntity);
 	int insert(DrugsEntity autoPayEntity);
 	DrugsEntity getAutoById(DrugsEntity autoPayEntity);
-	//ÅúÁ¿²åÈë
+	//æ‰¹é‡æ’å…¥
 	int batchInsertB2B(List<DrugsEntity> ls);
 }

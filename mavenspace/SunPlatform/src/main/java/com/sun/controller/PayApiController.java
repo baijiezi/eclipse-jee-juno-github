@@ -17,9 +17,9 @@ import com.sun.service.ConsumServiceI;
 import com.sun.service.QueryServiceI;
 import com.sun.service.RefundServiceI;
 /**
- * ÈÕÆÚ:2014-03-17
- * ×÷Õß:caolei
- * ×÷ÓÃ:Ö§¸¶½Ó¿Ú£¬¶ÀÁ¢´¦Àí
+ * æ—¥æœŸ:2014-03-17
+ * ä½œè€…:caolei
+ * ä½œç”¨:æ”¯ä»˜æ¥å£ï¼Œç‹¬ç«‹å¤„ç†
  * @author Administrator
  *
  */
@@ -28,7 +28,7 @@ public class PayApiController {
 	
 	private static final Logger logger = Logger.getLogger(PayApiController.class);
 	
-	private ConsumServiceI consumService;	//Ïû·ÑService²ã	
+	private ConsumServiceI consumService;	//æ¶ˆè´¹Serviceå±‚	
 	public ConsumServiceI getConsumService() {
 		return consumService;
 	}	
@@ -37,7 +37,7 @@ public class PayApiController {
 		this.consumService = consumService;
 	}
 	
-	private ChargeServiceI chargeService;	//³äÖµService²ã
+	private ChargeServiceI chargeService;	//å……å€¼Serviceå±‚
 	
 	public ChargeServiceI getChargeService() {
 		return chargeService;
@@ -47,7 +47,7 @@ public class PayApiController {
 		this.chargeService = chargeService;
 	}
 	
-	private RefundServiceI refundService;	//ÍË·ÑService²ã
+	private RefundServiceI refundService;	//é€€è´¹Serviceå±‚
 	
 	public RefundServiceI getRefundService() {
 		return refundService;
@@ -56,7 +56,7 @@ public class PayApiController {
 	public void setRefundService(RefundServiceI refundService) {
 		this.refundService = refundService;
 	}
-	private QueryServiceI queryService;	//²éÑ¯Service²ã
+	private QueryServiceI queryService;	//æŸ¥è¯¢Serviceå±‚
 	
 	public QueryServiceI getQueryService() {
 		return queryService;
@@ -67,10 +67,10 @@ public class PayApiController {
 	}
 	
 	/**
-	 * ĞèÒªĞŞ¸Ä
-	 * ÈÕÆÚ:2014-03-17
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:Ïû·ÑÇëÇó½Ó¿Ú
+	 * éœ€è¦ä¿®æ”¹
+	 * æ—¥æœŸ:2014-03-17
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:æ¶ˆè´¹è¯·æ±‚æ¥å£
 	 * @return
 	 */
 	@RequestMapping(value="/sunConsume")
@@ -86,18 +86,18 @@ public class PayApiController {
 				json.append(consumeline);
 			}
 		} catch (IOException e) {
-			logger.error("ÇëÇóJOSNÊı¾İ¶ÁÈ¡³ö´í:"+e);
+			logger.error("è¯·æ±‚JOSNæ•°æ®è¯»å–å‡ºé”™:"+e);
 			e.printStackTrace();
 		}
-		System.out.println("ÒÑ¾­½ÓÊÕµ½Ïû·ÑÇëÇó£¬ÇëÇóµÄÊı¾İÎª:"+json);
+		System.out.println("å·²ç»æ¥æ”¶åˆ°æ¶ˆè´¹è¯·æ±‚ï¼Œè¯·æ±‚çš„æ•°æ®ä¸º:"+json);
 		consumService.Communication(json.toString());
 		return "{'a':1}";
 	}
 	
 	/**
-	 * ÈÕÆÚ:2014-03-17
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:×Ô¶¯ÍË·Ñ½Ó¿Ú
+	 * æ—¥æœŸ:2014-03-17
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:è‡ªåŠ¨é€€è´¹æ¥å£
 	 */
 	@RequestMapping(value="/sunRefund")
 	@ResponseBody
@@ -112,18 +112,18 @@ public class PayApiController {
 				json.append(refundLine);
 			}
 		} catch (IOException e) {
-			logger.error("ÇëÇóJOSNÊı¾İ¶ÁÈ¡³ö´í:"+e);
+			logger.error("è¯·æ±‚JOSNæ•°æ®è¯»å–å‡ºé”™:"+e);
 			e.printStackTrace();
 		}
-		System.out.println("ÒÑ¾­½ÓÊÕµ½Ïû·ÑÇëÇó£¬ÇëÇóµÄÊı¾İÎª:"+json);
+		System.out.println("å·²ç»æ¥æ”¶åˆ°æ¶ˆè´¹è¯·æ±‚ï¼Œè¯·æ±‚çš„æ•°æ®ä¸º:"+json);
 		refundService.refundConn(json.toString());
 		return "";
 	}
 	
 	/**
-	 * ÈÕÆÚ:2014-03-17
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:ÕË»§³äÖµ½Ó¿Ú
+	 * æ—¥æœŸ:2014-03-17
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:è´¦æˆ·å……å€¼æ¥å£
 	 */
 	@RequestMapping(value="/sunCharge")
 	@ResponseBody
@@ -139,18 +139,18 @@ public class PayApiController {
 				json.append(refundLine);
 			}
 		} catch (IOException e) {
-			logger.error("ÇëÇóJOSNÊı¾İ¶ÁÈ¡³ö´í:"+e);
+			logger.error("è¯·æ±‚JOSNæ•°æ®è¯»å–å‡ºé”™:"+e);
 			e.printStackTrace();
 		}
-		System.out.println("ÒÑ¾­½ÓÊÕµ½³äÖµÇëÇó£¬ÇëÇóµÄÊı¾İÎª:"+json);
+		System.out.println("å·²ç»æ¥æ”¶åˆ°å……å€¼è¯·æ±‚ï¼Œè¯·æ±‚çš„æ•°æ®ä¸º:"+json);
 		chargeService.Communication(json.toString());
 		return "";
 	}
 	
 	/**
-	 * ÈÕÆÚ:2014-03-17
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:²éÑ¯ÕË»§Óà¶î½Ó¿Ú
+	 * æ—¥æœŸ:2014-03-17
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:æŸ¥è¯¢è´¦æˆ·ä½™é¢æ¥å£
 	 */
 	@RequestMapping(value="/sunQueryBalance")
 	@ResponseBody
@@ -165,10 +165,10 @@ public class PayApiController {
 				json.append(refundLine);
 			}
 		} catch (IOException e) {
-			logger.error("ÇëÇóJOSNÊı¾İ¶ÁÈ¡³ö´í:"+e);
+			logger.error("è¯·æ±‚JOSNæ•°æ®è¯»å–å‡ºé”™:"+e);
 			e.printStackTrace();
 		}
-		System.out.println("ÒÑ¾­½ÓÊÕµ½²éÑ¯ÇëÇó£¬ÇëÇóµÄÊı¾İÎª:"+json);
+		System.out.println("å·²ç»æ¥æ”¶åˆ°æŸ¥è¯¢è¯·æ±‚ï¼Œè¯·æ±‚çš„æ•°æ®ä¸º:"+json);
 		String mpcquery=queryService.queryBalance(json.toString());
 		return mpcquery;
 	}

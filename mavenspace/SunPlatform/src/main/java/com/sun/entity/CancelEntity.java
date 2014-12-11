@@ -1,20 +1,20 @@
 package com.sun.entity;
 
 /**
- * ×÷ÓÃ:ÍË·ÑÃ÷Ï¸ÊµÌå
- * ×÷Õß:caolei
- * ÈÕÆÚ:ÈÕÆÚ:2014-08-11
+ * ä½œç”¨:é€€è´¹æ˜ç»†å®ä½“
+ * ä½œè€…:caolei
+ * æ—¥æœŸ:æ—¥æœŸ:2014-08-11
  * @author Administrator 
  *
  */
 public class CancelEntity {
-	public String id;	//Ö÷¼üID
-	public String userName;//ÓÃ»§Ãû
-	public String payCardNo;//Ö§¸¶¿¨ºÅ
-	public String exOrder;//Íâ²¿¶©µ¥ºÅ
-	public String operId;//²Ù×÷Ô±
-	public String states;//×´Ì¬
-	public String cancelDate;//ÍË¿îÊ±¼ä
+	public String id;	//ä¸»é”®ID
+	public String userName;//ç”¨æˆ·å
+	public String payCardNo;//æ”¯ä»˜å¡å·
+	public String exOrder;//å¤–éƒ¨è®¢å•å·
+	public String operId;//æ“ä½œå‘˜
+	public String states;//çŠ¶æ€
+	public String cancelDate;//é€€æ¬¾æ—¶é—´
 	public String getId() {
 		return id;
 	}

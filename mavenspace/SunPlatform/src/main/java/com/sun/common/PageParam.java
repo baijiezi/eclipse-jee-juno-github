@@ -3,9 +3,9 @@ package com.sun.common;
 import java.io.Serializable;
 
 /**
- * ×÷ÓÃ:·ÖÒ³²ÎÊı´«µİ¹¤¾ßÀà
- * ×÷Õß:caolei
- * ÈÕÆÚ:2014-03-14
+ * ä½œç”¨:åˆ†é¡µå‚æ•°ä¼ é€’å·¥å…·ç±»
+ * ä½œè€…:caolei
+ * æ—¥æœŸ:2014-03-14
  * @author Administrator
  *
  */
@@ -16,8 +16,8 @@ public class PageParam implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	public int pagenum;	//µ±Ç°Ò³Êı
-	public int numPerpage;//Ã¿Ò³¼ÇÂ¼Êı
+	public int pagenum;	//å½“å‰é¡µæ•°
+	public int numPerpage;//æ¯é¡µè®°å½•æ•°
 	
 	public PageParam(int pageNum,int numPerPage){
 		super();

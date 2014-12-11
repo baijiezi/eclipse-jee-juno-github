@@ -1,29 +1,29 @@
 package com.sun.entity;
 
 /**
- * ×÷ÓÃ:Ò©Æ·²éÑ¯ÊµÌå
- * ÈÕÆÚ:2014-10-22
- * ×÷Õß:caolei
+ * ä½œç”¨:è¯å“æŸ¥è¯¢å®ä½“
+ * æ—¥æœŸ:2014-10-22
+ * ä½œè€…:caolei
  * @author Administrator
  *
  */
 public class DrugsEntity {
-	public int id; //Ö÷¼üID
-	public String medicineCode;//Ò©Æ·±àºÅ
-	public String medicineName;//Ò©Æ·Ãû³Æ
-	public String specifiCation;//Ò©Æ·¹æ¸ñ
-	public String outpatienTunit;//Ò©Æ·µ¥Î»
-	public String price;//Ò©Æ·¼Û¸ñ
-	public String pfPrice;//Åú·¢¼Û
-	public String medicineType;//Ò©Æ·ÀàĞÍ
-	public String state;//Ò©Æ·×´Ì¬
-	public String ybType;//Ò½±£ÀàĞÍ
-	public String wbCode;//Îå±Ê±àÂë
-	public String pyCode;//Æ´Òô±àÂë
-	public String createTime;//´´½¨ÈÕÆÚ
-	public String typeCode;//Àà±ğID
-	public String hospitalName;//Ò½ÔºÃû³Æ
-	public String name;//Ãû³Æ
+	public int id; //ä¸»é”®ID
+	public String medicineCode;//è¯å“ç¼–å·
+	public String medicineName;//è¯å“åç§°
+	public String specifiCation;//è¯å“è§„æ ¼
+	public String outpatienTunit;//è¯å“å•ä½
+	public String price;//è¯å“ä»·æ ¼
+	public String pfPrice;//æ‰¹å‘ä»·
+	public String medicineType;//è¯å“ç±»å‹
+	public String state;//è¯å“çŠ¶æ€
+	public String ybType;//åŒ»ä¿ç±»å‹
+	public String wbCode;//äº”ç¬”ç¼–ç 
+	public String pyCode;//æ‹¼éŸ³ç¼–ç 
+	public String createTime;//åˆ›å»ºæ—¥æœŸ
+	public String typeCode;//ç±»åˆ«ID
+	public String hospitalName;//åŒ»é™¢åç§°
+	public String name;//åç§°
 	public String code;
 	public String getCode() {
 		return code;

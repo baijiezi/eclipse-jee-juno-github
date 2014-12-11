@@ -32,7 +32,7 @@ public class RefundServiceImpl implements RefundServiceI {
 	}
 	
 	/**
-	 * ×÷ÓÃ:ÍË·ÑÁ¬½ÓMPC½Ó¿Ú£¬Ìá½»²ÎÊı
+	 * ä½œç”¨:é€€è´¹è¿æ¥MPCæ¥å£ï¼Œæäº¤å‚æ•°
 	 * @param json
 	 * @return
 	 */
@@ -47,11 +47,11 @@ public class RefundServiceImpl implements RefundServiceI {
 			String consumesecretKey=proper.get("refundApiKey").toString();
 			String entity="";
 			result=ConnUtil.ConnApiService(url, apikey, consumesecretKey, entity).toString();
-			System.out.println("·µ»ØÊı¾İ:"+result);
+			System.out.println("è¿”å›æ•°æ®:"+result);
 			//String success="{\"success\":true,\"ExtOrder\":\"YX20232311111\",\"Password\":\"22222\",\"Total\":7}";
 			JSONObject job=JSONObject.fromObject(result);
 			
-			if(job.getBoolean("success")==true){//´¦Àí³É¹¦µÇ¼Ç¼ÇÂ¼
+			if(job.getBoolean("success")==true){//å¤„ç†æˆåŠŸç™»è®°è®°å½•
 //				ConsumServiceImpl.toJson(Json).put(key, value)
 //				ConsumEntity ce=new ConsumEntity();
 //				ce.setPayMentId("789555421");
@@ -60,9 +60,9 @@ public class RefundServiceImpl implements RefundServiceI {
 //				ce.setTerminalId("13245654");
 //				ce.setKzCardNo("987654321");
 //				RefundMapper.insert(ce);
-				System.out.println("Ö§¸¶³É¹¦");
+				System.out.println("æ”¯ä»˜æˆåŠŸ");
 			}else{
-				System.out.println("Ö§¸¶³öÏÖ´íÎó:"+result);
+				System.out.println("æ”¯ä»˜å‡ºç°é”™è¯¯:"+result);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -72,7 +72,7 @@ public class RefundServiceImpl implements RefundServiceI {
 	
 	
 	/**
-	 * ×÷ÓÃ:×ª»»JSON¸ñÊ½
+	 * ä½œç”¨:è½¬æ¢JSONæ ¼å¼
 	 * @param Json
 	 * @return
 	 * @throws JSONException
@@ -84,20 +84,20 @@ public class RefundServiceImpl implements RefundServiceI {
 //		map.put("Id",jsonObj.get("UserId"));
 //		map.put("PaymentId",jsonObj.get("PaymentId"));
 //		JSONObject js=JSONObject.fromObject(map);
-//		System.out.println("×ª»»ºóµÄÊı¾İÎª:"+js.toString());
+//		System.out.println("è½¬æ¢åçš„æ•°æ®ä¸º:"+js.toString());
 //		return js;
 //	}
 	
 	/**
-	 * ×÷ÓÃ:×ª»»URL
-	 * ÈÕÆÚ:2014-03-28
-	 * ×÷Õß:caolei
+	 * ä½œç”¨:è½¬æ¢URL
+	 * æ—¥æœŸ:2014-03-28
+	 * ä½œè€…:caolei
 	 */
 	public static String toUrl(String url,String json){
-		System.out.println("»ñÈ¡µÄURL£º"+url+";»ñÈ¡µÄJSON£º"+json);
+		System.out.println("è·å–çš„URLï¼š"+url+";è·å–çš„JSONï¼š"+json);
 		JSONObject jsonob=JSONObject.fromObject(json);
 		String newurl=url.replaceAll("\'id\'", jsonob.get("UserId").toString()).replaceAll("\'paymentld\'",jsonob.get("PaymentId").toString());
-		System.out.println("×ª»»ºóµÄURL£º"+newurl);
+		System.out.println("è½¬æ¢åçš„URLï¼š"+newurl);
 		return newurl;
 	}
 	public List<RefundEntity> getWhereEntity(RefundEntity refundEntity) {

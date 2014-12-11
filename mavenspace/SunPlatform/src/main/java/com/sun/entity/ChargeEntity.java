@@ -3,24 +3,24 @@ package com.sun.entity;
 import java.util.Date;
 
 /**
- * ×÷ÓÃ:ÕÊ»§³äÖµÊµÌå
- * ÈÕÆÚ:2014-03-28
- * ×÷Õß:caolei
+ * ä½œç”¨:å¸æˆ·å……å€¼å®ä½“
+ * æ—¥æœŸ:2014-03-28
+ * ä½œè€…:caolei
  * @author Administrator
  *
  */
 public class ChargeEntity {
-	public int id;	//Ö÷¼üid
-	public String userId;	//ÓÃ»§ID
-	public String extOrder;	//Íâ²¿¶©µ¥ºÅ
-	public String optionPayMents;	//Ö¸¶¨Ïû·ÑÕÊ»§ÀàĞÍÓë½ğ¶î
-	public String payCardNo;	//Ö§¸¶ÒøĞĞ¿¨ºÅ
-	public String password;		//ÃÜÂë
-	public String kzCardNo;		//³äÖµ¿µÖÚ¿¨ºÅ
-	public int fee;				//³äÖµ½ğ¶î
-	public String terminalId;	//ÖÕ¶ËID
-	public Date createTime;		//´´½¨Ê±¼ä
-	public Date translTime;		//´¦ÀíÊ±¼ä
+	public int id;	//ä¸»é”®id
+	public String userId;	//ç”¨æˆ·ID
+	public String extOrder;	//å¤–éƒ¨è®¢å•å·
+	public String optionPayMents;	//æŒ‡å®šæ¶ˆè´¹å¸æˆ·ç±»å‹ä¸é‡‘é¢
+	public String payCardNo;	//æ”¯ä»˜é“¶è¡Œå¡å·
+	public String password;		//å¯†ç 
+	public String kzCardNo;		//å……å€¼åº·ä¼—å¡å·
+	public int fee;				//å……å€¼é‡‘é¢
+	public String terminalId;	//ç»ˆç«¯ID
+	public Date createTime;		//åˆ›å»ºæ—¶é—´
+	public Date translTime;		//å¤„ç†æ—¶é—´
 	public Date getTranslTime() {
 		return translTime;
 	}

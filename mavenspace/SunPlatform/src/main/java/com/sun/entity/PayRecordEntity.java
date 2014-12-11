@@ -2,24 +2,24 @@ package com.sun.entity;
 
 
 /**
- * ×÷ÓÃ:³äÖµ¼ÇÂ¼
- * ×÷Õß:caolei
- * ÈÕÆÚ:ÈÕÆÚ:2014-03-11
+ * ä½œç”¨:å……å€¼è®°å½•
+ * ä½œè€…:caolei
+ * æ—¥æœŸ:æ—¥æœŸ:2014-03-11
  * @author Administrator
  *
  */
 public class PayRecordEntity {
-	public int id;//Ö÷¼üID
-	public String userName;//ÓÃ»§Ãû
-	public String payMent;//ÕÊ»§ÀàĞÍ
-	public String memberCard;//¿µÖÚ¿¨ºÅ
-	public String payCardNo;//Ö§¸¶¿¨ºÅ
-	public int fee;//³äÖµ½ğ¶î
-	public String extOrder;//Íâ²¿¶©µ¥ºÅ
-	public String operId;//²Ù×÷Ô±
-	public String traderId;//½áËãÉÌ»§ID
-	public String createTime;//´´½¨Ê±¼ä
-	public int states;//×´Ì¬
+	public int id;//ä¸»é”®ID
+	public String userName;//ç”¨æˆ·å
+	public String payMent;//å¸æˆ·ç±»å‹
+	public String memberCard;//åº·ä¼—å¡å·
+	public String payCardNo;//æ”¯ä»˜å¡å·
+	public int fee;//å……å€¼é‡‘é¢
+	public String extOrder;//å¤–éƒ¨è®¢å•å·
+	public String operId;//æ“ä½œå‘˜
+	public String traderId;//ç»“ç®—å•†æˆ·ID
+	public String createTime;//åˆ›å»ºæ—¶é—´
+	public int states;//çŠ¶æ€
 	
 	public int getId() {
 		return id;

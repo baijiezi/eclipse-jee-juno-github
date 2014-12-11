@@ -1,26 +1,26 @@
 package com.sun.entity;
 
 /**
- * ×÷Õß:caolei
- * ÈÕÆÚ£º2014-09-08
- * ×÷ÓÃ:ÖÕ¶Ë·¢ÕïÁÆ¿¨¼ÇÂ¼Ã÷Ï¸ÊµÌå
+ * ä½œè€…:caolei
+ * æ—¥æœŸï¼š2014-09-08
+ * ä½œç”¨:ç»ˆç«¯å‘è¯Šç–—å¡è®°å½•æ˜ç»†å®ä½“
  * @author Administrator
  *
  */
 public class ExamEntity {
-	public int id;//Ö÷¼üID
-	public String hospitalId;//Ò½ÔºID
-	public String hospitalName;//Ò½ÔºÃû³Æ
-	public String patientName;//»¼ÕßĞÕÃû
-	public String patientSex;//»¼ÕßĞÔ±ğ
-	public String idCard;//»¼ÕßÉí·İÖ¤±àºÅ
-	public String birthDay;//»¼ÕßÉúÈÕ
-	public String address;//µØÖ·
-	public String mobile;//µç»°
-	public String medicalCardNo;//¿¨ºÅ
-	public String password;//ÃÜÂë
-	public String operId;//ÖÕ¶ËID
-	public String createTime;//·¢¿¨ÈÕÆÚ
+	public int id;//ä¸»é”®ID
+	public String hospitalId;//åŒ»é™¢ID
+	public String hospitalName;//åŒ»é™¢åç§°
+	public String patientName;//æ‚£è€…å§“å
+	public String patientSex;//æ‚£è€…æ€§åˆ«
+	public String idCard;//æ‚£è€…èº«ä»½è¯ç¼–å·
+	public String birthDay;//æ‚£è€…ç”Ÿæ—¥
+	public String address;//åœ°å€
+	public String mobile;//ç”µè¯
+	public String medicalCardNo;//å¡å·
+	public String password;//å¯†ç 
+	public String operId;//ç»ˆç«¯ID
+	public String createTime;//å‘å¡æ—¥æœŸ
 	private String frontOrderNo;
 	public String getFrontOrderNo() {
 		return frontOrderNo;

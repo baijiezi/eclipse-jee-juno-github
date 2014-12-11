@@ -3,9 +3,9 @@ package com.sun.dao;
 import com.sun.entity.ChargeEntity;
 
 /**
- * ×÷ÓÃ:ÕÊ»§³äÖµDAO
- * ÈÕÆÚ:2014-03-28
- * ×÷Õß:caolei
+ * ä½œç”¨:å¸æˆ·å……å€¼DAO
+ * æ—¥æœŸ:2014-03-28
+ * ä½œè€…:caolei
  * @author Administrator
  */
 public interface ChargeMapper {

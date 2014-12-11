@@ -21,35 +21,35 @@ import javax.mail.internet.MimeUtility;
 
 /**
  * <p>
- * Title: Ê¹ÓÃjavamail·¢ËÍÓÊ¼ş
+ * Title: ä½¿ç”¨javamailå‘é€é‚®ä»¶
  * </p>
  */
 public class MailUtils {
 
-	String to = "";// ÊÕ¼şÈË
-	String from = "";// ·¢¼şÈË
-	String host = "";// smtpÖ÷»ú
+	String to = "";// æ”¶ä»¶äºº
+	String from = "";// å‘ä»¶äºº
+	String host = "";// smtpä¸»æœº
 	String username = "";
 	String password = "";
-	String filename = "";// ¸½¼şÎÄ¼şÃû
-	String subject = "";// ÓÊ¼şÖ÷Ìâ
-	String content = "";// ÓÊ¼şÕıÎÄ
-	Vector<String> file = new Vector<String>();// ¸½¼şÎÄ¼ş¼¯ºÏ
+	String filename = "";// é™„ä»¶æ–‡ä»¶å
+	String subject = "";// é‚®ä»¶ä¸»é¢˜
+	String content = "";// é‚®ä»¶æ­£æ–‡
+	Vector<String> file = new Vector<String>();// é™„ä»¶æ–‡ä»¶é›†åˆ
 
 	/**
 	 * <br>
-	 * ·½·¨ËµÃ÷£ºÄ¬ÈÏ¹¹ÔìÆ÷ <br>
-	 * ÊäÈë²ÎÊı£º <br>
-	 * ·µ»ØÀàĞÍ£º
+	 * æ–¹æ³•è¯´æ˜ï¼šé»˜è®¤æ„é€ å™¨ <br>
+	 * è¾“å…¥å‚æ•°ï¼š <br>
+	 * è¿”å›ç±»å‹ï¼š
 	 */
 	public MailUtils() {
 	}
 
 	/**
 	 * <br>
-	 * ·½·¨ËµÃ÷£º¹¹ÔìÆ÷£¬Ìá¹©Ö±½ÓµÄ²ÎÊı´«Èë <br>
-	 * ÊäÈë²ÎÊı£º <br>
-	 * ·µ»ØÀàĞÍ£º
+	 * æ–¹æ³•è¯´æ˜ï¼šæ„é€ å™¨ï¼Œæä¾›ç›´æ¥çš„å‚æ•°ä¼ å…¥ <br>
+	 * è¾“å…¥å‚æ•°ï¼š <br>
+	 * è¿”å›ç±»å‹ï¼š
 	 */
 	public MailUtils(String to, String from, String smtpServer,
 			String username, String password, String subject, String content) {
@@ -64,9 +64,9 @@ public class MailUtils {
 
 	/**
 	 * <br>
-	 * ·½·¨ËµÃ÷£ºÉèÖÃÓÊ¼ş·şÎñÆ÷µØÖ· <br>
-	 * ÊäÈë²ÎÊı£ºString host ÓÊ¼ş·şÎñÆ÷µØÖ·Ãû³Æ <br>
-	 * ·µ»ØÀàĞÍ£º
+	 * æ–¹æ³•è¯´æ˜ï¼šè®¾ç½®é‚®ä»¶æœåŠ¡å™¨åœ°å€ <br>
+	 * è¾“å…¥å‚æ•°ï¼šString host é‚®ä»¶æœåŠ¡å™¨åœ°å€åç§° <br>
+	 * è¿”å›ç±»å‹ï¼š
 	 */
 	public void setHost(String host) {
 		this.host = host;
@@ -74,9 +74,9 @@ public class MailUtils {
 
 	/**
 	 * <br>
-	 * ·½·¨ËµÃ÷£ºÉèÖÃµÇÂ¼·şÎñÆ÷Ğ£ÑéÃÜÂë <br>
-	 * ÊäÈë²ÎÊı£º <br>
-	 * ·µ»ØÀàĞÍ£º
+	 * æ–¹æ³•è¯´æ˜ï¼šè®¾ç½®ç™»å½•æœåŠ¡å™¨æ ¡éªŒå¯†ç  <br>
+	 * è¾“å…¥å‚æ•°ï¼š <br>
+	 * è¿”å›ç±»å‹ï¼š
 	 */
 	public void setPassWord(String pwd) {
 		this.password = pwd;
@@ -84,9 +84,9 @@ public class MailUtils {
 
 	/**
 	 * <br>
-	 * ·½·¨ËµÃ÷£ºÉèÖÃµÇÂ¼·şÎñÆ÷Ğ£ÑéÓÃ»§ <br>
-	 * ÊäÈë²ÎÊı£º <br>
-	 * ·µ»ØÀàĞÍ£º
+	 * æ–¹æ³•è¯´æ˜ï¼šè®¾ç½®ç™»å½•æœåŠ¡å™¨æ ¡éªŒç”¨æˆ· <br>
+	 * è¾“å…¥å‚æ•°ï¼š <br>
+	 * è¿”å›ç±»å‹ï¼š
 	 */
 	public void setUserName(String usn) {
 		this.username = usn;
@@ -94,9 +94,9 @@ public class MailUtils {
 
 	/**
 	 * <br>
-	 * ·½·¨ËµÃ÷£ºÉèÖÃÓÊ¼ş·¢ËÍÄ¿µÄÓÊÏä <br>
-	 * ÊäÈë²ÎÊı£º <br>
-	 * ·µ»ØÀàĞÍ£º
+	 * æ–¹æ³•è¯´æ˜ï¼šè®¾ç½®é‚®ä»¶å‘é€ç›®çš„é‚®ç®± <br>
+	 * è¾“å…¥å‚æ•°ï¼š <br>
+	 * è¿”å›ç±»å‹ï¼š
 	 */
 	public void setTo(String to) {
 		this.to = to;
@@ -104,9 +104,9 @@ public class MailUtils {
 
 	/**
 	 * <br>
-	 * ·½·¨ËµÃ÷£ºÉèÖÃÓÊ¼ş·¢ËÍÔ´ÓÊÏä <br>
-	 * ÊäÈë²ÎÊı£º <br>
-	 * ·µ»ØÀàĞÍ£º
+	 * æ–¹æ³•è¯´æ˜ï¼šè®¾ç½®é‚®ä»¶å‘é€æºé‚®ç®± <br>
+	 * è¾“å…¥å‚æ•°ï¼š <br>
+	 * è¿”å›ç±»å‹ï¼š
 	 */
 	public void setFrom(String from) {
 		this.from = from;
@@ -114,9 +114,9 @@ public class MailUtils {
 
 	/**
 	 * <br>
-	 * ·½·¨ËµÃ÷£ºÉèÖÃÓÊ¼şÖ÷Ìâ <br>
-	 * ÊäÈë²ÎÊı£º <br>
-	 * ·µ»ØÀàĞÍ£º
+	 * æ–¹æ³•è¯´æ˜ï¼šè®¾ç½®é‚®ä»¶ä¸»é¢˜ <br>
+	 * è¾“å…¥å‚æ•°ï¼š <br>
+	 * è¿”å›ç±»å‹ï¼š
 	 */
 	public void setSubject(String subject) {
 		this.subject = subject;
@@ -124,9 +124,9 @@ public class MailUtils {
 
 	/**
 	 * <br>
-	 * ·½·¨ËµÃ÷£ºÉèÖÃÓÊ¼şÄÚÈİ <br>
-	 * ÊäÈë²ÎÊı£º <br>
-	 * ·µ»ØÀàĞÍ£º
+	 * æ–¹æ³•è¯´æ˜ï¼šè®¾ç½®é‚®ä»¶å†…å®¹ <br>
+	 * è¾“å…¥å‚æ•°ï¼š <br>
+	 * è¿”å›ç±»å‹ï¼š
 	 */
 	public void setContent(String content) {
 		this.content = content;
@@ -134,9 +134,9 @@ public class MailUtils {
 
 	/**
 	 * <br>
-	 * ·½·¨ËµÃ÷£º°ÑÖ÷Ìâ×ª»»ÎªÖĞÎÄ <br>
-	 * ÊäÈë²ÎÊı£ºString strText <br>
-	 * ·µ»ØÀàĞÍ£º
+	 * æ–¹æ³•è¯´æ˜ï¼šæŠŠä¸»é¢˜è½¬æ¢ä¸ºä¸­æ–‡ <br>
+	 * è¾“å…¥å‚æ•°ï¼šString strText <br>
+	 * è¿”å›ç±»å‹ï¼š
 	 */
 	public String transferChinese(String strText) {
 		try {
@@ -150,9 +150,9 @@ public class MailUtils {
 
 	/**
 	 * <br>
-	 * ·½·¨ËµÃ÷£ºÍù¸½¼ş×éºÏÖĞÌí¼Ó¸½¼ş <br>
-	 * ÊäÈë²ÎÊı£º <br>
-	 * ·µ»ØÀàĞÍ£º
+	 * æ–¹æ³•è¯´æ˜ï¼šå¾€é™„ä»¶ç»„åˆä¸­æ·»åŠ é™„ä»¶ <br>
+	 * è¾“å…¥å‚æ•°ï¼š <br>
+	 * è¿”å›ç±»å‹ï¼š
 	 */
 	public void attachfile(String fname) {
 		file.addElement(fname);
@@ -160,13 +160,13 @@ public class MailUtils {
 
 	/**
 	 * <br>
-	 * ·½·¨ËµÃ÷£º·¢ËÍÓÊ¼ş <br>
-	 * ÊäÈë²ÎÊı£º <br>
-	 * ·µ»ØÀàĞÍ£ºboolean ³É¹¦Îªtrue£¬·´Ö®Îªfalse
+	 * æ–¹æ³•è¯´æ˜ï¼šå‘é€é‚®ä»¶ <br>
+	 * è¾“å…¥å‚æ•°ï¼š <br>
+	 * è¿”å›ç±»å‹ï¼šboolean æˆåŠŸä¸ºtrueï¼Œåä¹‹ä¸ºfalse
 	 */
 	public boolean sendMail() {
 
-		// ¹¹Ôìmail session
+		// æ„é€ mail session
 		Properties props = new Properties() ;
 		props.put("mail.smtp.host", host);
 		props.put("mail.smtp.auth", "true");
@@ -180,28 +180,28 @@ public class MailUtils {
 		//Session session = Session.getDefaultInstance(props, null);
 
 		try {
-			// ¹¹ÔìMimeMessage ²¢Éè¶¨»ù±¾µÄÖµ
+			// æ„é€ MimeMessage å¹¶è®¾å®šåŸºæœ¬çš„å€¼
 			MimeMessage msg = new MimeMessage(session);
 			//MimeMessage msg = new MimeMessage();
 			msg.setFrom(new InternetAddress(from));
 		 
 			
-			//msg.addRecipients(Message.RecipientType.TO, address); //Õâ¸öÖ»ÄÜÊÇ¸øÒ»¸öÈË·¢ËÍemail
+			//msg.addRecipients(Message.RecipientType.TO, address); //è¿™ä¸ªåªèƒ½æ˜¯ç»™ä¸€ä¸ªäººå‘é€email
 			msg.setRecipients(Message.RecipientType.BCC, InternetAddress.parse(to)) ;
 			subject = transferChinese(subject);
 			msg.setSubject(subject);
 
-			// ¹¹ÔìMultipart
+			// æ„é€ Multipart
 			Multipart mp = new MimeMultipart();
 
-			// ÏòMultipartÌí¼ÓÕıÎÄ
+			// å‘Multipartæ·»åŠ æ­£æ–‡
 			MimeBodyPart mbpContent = new MimeBodyPart();
 			mbpContent.setContent(content, "text/html;charset=gb2312");
 			
-			// ÏòMimeMessageÌí¼Ó£¨Multipart´ú±íÕıÎÄ£©
+			// å‘MimeMessageæ·»åŠ ï¼ˆMultipartä»£è¡¨æ­£æ–‡ï¼‰
 			mp.addBodyPart(mbpContent);
 
-			// ÏòMultipartÌí¼Ó¸½¼ş
+			// å‘Multipartæ·»åŠ é™„ä»¶
 			Enumeration efile = file.elements();
 			while (efile.hasMoreElements()) {
 
@@ -209,19 +209,19 @@ public class MailUtils {
 				filename = efile.nextElement().toString();
 				FileDataSource fds = new FileDataSource(filename);
 				mbpFile.setDataHandler(new DataHandler(fds));
-				//<span style="color: #ff0000;">//Õâ¸ö·½·¨¿ÉÒÔ½â¾ö¸½¼şÂÒÂëÎÊÌâ¡£</span>	
+				//<span style="color: #ff0000;">//è¿™ä¸ªæ–¹æ³•å¯ä»¥è§£å†³é™„ä»¶ä¹±ç é—®é¢˜ã€‚</span>	
 				String filename= new String(fds.getName().getBytes(),"ISO-8859-1");
 
 				mbpFile.setFileName(filename);
-				// ÏòMimeMessageÌí¼Ó£¨Multipart´ú±í¸½¼ş£©
+				// å‘MimeMessageæ·»åŠ ï¼ˆMultipartä»£è¡¨é™„ä»¶ï¼‰
 				mp.addBodyPart(mbpFile);
 			}
 			file.removeAllElements();
-			// ÏòMultipartÌí¼ÓMimeMessage
+			// å‘Multipartæ·»åŠ MimeMessage
 			msg.setContent(mp);
 			msg.setSentDate(new Date());
 			msg.saveChanges() ;
-			// ·¢ËÍÓÊ¼ş
+			// å‘é€é‚®ä»¶
 			
 			Transport transport = session.getTransport("smtp");
 			transport.connect(host, username, password);

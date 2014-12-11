@@ -26,30 +26,30 @@ import com.sun.service.MannerServiceI;
 public class MannerController {
 	private MannerServiceI mannerService;
 	/**
-	 * ÈÕÆÚ:2014-10-14 
-	 * ×÷Õß:caolei 
-	 * ×÷ÓÃ:Ìø×ªÓÃ»§ÆÀ¼ÛÒ³Ãæ
+	 * æ—¥æœŸ:2014-10-14 
+	 * ä½œè€…:caolei 
+	 * ä½œç”¨:è·³è½¬ç”¨æˆ·è¯„ä»·é¡µé¢
 	 */
 	@RequestMapping(value = "/manner_UI")
 	public String manner_UI() {
 		return "manner_UI";
 	}
 	/**
-	 * ÈÕÆÚ£º2014-10-14
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:²åÈëÓÃ»§Ìá½»Êı¾İ
+	 * æ—¥æœŸï¼š2014-10-14
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:æ’å…¥ç”¨æˆ·æäº¤æ•°æ®
 	 * @throws UnsupportedEncodingException 
 	 */
 	@RequestMapping(value = "/manner_IN")
 	public String manner_IN(HttpServletRequest request,
 			@ModelAttribute("pojo")
 			MannerEntity pojo,HttpSession se) {
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//ÉèÖÃÈÕÆÚ¸ñÊ½
-		pojo.setMannerTime(df.format(new Date()));// new Date()Îª»ñÈ¡µ±Ç°ÏµÍ³Ê±¼ä
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//è®¾ç½®æ—¥æœŸæ ¼å¼
+		pojo.setMannerTime(df.format(new Date()));// new Date()ä¸ºè·å–å½“å‰ç³»ç»Ÿæ—¶é—´
 		try {
 			pojo.setPatientName(java.net.URLDecoder.decode(pojo.getPatientName(),"UTF-8"));
 		} catch (UnsupportedEncodingException e) {
-			System.out.println("URLDecoder³ö´íÁË");
+			System.out.println("URLDecoderå‡ºé”™äº†");
 			e.printStackTrace();
 		}
 		int a=mannerService.insert(pojo);
@@ -60,9 +60,9 @@ public class MannerController {
 	}
 	
 	/**
-	 * ÈÕÆÚ:2014-10-14
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:²éÑ¯ÓÃ»§ÆÀ¼ÛÊı¾İ
+	 * æ—¥æœŸ:2014-10-14
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:æŸ¥è¯¢ç”¨æˆ·è¯„ä»·æ•°æ®
 	 * @return
 	 */
 	@RequestMapping(value = "/mannerDelta")

@@ -63,7 +63,7 @@ public class DrugsServiceImpl implements DrugsServiceI {
 	}
 	public List<DrugsEntity> getNameEntity(DrugsEntity drugsEntity) {
 		String str=drugsEntity.getName().trim();
-		boolean isWord=str.matches("[a-zA-Z]+");//´¦ÀíÊäÈë×Ö·û´®
+		boolean isWord=str.matches("[a-zA-Z]+");//å¤„ç†è¾“å…¥å­—ç¬¦ä¸²
 		if(isWord){
 			drugsEntity.setCode(drugsEntity.getName().trim());
 		}else{

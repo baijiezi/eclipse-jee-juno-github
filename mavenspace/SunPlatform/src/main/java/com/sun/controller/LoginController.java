@@ -18,9 +18,9 @@ import com.sun.entity.User;
 import com.sun.service.HospitalServiceI;
 import com.sun.service.UserServiceI;
 /**
- * ÈÕÆÚ:2014-03-11
- * ×÷Õß£ºcaolei
- * ×÷ÓÃ£ºÖ÷Òª¶ÔµÇÂ½½øĞĞÏà¹Ø²Ù×÷
+ * æ—¥æœŸ:2014-03-11
+ * ä½œè€…ï¼šcaolei
+ * ä½œç”¨ï¼šä¸»è¦å¯¹ç™»é™†è¿›è¡Œç›¸å…³æ“ä½œ
  * @author Administrator
  *
  */
@@ -38,9 +38,9 @@ public class LoginController {
 		this.userService = userService;
 	}
 	/**
-	 * ÈÕÆÚ:2014-03-11
-	 * ×÷Õß:²ÜÀÚ
-	 * ×÷ÓÃ:ÑéÖ¤ÓÃ»§Ãû¡¢ÃÜÂë¡¢ÑéÖ¤Âë
+	 * æ—¥æœŸ:2014-03-11
+	 * ä½œè€…:æ›¹ç£Š
+	 * ä½œç”¨:éªŒè¯ç”¨æˆ·åã€å¯†ç ã€éªŒè¯ç 
 	 * @param username
 	 * @param password
 	 * @param code
@@ -48,20 +48,20 @@ public class LoginController {
 	 */
 	@RequestMapping(value="/login")
 	public ModelAndView login(HttpServletRequest request,HttpSession se,@ModelAttribute("pojo") User pojo){
-		//System.out.println("ÓÃ»§Ãû£º"+pojo.getName()+";ÃÜÂë:"+pojo.getPassword());
+		//System.out.println("ç”¨æˆ·åï¼š"+pojo.getName()+";å¯†ç :"+pojo.getPassword());
 		User user=userService.getUserById(pojo);
 		request.setAttribute("user",user);
 		se.setAttribute("user1",user);
 		if(user==null){
-			request.setAttribute("loginer","ÓÃ»§Ãû»òÕßÃÜÂë´íÎó£¡");
+			request.setAttribute("loginer","ç”¨æˆ·åæˆ–è€…å¯†ç é”™è¯¯ï¼");
 			return new ModelAndView("login");
 		}else
 		return new ModelAndView("indexTest");
 	}
 	/**
-	 * ÈÕÆÚ:2013-03-11
-	 * ×÷Õß:²ÜÀÚ
-	 * ×÷ÓÃ:Ìø×ªÊ×Ò³£¬¿É¼ÇÂ¼²Ù×÷
+	 * æ—¥æœŸ:2013-03-11
+	 * ä½œè€…:æ›¹ç£Š
+	 * ä½œç”¨:è·³è½¬é¦–é¡µï¼Œå¯è®°å½•æ“ä½œ
 	 * @param username
 	 * @param password
 	 * @param code
@@ -70,14 +70,14 @@ public class LoginController {
 	
 	@RequestMapping(value="/index")
 	public ModelAndView index(String username,String password,String code){
-		System.out.println("Ö´ĞĞindex·½·¨");
+		System.out.println("æ‰§è¡Œindexæ–¹æ³•");
 		return new ModelAndView("login");
 	}
 	
 	/**
-	 * ÈÕÆÚ£º2014-08-07
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:ÓÃÓÚÏÔÊ¾Ìí¼ÓÓÃ»§½çÃæ
+	 * æ—¥æœŸï¼š2014-08-07
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:ç”¨äºæ˜¾ç¤ºæ·»åŠ ç”¨æˆ·ç•Œé¢
 	 */
 	
 	@RequestMapping(value="/addUser_UI")
@@ -87,23 +87,23 @@ public class LoginController {
 		return new ModelAndView("addUser_UI");
 	}
 	/**
-	 * ÈÕÆÚ:2014-08-08
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:ÓÃÓÚÌí¼ÓÓÃ»§
+	 * æ—¥æœŸ:2014-08-08
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:ç”¨äºæ·»åŠ ç”¨æˆ·
 	 */
 	@RequestMapping(value="/addUser")
 	public void addUser(PrintWriter printWriter,@ModelAttribute("pojo")
 			User pojo){
-		System.out.println("Ö´ĞĞaddUser·½·¨");
+		System.out.println("æ‰§è¡ŒaddUseræ–¹æ³•");
 		userService.insert(pojo);
 		printWriter.write("{\"statusCode\":\"200\",\"message\":\"\u64cd\u4f5c\u6210\u529f!\",\"navTabId\":\"\",\"rel\":\"\",\"callbackType\":\"\",\"forwardUrl\":\"\",\"confirmMsg\":\"\"}");
 		printWriter.flush();
 		printWriter.close();
 	}
 	/**
-	 * ÈÕÆÚ:2014-08-02
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:°²È«ÍË³ö
+	 * æ—¥æœŸ:2014-08-02
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:å®‰å…¨é€€å‡º
 	 */
 	@RequestMapping(value="/loginOut_UI")
 	public ModelAndView loginOut_UI(){
@@ -111,9 +111,9 @@ public class LoginController {
 	}
 	
 	/**
-	 * ÈÕÆÚ:2014-10-17
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:Ìø×ªĞŞ¸Äµ±Ç°ÓÃ»§Ò³Ãæ
+	 * æ—¥æœŸ:2014-10-17
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:è·³è½¬ä¿®æ”¹å½“å‰ç”¨æˆ·é¡µé¢
 	 * @return
 	 */
 	@RequestMapping(value="/modifyUser_UI")
@@ -125,9 +125,9 @@ public class LoginController {
 	
 
 	/**
-	 * ÈÕÆÚ:2014-10-17
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:¸üĞÂÓÃ»§ÃÜÂë
+	 * æ—¥æœŸ:2014-10-17
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:æ›´æ–°ç”¨æˆ·å¯†ç 
 	 * @return
 	 */
 	@RequestMapping(value="/modifyUser")

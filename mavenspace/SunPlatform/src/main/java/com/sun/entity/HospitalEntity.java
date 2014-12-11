@@ -1,11 +1,11 @@
 package com.sun.entity;
 
 public class HospitalEntity {
-	public int id;	//IDÖ÷¼ü
-	public int hospital_id;//Ò½ÔºID
-	public String hospital_name;//Ò½ÔºÃû×Ö
-	public String mail;//ÓÊÏä
-	public String states;//×´Ì¬
+	public int id;	//IDä¸»é”®
+	public int hospital_id;//åŒ»é™¢ID
+	public String hospital_name;//åŒ»é™¢åå­—
+	public String mail;//é‚®ç®±
+	public String states;//çŠ¶æ€
 	public int getId() {
 		return id;
 	}
@@ -25,13 +25,13 @@ public class HospitalEntity {
 		this.hospital_name = hospital_name;
 	}
 	public String getMail() {
-		return mail;//ÓÊÏä
+		return mail;//é‚®ç®±
 	}
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
 	public String getStates() {
-		return states;//×´Ì¬
+		return states;//çŠ¶æ€
 	}
 	public void setStates(String states) {
 		this.states = states;

@@ -16,6 +16,6 @@ public interface DrugsServiceI {
 	int insert(DrugsEntity autoPayEntity);
 	DrugsEntity getAutoById(DrugsEntity autoPayEntity);
 	
-	//ÅúÁ¿²åÈë
+	//æ‰¹é‡æ’å…¥
 	int batchInsertB2B(List<DrugsEntity> ls);
 }

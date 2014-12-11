@@ -2,45 +2,45 @@ package com.sun.entity;
 
 
 /**
- * ×÷ÓÃ:¶©µ¥Ã÷Ï¸ÊµÌå
- * ×÷Õß:caolei
- * ÈÕÆÚ:2014-03-11
+ * ä½œç”¨:è®¢å•æ˜ç»†å®ä½“
+ * ä½œè€…:caolei
+ * æ—¥æœŸ:2014-03-11
  * @author Administrator
  *
  */
 public class TransActionEntity {
-	public int id;										//Êı¾İ¿âid
-	public String hospitalId;							//Ò½ÔºID
-	public String hospitalName;							//Ò½ÔºÃû³Æ
-	public String userName;								//ÓÃ»§Ãû
-	public String scheduleId;							//ÅÅ°àID
-	public String idCard;								//Éí·İÖ¤
-	public String birthday;								//»¼ÕßÉúÈÕ
-	public String medicalCardNo;							//ÕïÁÆ¿¨
-	public String mobile;								//ÊÖ»úºÅ
-	public String patientName;							//»¼ÕßĞÕÃû
-	public String patientSex;							//»¼ÕßĞÔ±ğ
-	public String address;								//»¼ÕßµØÖ·
-	public String deptName;								//¿ÆÊÒÃû³Æ
-	public String doctorName;							//Ò½ÉúÃû³Æ
-	public String orderTime;							//ÏÂµ¥Ê±¼ä
-	public String visitTime;							//¾ÍÕïÊ±¼ä
-	public String serialNo;								//ºÅÇò
-	public String fee;									//¹ÒºÅ·Ñ
-	public String payCardNo;							//Ö§¸¶¿¨ºÅ
-	public String settlementType;						//½áËã·½Ê½
-	public String paymentId;							//Ö§¸¶ºÅ
-	public String optionPayments;						//ÕÊ»§ÀàĞÍ
-	public String orderNo;								//¶©µ¥ºÅ
-	public String operId;								//²Ù×÷Ô±
-	public String states;								//×´Ì¬
-	public String remark;								//±¸×¢
-	public String isToday;								//ÊÇ·ñÎªµ±ÌìÔ¤Ô¼
-	public String jzFee;								//¾ÍÕï·Ñ
-	public String startDate;								//¿ªÊ¼ÈÕÆÚ
-	public String endDate;								//½áÊøÈÕÆÚ
-	public String jzstarTime;							//¾ÍÕï¿ªÊ¼ÈÕÆÚ
-	public String jzendTime;							//¾ÍÕï½áÊøÈÕÆÚ
+	public int id;										//æ•°æ®åº“id
+	public String hospitalId;							//åŒ»é™¢ID
+	public String hospitalName;							//åŒ»é™¢åç§°
+	public String userName;								//ç”¨æˆ·å
+	public String scheduleId;							//æ’ç­ID
+	public String idCard;								//èº«ä»½è¯
+	public String birthday;								//æ‚£è€…ç”Ÿæ—¥
+	public String medicalCardNo;							//è¯Šç–—å¡
+	public String mobile;								//æ‰‹æœºå·
+	public String patientName;							//æ‚£è€…å§“å
+	public String patientSex;							//æ‚£è€…æ€§åˆ«
+	public String address;								//æ‚£è€…åœ°å€
+	public String deptName;								//ç§‘å®¤åç§°
+	public String doctorName;							//åŒ»ç”Ÿåç§°
+	public String orderTime;							//ä¸‹å•æ—¶é—´
+	public String visitTime;							//å°±è¯Šæ—¶é—´
+	public String serialNo;								//å·çƒ
+	public String fee;									//æŒ‚å·è´¹
+	public String payCardNo;							//æ”¯ä»˜å¡å·
+	public String settlementType;						//ç»“ç®—æ–¹å¼
+	public String paymentId;							//æ”¯ä»˜å·
+	public String optionPayments;						//å¸æˆ·ç±»å‹
+	public String orderNo;								//è®¢å•å·
+	public String operId;								//æ“ä½œå‘˜
+	public String states;								//çŠ¶æ€
+	public String remark;								//å¤‡æ³¨
+	public String isToday;								//æ˜¯å¦ä¸ºå½“å¤©é¢„çº¦
+	public String jzFee;								//å°±è¯Šè´¹
+	public String startDate;								//å¼€å§‹æ—¥æœŸ
+	public String endDate;								//ç»“æŸæ—¥æœŸ
+	public String jzstarTime;							//å°±è¯Šå¼€å§‹æ—¥æœŸ
+	public String jzendTime;							//å°±è¯Šç»“æŸæ—¥æœŸ
 
 	private String frontOrderNo;
 	public String getFrontOrderNo() {

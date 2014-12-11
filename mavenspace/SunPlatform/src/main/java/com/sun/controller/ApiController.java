@@ -35,9 +35,9 @@ import com.sun309.frontend.db.model.FrontendPayRecordModel;
 import com.sun309.frontend.db.model.FrontendRegUserModel;
 
 /**
- * ÈÕÆÚ:2014-03-17
- * ×÷Õß:caolei
- * ×÷ÓÃ:ÓÃÓÚ¸÷¸ö½ÓÊÕ¶©µ¥½Ó¿Ú
+ * æ—¥æœŸ:2014-03-17
+ * ä½œè€…:caolei
+ * ä½œç”¨:ç”¨äºå„ä¸ªæ¥æ”¶è®¢å•æ¥å£
  * @author Administrator
  *
  */
@@ -57,9 +57,9 @@ public class ApiController {
 	}
 
 	/**
-	 * ÈÕÆÚ£º2014-03-17
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:ÓÃÓÚ½ÓÊÕÇ°ÖÃ»ú²éÑ¯¹ÒºÅ¿ÆÊÒ×ÊÁÏ½Ó¿Ú
+	 * æ—¥æœŸï¼š2014-03-17
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:ç”¨äºæ¥æ”¶å‰ç½®æœºæŸ¥è¯¢æŒ‚å·ç§‘å®¤èµ„æ–™æ¥å£
 	 * 
 	 * @return
 	 */
@@ -70,9 +70,9 @@ public class ApiController {
 	}
 	
 	/**
-	 * ÈÕÆÚ:2014-03-17
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:ÓÃÓÚÍ¬²½¶©µ¥½É·Ñ
+	 * æ—¥æœŸ:2014-03-17
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:ç”¨äºåŒæ­¥è®¢å•ç¼´è´¹
 	 */
 	@RequestMapping(value="/sunApplyPay")
 	@ResponseBody
@@ -81,38 +81,38 @@ public class ApiController {
 	}
 	
 	/**
-	 * ÈÕÆÚ:2014-03-17
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:ÓÃÓÚÇ°ÖÃ»ú²éÑ¯ÅÅ°à×ÊÔ´
+	 * æ—¥æœŸ:2014-03-17
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:ç”¨äºå‰ç½®æœºæŸ¥è¯¢æ’ç­èµ„æº
 	 */
 	@RequestMapping(value="/sunGetShedule")
 	@ResponseBody
 	public String sunGetShedule(HttpServletRequest request,HttpSession session,HttpServletResponse response){
 		boolean isIE = false;
-		System.out.println("===ÊÕµ½ÇëÇó£¬¿ªÊ¼´¦Àí====");
+		System.out.println("===æ”¶åˆ°è¯·æ±‚ï¼Œå¼€å§‹å¤„ç†====");
 		try{
 		try{
 			InputStream inputStream = request.getInputStream();
 	        ObjectInputStream objectInputStream = new ObjectInputStream(new BufferedInputStream(inputStream));
 	        Object obj = objectInputStream.readObject();
 	        objectInputStream.close();
-	        System.out.println("½ÓÊÕµ½¶ÔÏó£º"+obj + "");
+	        System.out.println("æ¥æ”¶åˆ°å¯¹è±¡ï¼š"+obj + "");
 	        //System.out.println("====="+((FrontendBookingOrderModel)obj).getAddress());
 			}catch(Exception ex){
 				ex.printStackTrace();
 				isIE = true;
 			}
 			 if (!isIE) {
-	                // Êä³ö
+	                // è¾“å‡º
 	                ServletOutputStream outputStream = response.getOutputStream();
 	                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream);
 	                ObjectOutputStream objectOutputStream = new ObjectOutputStream(bufferedOutputStream);
-	                objectOutputStream.writeObject("{\"Error\":\"0\",\"ErrorMessage\":\"½ÓÊÕ³É¹¦\"}");
+	                objectOutputStream.writeObject("{\"Error\":\"0\",\"ErrorMessage\":\"æ¥æ”¶æˆåŠŸ\"}");
 	                objectOutputStream.close();
 	            }else {
 	                response.setContentType("text/html;charset=UTF-8");
 	                PrintWriter out=response.getWriter();   
-	                out.print("{\"Error\":\"1\",\"ErrorMessage\":\"½ÓÊÕÊ§°Ü\"}"); 
+	                out.print("{\"Error\":\"1\",\"ErrorMessage\":\"æ¥æ”¶å¤±è´¥\"}"); 
 	                out.flush();
 	                out.close();
 	            }
@@ -122,22 +122,22 @@ public class ApiController {
 		return "";
 	}
 	/**
-	 * ÈÕÆÚ:2014-03-17
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:Ç°ÖÃ»úÏÂ¹ÒºÅ¶©µ¥
+	 * æ—¥æœŸ:2014-03-17
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:å‰ç½®æœºä¸‹æŒ‚å·è®¢å•
 	 */
 	@RequestMapping(value="/sunBooking")
 	@ResponseBody
 	public String sunBooking(HttpServletRequest request,HttpSession session,HttpServletResponse response){
 		boolean isIE = false;
-		System.out.println("===ÊÕµ½¹ÒºÅ¶©µ¥ÇëÇó¿ªÊ¼´¦Àí====");
+		System.out.println("===æ”¶åˆ°æŒ‚å·è®¢å•è¯·æ±‚å¼€å§‹å¤„ç†====");
 		try{
 			try{
 				InputStream inputStream = request.getInputStream(); 
 		        ObjectInputStream objectInputStream = new ObjectInputStream(new BufferedInputStream(inputStream));
 		        Object obj = objectInputStream.readObject();
 		        objectInputStream.close();
-		        System.out.println("½ÓÊÕµ½¶ÔÏó£º"+obj + "");
+		        System.out.println("æ¥æ”¶åˆ°å¯¹è±¡ï¼š"+obj + "");
 		        TransActionEntity pojo=ConnUtil.bookingconvert((FrontendBookingOrderModel)obj);
 		        TransActionEntity pojonull=transActionService.getBookingById(pojo);
 		        if(pojonull==null){
@@ -148,16 +148,16 @@ public class ApiController {
 					isIE = true;
 				}
 				 if (!isIE) {
-		                // Êä³ö
+		                // è¾“å‡º
 		                ServletOutputStream outputStream = response.getOutputStream();
 		                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream);
 		                ObjectOutputStream objectOutputStream = new ObjectOutputStream(bufferedOutputStream);
-		                objectOutputStream.writeObject("{\"Error\":\"0\",\"ErrorMessage\":\"½ÓÊÕ³É¹¦\"}");
+		                objectOutputStream.writeObject("{\"Error\":\"0\",\"ErrorMessage\":\"æ¥æ”¶æˆåŠŸ\"}");
 		                objectOutputStream.close();
 		            }else {
 		                response.setContentType("text/html;charset=UTF-8");
 		                PrintWriter out=response.getWriter();
-		                out.print("{\"Error\":\"1\",\"ErrorMessage\":\"½ÓÊÕÊ§°Ü\"}"); 
+		                out.print("{\"Error\":\"1\",\"ErrorMessage\":\"æ¥æ”¶å¤±è´¥\"}"); 
 		                out.flush();
 		                out.close();
 		            }
@@ -167,9 +167,9 @@ public class ApiController {
 			return "";
 	}
 	/**
-	 * ÈÕÆÚ:2014-03-17
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:»ñÈ¡ÓÃ»§×ÊÁÏ
+	 * æ—¥æœŸ:2014-03-17
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:è·å–ç”¨æˆ·èµ„æ–™
 	 */
 	@RequestMapping(value="/sunGetUserInfo")
 	@ResponseBody
@@ -182,17 +182,17 @@ public class ApiController {
 				json.append(refundLine);
 			}
 		} catch (IOException e) {
-			//logger.error("ÇëÇóJOSNÊı¾İ¶ÁÈ¡³ö´í:"+e);
+			//logger.error("è¯·æ±‚JOSNæ•°æ®è¯»å–å‡ºé”™:"+e);
 			e.printStackTrace();
 		}
-		System.out.println("sunBookingÒÑ¾­½ÓÊÕµ½²éÑ¯ÇëÇó£¬ÇëÇóµÄÊı¾İÎª:"+json);
+		System.out.println("sunBookingå·²ç»æ¥æ”¶åˆ°æŸ¥è¯¢è¯·æ±‚ï¼Œè¯·æ±‚çš„æ•°æ®ä¸º:"+json);
 		return "";
 	}
 	
 	/**
-	 * ÈÕÆÚ:2014-03-17
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:µÇ¼ÇÓÃ»§×ÊÁÏ WX1401032305
+	 * æ—¥æœŸ:2014-03-17
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:ç™»è®°ç”¨æˆ·èµ„æ–™ WX1401032305
 	 */
 	@RequestMapping(value="/sunRegUserInfo")
 	@ResponseBody
@@ -207,14 +207,14 @@ public class ApiController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		System.out.println("sunBookingÒÑ¾­½ÓÊÕµ½²éÑ¯ÇëÇó£¬ÇëÇóµÄÊı¾İÎª:"+json);
+		System.out.println("sunBookingå·²ç»æ¥æ”¶åˆ°æŸ¥è¯¢è¯·æ±‚ï¼Œè¯·æ±‚çš„æ•°æ®ä¸º:"+json);
 		return "";
 	}
 	
 	/**
-	 * ÈÕÆÚ£º2014-03-17
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:Î´¾ÍÕï¶©µ¥ÁĞ±í
+	 * æ—¥æœŸï¼š2014-03-17
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:æœªå°±è¯Šè®¢å•åˆ—è¡¨
 	 */
 	
 	public String getAutoPayOrders(HttpServletRequest request,HttpSession session){
@@ -226,17 +226,17 @@ public class ApiController {
 				json.append(refundLine);
 			}
 		} catch (IOException e) {
-			//logger.error("ÇëÇóJOSNÊı¾İ¶ÁÈ¡³ö´í:"+e);
+			//logger.error("è¯·æ±‚JOSNæ•°æ®è¯»å–å‡ºé”™:"+e);
 			e.printStackTrace();
 		}
-		System.out.println("sunBookingÒÑ¾­½ÓÊÕµ½²éÑ¯ÇëÇó£¬ÇëÇóµÄÊı¾İÎª:"+json);
+		System.out.println("sunBookingå·²ç»æ¥æ”¶åˆ°æŸ¥è¯¢è¯·æ±‚ï¼Œè¯·æ±‚çš„æ•°æ®ä¸º:"+json);
 		return "";
 	}
 	
 	/**
-	 * ÈÕÆÚ:2014-03-17
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:×ÔÖú½É·Ñ¶©µ¥ÁĞ±í
+	 * æ—¥æœŸ:2014-03-17
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:è‡ªåŠ©ç¼´è´¹è®¢å•åˆ—è¡¨
 	 * @return
 	 */
 	public String getAutoPaySuccess(){
@@ -244,22 +244,22 @@ public class ApiController {
 	}
 	
 	/**
-	 * ÈÕÆÚ:2014-03-17
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:È·ÈÏ×ÔÖú½É·Ñ³É¹¦
+	 * æ—¥æœŸ:2014-03-17
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:ç¡®è®¤è‡ªåŠ©ç¼´è´¹æˆåŠŸ
 	 */
 	@RequestMapping(value="/confirmAutoPaySuccess")
 	@ResponseBody
 	public String confirmAutoPaySuccess(HttpServletRequest request,HttpSession session,HttpServletResponse response){
 		boolean isIE = false;
-		System.out.println("===ÊÕµ½¹ÒºÅ¶©µ¥ÇëÇó¿ªÊ¼´¦Àí====");
+		System.out.println("===æ”¶åˆ°æŒ‚å·è®¢å•è¯·æ±‚å¼€å§‹å¤„ç†====");
 		try{
 			try{
 				InputStream inputStream = request.getInputStream(); 
 		        ObjectInputStream objectInputStream = new ObjectInputStream(new BufferedInputStream(inputStream));
 		        Object obj = objectInputStream.readObject();
 		        objectInputStream.close();
-		        System.out.println("½ÓÊÕµ½¶ÔÏó£º"+obj + "");
+		        System.out.println("æ¥æ”¶åˆ°å¯¹è±¡ï¼š"+obj + "");
 		        AutoPayEntity pojo=ConnUtil.autoPayConvert((FrontendConfirmAutoPayModel)obj);
 		        AutoPayEntity pojonull = autoPayService.getAutoById(pojo);
 		        if(pojonull==null){
@@ -270,16 +270,16 @@ public class ApiController {
 					isIE = true;
 				}
 				 if (!isIE) {
-		                // Êä³ö
+		                // è¾“å‡º
 		                ServletOutputStream outputStream = response.getOutputStream();
 		                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream);
 		                ObjectOutputStream objectOutputStream = new ObjectOutputStream(bufferedOutputStream);
-		                objectOutputStream.writeObject("{\"Error\":\"0\",\"ErrorMessage\":\"½ÓÊÕ³É¹¦\"}");
+		                objectOutputStream.writeObject("{\"Error\":\"0\",\"ErrorMessage\":\"æ¥æ”¶æˆåŠŸ\"}");
 		                objectOutputStream.close();
 		            }else {
 		                response.setContentType("text/html;charset=UTF-8");
 		                PrintWriter out=response.getWriter();
-		                out.print("{\"Error\":\"1\",\"ErrorMessage\":\"½ÓÊÕÊ§°Ü\"}"); 
+		                out.print("{\"Error\":\"1\",\"ErrorMessage\":\"æ¥æ”¶å¤±è´¥\"}"); 
 		                out.flush();
 		                out.close();
 		            }
@@ -290,23 +290,23 @@ public class ApiController {
 	}
 	
 	/**
-	 * ÈÕÆÚ£º2014-09-19
-	 * ×÷Õß£ºcaolei
-	 * ×÷ÓÃ:Í¬²½·¢¿¨¼ÇÂ¼Ã÷Ï¸
+	 * æ—¥æœŸï¼š2014-09-19
+	 * ä½œè€…ï¼šcaolei
+	 * ä½œç”¨:åŒæ­¥å‘å¡è®°å½•æ˜ç»†
 	 * @return
 	 */
 	@RequestMapping(value="/examApi")
 	@ResponseBody
 	public String examApi(HttpServletRequest request,HttpSession session,HttpServletResponse response){
 		boolean isIE = false;
-		System.out.println("===ÊÕµ½¹ÒºÅ¶©µ¥ÇëÇó¿ªÊ¼´¦Àí====");
+		System.out.println("===æ”¶åˆ°æŒ‚å·è®¢å•è¯·æ±‚å¼€å§‹å¤„ç†====");
 		try{
 			try{
 				InputStream inputStream = request.getInputStream(); 
 		        ObjectInputStream objectInputStream = new ObjectInputStream(new BufferedInputStream(inputStream));
 		        Object obj = objectInputStream.readObject();
 		        objectInputStream.close();
-		        System.out.println("½ÓÊÕµ½¶ÔÏó£º"+obj + "");
+		        System.out.println("æ¥æ”¶åˆ°å¯¹è±¡ï¼š"+obj + "");
 		        ExamEntity pojo=ConnUtil.examconvert((FrontendRegUserModel)obj);
 		        ExamEntity pojonull = examService.getExamById(pojo);
 		        if(pojonull==null){
@@ -317,16 +317,16 @@ public class ApiController {
 					isIE = true;
 				}
 				 if (!isIE) {
-		                // Êä³ö
+		                // è¾“å‡º
 		                ServletOutputStream outputStream = response.getOutputStream();
 		                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream);
 		                ObjectOutputStream objectOutputStream = new ObjectOutputStream(bufferedOutputStream);
-		                objectOutputStream.writeObject("{\"Error\":\"0\",\"ErrorMessage\":\"½ÓÊÕ³É¹¦\"}");
+		                objectOutputStream.writeObject("{\"Error\":\"0\",\"ErrorMessage\":\"æ¥æ”¶æˆåŠŸ\"}");
 		                objectOutputStream.close();
 		            }else {
 		                response.setContentType("text/html;charset=UTF-8");
 		                PrintWriter out=response.getWriter();
-		                out.print("{\"Error\":\"1\",\"ErrorMessage\":\"½ÓÊÕÊ§°Ü\"}"); 
+		                out.print("{\"Error\":\"1\",\"ErrorMessage\":\"æ¥æ”¶å¤±è´¥\"}"); 
 		                out.flush();
 		                out.close();
 		            }
@@ -337,23 +337,23 @@ public class ApiController {
 	}
 
 	/**
-	 * ÈÕÆÚ£º2014-10-08
-	 * ×÷Õß£ºcaolei
-	 * ×÷ÓÃ:Í¬²½½É·Ñ¼ÇÂ¼
+	 * æ—¥æœŸï¼š2014-10-08
+	 * ä½œè€…ï¼šcaolei
+	 * ä½œç”¨:åŒæ­¥ç¼´è´¹è®°å½•
 	 * @return
 	 */
 	@RequestMapping(value="/payRecordApi")
 	@ResponseBody
 	public String payRecordApi(HttpServletRequest request,HttpSession session,HttpServletResponse response){
 		boolean isIE = false;
-		System.out.println("===ÊÕµ½¹ÒºÅ¶©µ¥ÇëÇó¿ªÊ¼´¦Àí====");
+		System.out.println("===æ”¶åˆ°æŒ‚å·è®¢å•è¯·æ±‚å¼€å§‹å¤„ç†====");
 		try{
 			try{
 				InputStream inputStream = request.getInputStream(); 
 		        ObjectInputStream objectInputStream = new ObjectInputStream(new BufferedInputStream(inputStream));
 		        Object obj = objectInputStream.readObject();
 		        objectInputStream.close();
-		        System.out.println("½ÓÊÕµ½¶ÔÏó£º"+obj + "");
+		        System.out.println("æ¥æ”¶åˆ°å¯¹è±¡ï¼š"+obj + "");
 		        FrontendPayRecordEntity pojo=ConnUtil.payrecordConvert((FrontendPayRecordModel)obj);
 		        FrontendPayRecordEntity pojonull = frontendPayRecordServiceI.getExamById(pojo);
 		        if(pojonull==null){
@@ -364,16 +364,16 @@ public class ApiController {
 					isIE = true;
 				}
 				 if (!isIE) {
-		                // Êä³ö
+		                // è¾“å‡º
 		                ServletOutputStream outputStream = response.getOutputStream();
 		                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream);
 		                ObjectOutputStream objectOutputStream = new ObjectOutputStream(bufferedOutputStream);
-		                objectOutputStream.writeObject("{\"Error\":\"0\",\"ErrorMessage\":\"½ÓÊÕ³É¹¦\"}");
+		                objectOutputStream.writeObject("{\"Error\":\"0\",\"ErrorMessage\":\"æ¥æ”¶æˆåŠŸ\"}");
 		                objectOutputStream.close();
 		            }else {
 		                response.setContentType("text/html;charset=UTF-8");
 		                PrintWriter out=response.getWriter();
-		                out.print("{\"Error\":\"1\",\"ErrorMessage\":\"½ÓÊÕÊ§°Ü\"}"); 
+		                out.print("{\"Error\":\"1\",\"ErrorMessage\":\"æ¥æ”¶å¤±è´¥\"}"); 
 		                out.flush();
 		                out.close();
 		            }
@@ -385,22 +385,22 @@ public class ApiController {
 	
 	
 	/**
-	 * ÈÕÆÚ:2014-03-17
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:Ç°ÖÃ»úÏÂ¹ÒºÅ¶©µ¥
+	 * æ—¥æœŸ:2014-03-17
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:å‰ç½®æœºä¸‹æŒ‚å·è®¢å•
 	 */
 	@RequestMapping(value="/sunManner")
 	@ResponseBody
 	public String sunManner(HttpServletRequest request,HttpSession session,HttpServletResponse response){
 		boolean isIE = false;
-		System.out.println("===ÊÕµ½¹ÒºÅ¶©µ¥ÇëÇó¿ªÊ¼´¦Àí====");
+		System.out.println("===æ”¶åˆ°æŒ‚å·è®¢å•è¯·æ±‚å¼€å§‹å¤„ç†====");
 		try{
 			try{
 				InputStream inputStream = request.getInputStream(); 
 		        ObjectInputStream objectInputStream = new ObjectInputStream(new BufferedInputStream(inputStream));
 		        Object obj = objectInputStream.readObject();
 		        objectInputStream.close();
-		        System.out.println("½ÓÊÕµ½¶ÔÏó£º"+obj + "");
+		        System.out.println("æ¥æ”¶åˆ°å¯¹è±¡ï¼š"+obj + "");
 		        TransActionEntity pojo=ConnUtil.bookingconvert((FrontendBookingOrderModel)obj);
 		        TransActionEntity pojonull=transActionService.getBookingById(pojo);
 		        if(pojonull==null){
@@ -411,16 +411,16 @@ public class ApiController {
 					isIE = true;
 				}
 				 if (!isIE) {
-		                // Êä³ö
+		                // è¾“å‡º
 		                ServletOutputStream outputStream = response.getOutputStream();
 		                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream);
 		                ObjectOutputStream objectOutputStream = new ObjectOutputStream(bufferedOutputStream);
-		                objectOutputStream.writeObject("{\"Error\":\"0\",\"ErrorMessage\":\"½ÓÊÕ³É¹¦\"}");
+		                objectOutputStream.writeObject("{\"Error\":\"0\",\"ErrorMessage\":\"æ¥æ”¶æˆåŠŸ\"}");
 		                objectOutputStream.close();
 		            }else {
 		                response.setContentType("text/html;charset=UTF-8");
 		                PrintWriter out=response.getWriter();
-		                out.print("{\"Error\":\"1\",\"ErrorMessage\":\"½ÓÊÕÊ§°Ü\"}"); 
+		                out.print("{\"Error\":\"1\",\"ErrorMessage\":\"æ¥æ”¶å¤±è´¥\"}"); 
 		                out.flush();
 		                out.close();
 		            }

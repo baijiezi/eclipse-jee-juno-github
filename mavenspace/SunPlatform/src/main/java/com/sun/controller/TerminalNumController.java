@@ -18,9 +18,9 @@ import com.sun.service.CountServiceI;
 public class TerminalNumController {
 	public CountServiceI countService;
 	/**
-	 * ÈÕÆÚ:2014-03-11 
-	 * ×÷Õß:caolei 
-	 * ×÷ÓÃ:Ìø×ªÖÕ¶Ë±àºÅÍ³¼ÆÒ³Ãæ
+	 * æ—¥æœŸ:2014-03-11 
+	 * ä½œè€…:caolei 
+	 * ä½œç”¨:è·³è½¬ç»ˆç«¯ç¼–å·ç»Ÿè®¡é¡µé¢
 	 */
 	@RequestMapping(value = "/terminalNum_UI")
 	public String terminalNum_UI() {
@@ -28,9 +28,9 @@ public class TerminalNumController {
 	}
 	
 	/**
-	 * ÈÕÆÚ:2014-08-20
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:²éÑ¯ÖÕ¶ËÍ³¼Æ³öÀ´Êı¾İ
+	 * æ—¥æœŸ:2014-08-20
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:æŸ¥è¯¢ç»ˆç«¯ç»Ÿè®¡å‡ºæ¥æ•°æ®
 	 */
 	@RequestMapping(value = "/terminalDelta")
 	public String terminalDelta(HttpServletRequest request,@ModelAttribute("pojo") CountEntity pojo) {

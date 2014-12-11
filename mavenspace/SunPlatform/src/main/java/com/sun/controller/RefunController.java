@@ -16,9 +16,9 @@ import com.sun.service.RefundServiceI;
 @RequestMapping("/refunDelta")
 public class RefunController {
 	/**
-	 * ÈÕÆÚ£º2014-03-12
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:Ìø×ª²éÑ¯³äÖµÒ³Ãæ
+	 * æ—¥æœŸï¼š2014-03-12
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:è·³è½¬æŸ¥è¯¢å……å€¼é¡µé¢
 	 */
 	private RefundServiceI refundService;
 	public RefundServiceI getRefundService() {
@@ -36,9 +36,9 @@ public class RefunController {
 	}
 	
 	/**
-	 * ÈÕÆÚ:2014-08-31
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:²éÑ¯ÍË·ÑÏêÏ¸ÁĞ±í
+	 * æ—¥æœŸ:2014-08-31
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:æŸ¥è¯¢é€€è´¹è¯¦ç»†åˆ—è¡¨
 	 */
 	@RequestMapping(value="/refunDelta")
 	public String cancelDelta(HttpServletRequest request,@ModelAttribute("pojo") RefundEntity pojo){

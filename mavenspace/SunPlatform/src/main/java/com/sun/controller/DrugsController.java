@@ -18,9 +18,9 @@ import com.sun.service.DrugsServiceI;
 public class DrugsController {
 	private DrugsServiceI drugsService;
 	/**
-	 * ÈÕÆÚ:2014-09-18
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:²éÑ¯Î÷Ò©ÁĞ±í
+	 * æ—¥æœŸ:2014-09-18
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:æŸ¥è¯¢è¥¿è¯åˆ—è¡¨
 	 */
 	@RequestMapping(value="/drugsDelta")
 	public String examDelta(HttpServletRequest request,@ModelAttribute("pojo") DrugsEntity pojo){
@@ -32,9 +32,9 @@ public class DrugsController {
 	}
 	
 	/**
-	 * ÈÕÆÚ:2014-10-23
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:²éÑ¯³£¹æÁĞ±í
+	 * æ—¥æœŸ:2014-10-23
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:æŸ¥è¯¢å¸¸è§„åˆ—è¡¨
 	 * @return
 	 */
 	@RequestMapping(value="/drugsCgDelta")
@@ -45,9 +45,9 @@ public class DrugsController {
 	}
 	
 	/**
-	 * ÈÕÆÚ:2014-10-23
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:²éÑ¯»¯ÑéÁĞ±í
+	 * æ—¥æœŸ:2014-10-23
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:æŸ¥è¯¢åŒ–éªŒåˆ—è¡¨
 	 * @return
 	 */
 	@RequestMapping(value="/drugsHyDelta")
@@ -58,9 +58,9 @@ public class DrugsController {
 	}
 	
 	/**
-	  * ÈÕÆÚ:2014-10-23
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:²éÑ¯·ÅÉäÁĞ±í
+	  * æ—¥æœŸ:2014-10-23
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:æŸ¥è¯¢æ”¾å°„åˆ—è¡¨
 	 * @return
 	 */
 	@RequestMapping(value="/drugsFsDelta")
@@ -71,9 +71,9 @@ public class DrugsController {
 	}
 	
 	/**
-	  * ÈÕÆÚ:2014-10-23
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:²éÑ¯³¬ÉùÁĞ±í
+	  * æ—¥æœŸ:2014-10-23
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:æŸ¥è¯¢è¶…å£°åˆ—è¡¨
 	 * @return
 	 */
 	@RequestMapping(value="/drugsCsDelta")
@@ -85,9 +85,9 @@ public class DrugsController {
 	}
 
 	/**
-	  * ÈÕÆÚ:2014-10-23
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:Ò©Ãû²éÑ¯ÁĞ±í
+	  * æ—¥æœŸ:2014-10-23
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:è¯åæŸ¥è¯¢åˆ—è¡¨
 	 * @return
 	 */
 	@RequestMapping(value="/drugsNameDelta")
@@ -108,9 +108,9 @@ public class DrugsController {
 	
 	
 	/**
-	  * ÈÕÆÚ:2014-10-23
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:²âÊÔÅúÁ¿²åÈë
+	  * æ—¥æœŸ:2014-10-23
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:æµ‹è¯•æ‰¹é‡æ’å…¥
 	 * @return
 	 */
 	@RequestMapping(value="/batchInsert")

@@ -2,20 +2,20 @@ package com.sun.entity;
 
 
 /**
- * ×÷ÓÃ:ÍË·ÑÊµÌå
- * ÈÕÆÚ:2014-03-28
- * ×÷Õß:caolei
+ * ä½œç”¨:é€€è´¹å®ä½“
+ * æ—¥æœŸ:2014-03-28
+ * ä½œè€…:caolei
  * @author Administrator
  *
  */
 public class RefundEntity {
-	public int id;	//Ö÷¼üID
-	public String userName;	//ÓÃ»§Ãû
-	public String payMentId;	//Ö§¸¶ºÅ
-	public String operId;	//ÖÕ¶ËID
-	public String extOrderSn;	//Íâ²¿¶©µ¥ºÅ
-	public String states;		//×´Ì¬
-	public String cancelDate;		//½ÓÊÕÊ±¼ä
+	public int id;	//ä¸»é”®ID
+	public String userName;	//ç”¨æˆ·å
+	public String payMentId;	//æ”¯ä»˜å·
+	public String operId;	//ç»ˆç«¯ID
+	public String extOrderSn;	//å¤–éƒ¨è®¢å•å·
+	public String states;		//çŠ¶æ€
+	public String cancelDate;		//æ¥æ”¶æ—¶é—´
 
 	public int getId() {
 		return id;

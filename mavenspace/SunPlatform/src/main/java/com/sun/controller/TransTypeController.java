@@ -18,18 +18,18 @@ public class TransTypeController {
 	public CountServiceI countService;
 	
 	/**
-	 * ÈÕÆÚ:2014-03-11 
-	 * ×÷Õß:caolei 
-	 * ×÷ÓÃ:Ìø×ª½»Ò×ÀàĞÍÍ³¼ÆÒ³Ãæ
+	 * æ—¥æœŸ:2014-03-11 
+	 * ä½œè€…:caolei 
+	 * ä½œç”¨:è·³è½¬äº¤æ˜“ç±»å‹ç»Ÿè®¡é¡µé¢
 	 */
 	@RequestMapping(value = "/tansType_UI")
 	public String tansType_UI() {
 		return "tansType_UI";
 	}
 	/**
-	 * ÈÕÆÚ:2014-08-11
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:²éÑ¯½»Ò×ÀàĞÍÍ³¼ÆÊı¾İ
+	 * æ—¥æœŸ:2014-08-11
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:æŸ¥è¯¢äº¤æ˜“ç±»å‹ç»Ÿè®¡æ•°æ®
 	 */
 	@RequestMapping(value = "/queryDelta")
 	public String queryDelta(HttpServletRequest request,@ModelAttribute("pojo") CountEntity pojo){

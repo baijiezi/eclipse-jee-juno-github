@@ -30,18 +30,18 @@ import com.sun.service.FrontendPayRecordServiceI;
 public class FrontendPayController {
 	private FrontendPayRecordServiceI frontendPayRecordService;
 	/**
-	 * ÈÕÆÚ:2014-03-11 
-	 * ×÷Õß:caolei 
-	 * ×÷ÓÃ:Ìø×ª¶©µ¥Ò³Ãæ
+	 * æ—¥æœŸ:2014-03-11 
+	 * ä½œè€…:caolei 
+	 * ä½œç”¨:è·³è½¬è®¢å•é¡µé¢
 	 */
 	@RequestMapping(value = "/frontendPay_UI")
 	public String frontendPay_UI() {
 		return "frontendPay_UI";
 	}
 	/**
-	 * ÈÕÆÚ:2014-03-11 
-	 * ×÷Õß:caolei 
-	 * ×÷ÓÃ:²éÑ¯½É·Ñ¼ÇÂ¼Êı¾İ
+	 * æ—¥æœŸ:2014-03-11 
+	 * ä½œè€…:caolei 
+	 * ä½œç”¨:æŸ¥è¯¢ç¼´è´¹è®°å½•æ•°æ®
 	 */
 	@RequestMapping(value = "/frontendPayDelta")
 	public String frontendPayDelta(HttpServletRequest request,
@@ -64,9 +64,9 @@ public class FrontendPayController {
 		return "frontendPay_UI";
 	}
 	/**
-	 * ÈÕÆÚ:2014-10-27
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:µ¼³ö½É·Ñ¼ÇÂ¼Ã÷Ï¸
+	 * æ—¥æœŸ:2014-10-27
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:å¯¼å‡ºç¼´è´¹è®°å½•æ˜ç»†
 	 * @return
 	 */
 	@RequestMapping(value = "/exprotExcel")
@@ -82,14 +82,14 @@ public class FrontendPayController {
 		ExcelUtil<FrontendPayRecordEntity> excelUtil = new ExcelUtil<FrontendPayRecordEntity>();
 		OutputStream out = null;
 		try {
-			out = response.getOutputStream();// È¡µÃÊä³öÁ÷
-			response.reset();// Çå¿ÕÊä³öÁ÷
-			response.setHeader("Content-disposition","attachment; filename="+new String("½É·Ñ¼ÇÂ¼Ã÷Ï¸".getBytes("GB2312"), "8859_1")+ ".xls");// Éè¶¨Êä³öÎÄ¼şÍ·
-			response.setContentType("application/msexcel");// ¶¨ÒåÊä³öÀàĞÍ
+			out = response.getOutputStream();// å–å¾—è¾“å‡ºæµ
+			response.reset();// æ¸…ç©ºè¾“å‡ºæµ
+			response.setHeader("Content-disposition","attachment; filename="+new String("ç¼´è´¹è®°å½•æ˜ç»†".getBytes("GB2312"), "8859_1")+ ".xls");// è®¾å®šè¾“å‡ºæ–‡ä»¶å¤´
+			response.setContentType("application/msexcel");// å®šä¹‰è¾“å‡ºç±»å‹
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		String[] headers = { "Ò½ÔºÃû³Æ", "»¼ÕßĞÕÃû", "ÕïÁÆ¿¨", "ÊÖ»úºÅ", "¶©µ¥ºÅ", "Ö§¸¶½ğ¶î","Ö§¸¶¿¨ºÅ", "Ö§¸¶ÀàĞÍ", "Ö§¸¶ºÅ","Ö§¸¶Á÷Ë®","ÏµÍ³Ö§¸¶ºÅ","Ö§¸¶ÇşµÀ","ÖÕ¶Ë±àºÅ","ÖÕ¶ËÁ÷Ë®","Ö§¸¶Ê±¼ä","ÒµÎñÀàĞÍ","½»Ò××´Ì¬","±¸×¢" };
+		String[] headers = { "åŒ»é™¢åç§°", "æ‚£è€…å§“å", "è¯Šç–—å¡", "æ‰‹æœºå·", "è®¢å•å·", "æ”¯ä»˜é‡‘é¢","æ”¯ä»˜å¡å·", "æ”¯ä»˜ç±»å‹", "æ”¯ä»˜å·","æ”¯ä»˜æµæ°´","ç³»ç»Ÿæ”¯ä»˜å·","æ”¯ä»˜æ¸ é“","ç»ˆç«¯ç¼–å·","ç»ˆç«¯æµæ°´","æ”¯ä»˜æ—¶é—´","ä¸šåŠ¡ç±»å‹","äº¤æ˜“çŠ¶æ€","å¤‡æ³¨" };
 		String[] columns = { "hospitalName", "patientName", "medicalCardNo","mobile", "orderNo", "realPayFee", "payCardNo", "payType","paymentId","payTranLine","systemPayTranLine","optionPayments","operId","terminalTranLine","payTime","businessType","states","remark"};
 
 		if (StringUtils.isNotBlank(createUserIds))
@@ -100,7 +100,7 @@ public class FrontendPayController {
 		}
 		List<FrontendPayRecordEntity> dataset = frontendPayRecordService.getWhereEntity(pojo);
 		try {
-			excelUtil.exportExcel("½É·Ñ¼ÇÂ¼Ã÷Ï¸±¨±í", headers, columns, dataset, out,"");
+			excelUtil.exportExcel("ç¼´è´¹è®°å½•æ˜ç»†æŠ¥è¡¨", headers, columns, dataset, out,"");
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}

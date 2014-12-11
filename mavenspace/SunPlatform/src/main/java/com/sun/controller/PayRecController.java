@@ -22,9 +22,9 @@ import com.sun.service.UserServiceI;
 
 
 /**
- * ÈÕÆÚ:2014-03-11
- * ×÷Õß:caolei
- * ×÷ÓÃ:Ö÷ÒªÕë¶Ô³äÖµ¼ÇÂ¼Ã÷Ï¸¹¦ÄÜ
+ * æ—¥æœŸ:2014-03-11
+ * ä½œè€…:caolei
+ * ä½œç”¨:ä¸»è¦é’ˆå¯¹å……å€¼è®°å½•æ˜ç»†åŠŸèƒ½
  * @author Administrator
  *
  */
@@ -32,7 +32,7 @@ import com.sun.service.UserServiceI;
 @RequestMapping("/payrecord")
 public class PayRecController {
 	private UserServiceI userService;
-	private PayRecordServiceI payRecordService;	//³äÖµ¼ÇÂ¼²éÑ¯service²ã
+	private PayRecordServiceI payRecordService;	//å……å€¼è®°å½•æŸ¥è¯¢serviceå±‚
 	
 	public UserServiceI getUserService() {
 		return userService;
@@ -52,18 +52,18 @@ public class PayRecController {
 	}
 	
 	/**
-	 * ÈÕÆÚ£º2014-03-12
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:Ìø×ª²éÑ¯³äÖµÒ³Ãæ
+	 * æ—¥æœŸï¼š2014-03-12
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:è·³è½¬æŸ¥è¯¢å……å€¼é¡µé¢
 	 */
 	@RequestMapping(value="/queryDelta_UI")
 	public String queryDelta_UI(){
 		return "queryDelta_UI";
 	}
 	/**
-	 * ÈÕÆÚ:2014-03-12
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:²éÑ¯³äÖµÊı¾İ
+	 * æ—¥æœŸ:2014-03-12
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:æŸ¥è¯¢å……å€¼æ•°æ®
 	 */
 	@RequestMapping(value="/queryDelta")
 	public String queryDelta(HttpServletRequest request,@ModelAttribute("pojo") PayRecordEntity pojo){
@@ -73,9 +73,9 @@ public class PayRecController {
 		return "queryDelta_UI";
 	}
 	/**
-	 * ÈÕÆÚ:2014-03-25
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:ÓÃÓÚµ¼³öexcelÊı¾İ
+	 * æ—¥æœŸ:2014-03-25
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:ç”¨äºå¯¼å‡ºexcelæ•°æ®
 	 */
 	@RequestMapping(value="/exportPayRec")
 	public @ResponseBody String exportPayRec(HttpServletResponse response, PayRecordEntity njWorkLog,
@@ -89,15 +89,15 @@ public class PayRecController {
 		ExcelUtil<PayRecordEntity> excelUtil = new ExcelUtil<PayRecordEntity>();
 		OutputStream out = null;
 		try {
-			out = response.getOutputStream();// È¡µÃÊä³öÁ÷
+			out = response.getOutputStream();// å–å¾—è¾“å‡ºæµ
 			// out.flush();
-			response.reset();// Çå¿ÕÊä³öÁ÷
-			response.setHeader("Content-disposition", "attachment; filename="+ new String("³äÖµ¼ÇÂ¼Ã÷Ï¸±¨±í".getBytes("GB2312"), "8859_1")+ ".xls");// Éè¶¨Êä³öÎÄ¼şÍ·
-			response.setContentType("application/msexcel");// ¶¨ÒåÊä³öÀàĞÍ
+			response.reset();// æ¸…ç©ºè¾“å‡ºæµ
+			response.setHeader("Content-disposition", "attachment; filename="+ new String("å……å€¼è®°å½•æ˜ç»†æŠ¥è¡¨".getBytes("GB2312"), "8859_1")+ ".xls");// è®¾å®šè¾“å‡ºæ–‡ä»¶å¤´
+			response.setContentType("application/msexcel");// å®šä¹‰è¾“å‡ºç±»å‹
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		String[] headers = { "¶©µ¥ºÅ", "Ö§¸¶¿¨ºÅ", "¿µÖÚ¿¨ºÅ", "ÓÃ»§Ãû","½ğ¶î", "ÖÕ¶ËºÅ","×´Ì¬", "³äÖµÈÕÆÚ" };
+		String[] headers = { "è®¢å•å·", "æ”¯ä»˜å¡å·", "åº·ä¼—å¡å·", "ç”¨æˆ·å","é‡‘é¢", "ç»ˆç«¯å·","çŠ¶æ€", "å……å€¼æ—¥æœŸ" };
 		String[] columns = { "extOrder", "payCardNo", "memberCard","userName","fee", "operId", "states","createTime" };
 		if ("on".equals(njWorkLog.getPayCardNo()))
 			njWorkLog.setUserName("1");//setHospitalName("1");
@@ -112,7 +112,7 @@ public class PayRecController {
 //		}
 		List<PayRecordEntity> dataset = payRecordService.getWhereEntity(pojo);
 		try {
-			excelUtil.exportExcel("³äÖµ¼ÇÂ¼Ã÷Ï¸±¨±í", headers, columns, dataset, out,"");
+			excelUtil.exportExcel("å……å€¼è®°å½•æ˜ç»†æŠ¥è¡¨", headers, columns, dataset, out,"");
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}

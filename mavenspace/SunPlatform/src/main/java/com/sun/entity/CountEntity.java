@@ -1,14 +1,14 @@
 package com.sun.entity;
 
 public class CountEntity {
-	public String hospitalName;//Ò½ÔºÃû³Æ
-	public String businessType;//ÒµÎñÀàĞÍ
-	public String terminalId;//ÖÕ¶Ë±àºÅ
-	public String count;//½»Ò×±ÊÊı
-	public String sumAmount;//×Ü½»Ò×½ğ¶î
+	public String hospitalName;//åŒ»é™¢åç§°
+	public String businessType;//ä¸šåŠ¡ç±»å‹
+	public String terminalId;//ç»ˆç«¯ç¼–å·
+	public String count;//äº¤æ˜“ç¬”æ•°
+	public String sumAmount;//æ€»äº¤æ˜“é‡‘é¢
 	public String paytime;
-	public String starTime;//¿ªÊ¼ÈÕÆÚ
-	public String endTime;//½áÊøÈÕÆÚ
+	public String starTime;//å¼€å§‹æ—¥æœŸ
+	public String endTime;//ç»“æŸæ—¥æœŸ
 	public String getHospitalName() {
 		return hospitalName;
 	}

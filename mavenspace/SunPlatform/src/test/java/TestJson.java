@@ -17,7 +17,7 @@ public class TestJson {
 //		System.out.println("============"+jso);
 		
 //		String str="dhdhdhdj";
-//        //ÅÐ¶Ï×Ö·û´®ÊÇ·ñÈ«ÎªÓ¢ÎÄ×ÖÄ¸£¬ÊÇÔò·µ»Øtrue
+//        //ï¿½Ð¶ï¿½ï¿½Ö·ï¿½ï¿½Ç·ï¿½È«ÎªÓ¢ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½true
 //		boolean isWord=str.matches("[a-zA-Z]+");
 //		System.out.println(isWord);
 		System.out.println("++++");

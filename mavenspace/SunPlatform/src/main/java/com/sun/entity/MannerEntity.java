@@ -1,34 +1,34 @@
 package com.sun.entity;
 
 /**
- * ÈÕÆÚ:2014-10-13
- * ×÷ÓÃ:ÓÃ»§ÆÀ¼ÛÊµÌå
- * ×÷Õß:caolei
+ * æ—¥æœŸ:2014-10-13
+ * ä½œç”¨:ç”¨æˆ·è¯„ä»·å®ä½“
+ * ä½œè€…:caolei
  * @author Administrator
  *
  */
 public class MannerEntity {
-	private Integer id;	//Ö÷¼üID
-	private String userName;//ÓÃ»§Ãû³Æ
-	private String hospitalName;//Ò½ÔºÃû³Æ
-	private String hosptialId;//Ò½Ôº±àºÅ
-	private String medicalCardNo;//ÕïÁÆ¿¨ºÅ
-	private Integer mannerDoctId;//Ò½ÉúÌ¬¶ÈID
-	private String mannerDoctRemark;//Ò½ÉúÌ¬¶È±¸×¢
-	private Integer mannerNursetId;//»¤Ê¿Ì¬¶ÈID
-	private String mannerNursetRemark;//»¤Ê¿Ì¬¶È±¸×¢
-	private Integer mannerCheckId;//¼ì²éÌ¬¶ÈID
-	private String mannerCheckRemark;//¼ì²éÌ¬¶È±¸×¢
-	private Integer mannerPhamacyId;//Ò©·¿Ì¬¶ÈID
-	private String mannerPhamacyRemark;//Ò©·¿Ì¬¶È±¸×¢
-	private Integer mannerChargeId;//ÊÕ·ÑÌ¬¶ÈID
-	private String mannerChargeRemark;//ÊÕ·ÑÌ¬¶È±¸×¢
-	private Integer mannerVisitId;//»·¾³ÆÀ¼ÛID
-	private String mannerVisitRemark;//»·¾³ÆÀ¼Û±¸×¢
-	private String mannerTime;//ÆÀ¼ÛÈÕÆÚ
-	private String mobile;//ÓÃ»§ÊÖ»úºÅÂë
-	private String patientName;//»¼ÕßĞÕÃû
-	private String operId;//ÖÕ¶Ë±àºÅ
+	private Integer id;	//ä¸»é”®ID
+	private String userName;//ç”¨æˆ·åç§°
+	private String hospitalName;//åŒ»é™¢åç§°
+	private String hosptialId;//åŒ»é™¢ç¼–å·
+	private String medicalCardNo;//è¯Šç–—å¡å·
+	private Integer mannerDoctId;//åŒ»ç”Ÿæ€åº¦ID
+	private String mannerDoctRemark;//åŒ»ç”Ÿæ€åº¦å¤‡æ³¨
+	private Integer mannerNursetId;//æŠ¤å£«æ€åº¦ID
+	private String mannerNursetRemark;//æŠ¤å£«æ€åº¦å¤‡æ³¨
+	private Integer mannerCheckId;//æ£€æŸ¥æ€åº¦ID
+	private String mannerCheckRemark;//æ£€æŸ¥æ€åº¦å¤‡æ³¨
+	private Integer mannerPhamacyId;//è¯æˆ¿æ€åº¦ID
+	private String mannerPhamacyRemark;//è¯æˆ¿æ€åº¦å¤‡æ³¨
+	private Integer mannerChargeId;//æ”¶è´¹æ€åº¦ID
+	private String mannerChargeRemark;//æ”¶è´¹æ€åº¦å¤‡æ³¨
+	private Integer mannerVisitId;//ç¯å¢ƒè¯„ä»·ID
+	private String mannerVisitRemark;//ç¯å¢ƒè¯„ä»·å¤‡æ³¨
+	private String mannerTime;//è¯„ä»·æ—¥æœŸ
+	private String mobile;//ç”¨æˆ·æ‰‹æœºå·ç 
+	private String patientName;//æ‚£è€…å§“å
+	private String operId;//ç»ˆç«¯ç¼–å·
 	public Integer getId() {
 		return id;
 	}

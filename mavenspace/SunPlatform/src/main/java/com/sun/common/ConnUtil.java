@@ -41,9 +41,9 @@ import com.sun309.frontend.db.model.FrontendPayRecordModel;
 import com.sun309.frontend.db.model.FrontendRegUserModel;
 
 /**
- * ×÷ÓÃ:ÓÃÓÚ¸÷¸ö·şÎñÆ÷Á¬½Ó¹¤¾ßÀà 
- * ÈÕÆÚ:2013-03-24 
- * ×÷Õß:caolei
+ * ä½œç”¨:ç”¨äºå„ä¸ªæœåŠ¡å™¨è¿æ¥å·¥å…·ç±» 
+ * æ—¥æœŸ:2013-03-24 
+ * ä½œè€…:caolei
  * 
  * @author Administrator
  * 
@@ -64,7 +64,7 @@ public class ConnUtil {
 			StringEntity input = new StringEntity(entity);
 			hp.setEntity(input);
 		} catch (UnsupportedEncodingException e1) {
-			System.out.println("ÉèÖÃÊµÌåÊ§°Ü");
+			System.out.println("è®¾ç½®å®ä½“å¤±è´¥");
 			e1.printStackTrace();
 		}
 		try {
@@ -80,10 +80,10 @@ public class ConnUtil {
 				System.out.println(hrp.getStatusLine().getStatusCode()+"========");
 			}
 		} catch (ClientProtocolException e) {
-			System.out.println("Á¬½ÓÊ§°Ü:");
+			System.out.println("è¿æ¥å¤±è´¥:");
 			e.printStackTrace();
 		} catch (IOException e) {
-			System.out.println("Á¬½ÓÊ§°Ü:");
+			System.out.println("è¿æ¥å¤±è´¥:");
 			e.printStackTrace();
 		}
 		return line;
@@ -148,18 +148,18 @@ public class ConnUtil {
 				System.out.println(hrp.getStatusLine().getStatusCode()+"========");
 			}
 		} catch (ClientProtocolException e) {
-			System.out.println("Á¬½ÓÊ§°Ü:");
+			System.out.println("è¿æ¥å¤±è´¥:");
 			e.printStackTrace();
 		} catch (IOException e) {
-			System.out.println("Á¬½ÓÊ§°Ü:");
+			System.out.println("è¿æ¥å¤±è´¥:");
 			e.printStackTrace();
 		}
 		return line;
 	}
 	/**
-	 * ÈÕÆÚ:2014-08-27
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:ÓÃÓÚ¶©µ¥ÀàĞÍµÄ×ª»»
+	 * æ—¥æœŸ:2014-08-27
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:ç”¨äºè®¢å•ç±»å‹çš„è½¬æ¢
 	 */
 	public static TransActionEntity bookingconvert(FrontendBookingOrderModel bookingmodel){
 		TransActionEntity tae=new TransActionEntity();
@@ -180,7 +180,7 @@ public class ConnUtil {
 		tae.setVisitTime(bookingmodel.getVisitDateTime());
 		tae.setSerialNo(bookingmodel.getSerialNo()==null?"":bookingmodel.getSerialNo().toString());
 		tae.setFee(bookingmodel.getFee()==null?"":bookingmodel.getFee().toString());
-		//tae.setbookingmodel.getJzFee(); //¾ÍÕî·ÑÓÃ
+		//tae.setbookingmodel.getJzFee(); //å°±ç–¹è´¹ç”¨
 		//tae.setJzFee(bookingmodel.getJzFee()==null?"":bookingmodel.getJzFee().toString());
 		tae.setPayCardNo(bookingmodel.getPayCardNo()==null?"":bookingmodel.getPayCardNo().toString());
 		tae.setSettlementType(bookingmodel.getSettlementType()==null?"":bookingmodel.getSettlementType().toString());
@@ -196,9 +196,9 @@ public class ConnUtil {
 		return tae;
 	}
 	/**
-	 * ÈÕÆÚ£º2014-09-19
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:×ª»»·¢¿¨¼ÇÂ¼ÊµÌå
+	 * æ—¥æœŸï¼š2014-09-19
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:è½¬æ¢å‘å¡è®°å½•å®ä½“
 	 */
 	public static ExamEntity examconvert(FrontendRegUserModel regUsermodel){
 		ExamEntity exam=new ExamEntity();
@@ -218,9 +218,9 @@ public class ConnUtil {
 		return exam;
 	}
 	/**
-	 * ÈÕÆÚ:2014-09-22
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:×ÔÖú½É·Ñ×ª»»
+	 * æ—¥æœŸ:2014-09-22
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:è‡ªåŠ©ç¼´è´¹è½¬æ¢
 	 */
 	public static AutoPayEntity autoPayConvert(FrontendConfirmAutoPayModel cap){
 		AutoPayEntity apc=new AutoPayEntity();
@@ -244,9 +244,9 @@ public class ConnUtil {
 		return apc;
 	}
 	/**
-	 * ÈÕÆÚ:2014-10-08
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:Í¬²½½É·Ñ¼ÇÂ¼ÊµÌå×ª»»
+	 * æ—¥æœŸ:2014-10-08
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:åŒæ­¥ç¼´è´¹è®°å½•å®ä½“è½¬æ¢
 	 */
 	public static FrontendPayRecordEntity payrecordConvert(FrontendPayRecordModel frm){
 		FrontendPayRecordEntity  fre=new FrontendPayRecordEntity();
@@ -277,9 +277,9 @@ public class ConnUtil {
 		return fre;
 	}
 	/**
-	 * ÈÕÆÚ:2014-10-13
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:Í¬²½½É·Ñ¼ÇÂ¼ÊµÌå×ª»»
+	 * æ—¥æœŸ:2014-10-13
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:åŒæ­¥ç¼´è´¹è®°å½•å®ä½“è½¬æ¢
 	 */
 	
 	public static MannerEntity MannerConvert(FrontendMannerModel frm){
@@ -308,34 +308,34 @@ public class ConnUtil {
        // Map map = new HashMap();
         Document doc = null;
         try {
-            doc = DocumentHelper.parseText(xml); // ½«×Ö·û´®×ªÎªXML
-            Element rootElt = doc.getRootElement(); // »ñÈ¡¸ù½Úµã
-            Iterator iter = rootElt.elementIterator("ResultData"); // »ñÈ¡¸ù½ÚµãÏÂµÄ×Ó½Úµãhead
-            // ±éÀúhead½Úµã
+            doc = DocumentHelper.parseText(xml); // å°†å­—ç¬¦ä¸²è½¬ä¸ºXML
+            Element rootElt = doc.getRootElement(); // è·å–æ ¹èŠ‚ç‚¹
+            Iterator iter = rootElt.elementIterator("ResultData"); // è·å–æ ¹èŠ‚ç‚¹ä¸‹çš„å­èŠ‚ç‚¹head
+            // éå†headèŠ‚ç‚¹
             while (iter.hasNext()) {
             	 Map map = new HashMap();
                 Element recordEle = (Element) iter.next();
-                String MedicineCode = recordEle.elementTextTrim("MedicineCode"); // ÄÃµ½head½ÚµãÏÂµÄ×Ó½ÚµãtitleÖµ
+                String MedicineCode = recordEle.elementTextTrim("MedicineCode"); // æ‹¿åˆ°headèŠ‚ç‚¹ä¸‹çš„å­èŠ‚ç‚¹titleå€¼
                 map.put("MedicineCode", MedicineCode);
                // System.out.println("MedicineCode:"+MedicineCode);
-                String MedicineName = recordEle.elementTextTrim("MedicineName"); // ÄÃµ½head½ÚµãÏÂµÄ×Ó½ÚµãtitleÖµ
+                String MedicineName = recordEle.elementTextTrim("MedicineName"); // æ‹¿åˆ°headèŠ‚ç‚¹ä¸‹çš„å­èŠ‚ç‚¹titleå€¼
                 map.put("MedicineName", MedicineName);
                // System.out.println("MedicineName:"+MedicineName);
-                String Specification = recordEle.elementTextTrim("Specification"); // ÄÃµ½head½ÚµãÏÂµÄ×Ó½ÚµãtitleÖµ
+                String Specification = recordEle.elementTextTrim("Specification"); // æ‹¿åˆ°headèŠ‚ç‚¹ä¸‹çš„å­èŠ‚ç‚¹titleå€¼
                 map.put("Specification", Specification);
-                String Unit = recordEle.elementTextTrim("UNIT"); // ÄÃµ½head½ÚµãÏÂµÄ×Ó½ÚµãtitleÖµ
+                String Unit = recordEle.elementTextTrim("UNIT"); // æ‹¿åˆ°headèŠ‚ç‚¹ä¸‹çš„å­èŠ‚ç‚¹titleå€¼
                 map.put("Unit", Unit);
-                String Price = recordEle.elementTextTrim("Price"); // ÄÃµ½head½ÚµãÏÂµÄ×Ó½ÚµãtitleÖµ
+                String Price = recordEle.elementTextTrim("Price"); // æ‹¿åˆ°headèŠ‚ç‚¹ä¸‹çš„å­èŠ‚ç‚¹titleå€¼
                 map.put("Price", Price);
-//                String PFPrice = recordEle.elementTextTrim("PFPrice"); // ÄÃµ½head½ÚµãÏÂµÄ×Ó½ÚµãtitleÖµ
+//                String PFPrice = recordEle.elementTextTrim("PFPrice"); // æ‹¿åˆ°headèŠ‚ç‚¹ä¸‹çš„å­èŠ‚ç‚¹titleå€¼
 //                map.put("PFPrice", PFPrice);
-                String MedicineType = recordEle.elementTextTrim("MedicineType"); // ÄÃµ½head½ÚµãÏÂµÄ×Ó½ÚµãtitleÖµ
+                String MedicineType = recordEle.elementTextTrim("MedicineType"); // æ‹¿åˆ°headèŠ‚ç‚¹ä¸‹çš„å­èŠ‚ç‚¹titleå€¼
                 map.put("MedicineType", MedicineType);
-//                String State = recordEle.elementTextTrim("State"); // ÄÃµ½head½ÚµãÏÂµÄ×Ó½ÚµãtitleÖµ
+//                String State = recordEle.elementTextTrim("State"); // æ‹¿åˆ°headèŠ‚ç‚¹ä¸‹çš„å­èŠ‚ç‚¹titleå€¼
 //                map.put("State", State);
-                String WBCode = recordEle.elementTextTrim("WBCode"); // ÄÃµ½head½ÚµãÏÂµÄ×Ó½ÚµãtitleÖµ
+                String WBCode = recordEle.elementTextTrim("WBCode"); // æ‹¿åˆ°headèŠ‚ç‚¹ä¸‹çš„å­èŠ‚ç‚¹titleå€¼
                 map.put("WBCode", WBCode);
-                String PYCode = recordEle.elementTextTrim("PYCode"); // ÄÃµ½head½ÚµãÏÂµÄ×Ó½ÚµãtitleÖµ
+                String PYCode = recordEle.elementTextTrim("PYCode"); // æ‹¿åˆ°headèŠ‚ç‚¹ä¸‹çš„å­èŠ‚ç‚¹titleå€¼
                 map.put("PYCode", PYCode);
                 ls.add((HashMap) map);
             }

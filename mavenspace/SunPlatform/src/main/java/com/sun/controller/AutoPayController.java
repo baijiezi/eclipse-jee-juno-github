@@ -56,9 +56,9 @@ public class AutoPayController {
 	}
 
 	/**
-	 * ÈÕÆÚ:2014-03-11 
-	 * ×÷Õß:caolei 
-	 * ×÷ÓÃ:Ìø×ª×Ô¶¯²¹½É¶©µ¥Ò³Ãæ
+	 * æ—¥æœŸ:2014-03-11 
+	 * ä½œè€…:caolei 
+	 * ä½œç”¨:è·³è½¬è‡ªåŠ¨è¡¥ç¼´è®¢å•é¡µé¢
 	 */
 	@RequestMapping(value = "/autoPayment_UI")
 	public String autoPayment_UI() {
@@ -66,9 +66,9 @@ public class AutoPayController {
 	}
 
 	/**
-	 * ÈÕÆÚ:2014-03-11 
-	 * ×÷Õß:caolei 
-	 * ×÷ÓÃ:²éÑ¯×Ô¶¯²¹½ÉÊı¾İ
+	 * æ—¥æœŸ:2014-03-11 
+	 * ä½œè€…:caolei 
+	 * ä½œç”¨:æŸ¥è¯¢è‡ªåŠ¨è¡¥ç¼´æ•°æ®
 	 */
 	@RequestMapping(value = "/autoPayment")
 	public String autoPayment(HttpServletRequest request,
@@ -91,7 +91,7 @@ public class AutoPayController {
 	}
 
 	/**
-	 * ÈÕÆÚ:2014-03-25 ×÷Õß:caolei ×÷ÓÃ:ÓÃÓÚµ¼ÈëexcelÊı¾İ
+	 * æ—¥æœŸ:2014-03-25 ä½œè€…:caolei ä½œç”¨:ç”¨äºå¯¼å…¥excelæ•°æ®
 	 */
 	@RequestMapping(value = "/exportAutoPay")
 	public void exportAutoPay(HttpServletRequest request,HttpServletResponse response) {
@@ -99,7 +99,7 @@ public class AutoPayController {
 		response.setContentType("multipart/form-data");
 		String filePath = "D:\\data.xlsx";
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		String ctxPath = "ÒÑÍË»õ-"+ sdf.format(new Date(System.currentTimeMillis())).toString()+ ".xls";
+		String ctxPath = "å·²é€€è´§-"+ sdf.format(new Date(System.currentTimeMillis())).toString()+ ".xls";
 		response.setHeader("Content-Disposition", "attachment;fileName="+ ctxPath);
 		OutputStream os = null;
 		InputStream inputStream = null;
@@ -142,15 +142,15 @@ public class AutoPayController {
 		ExcelUtil<AutoPayEntity> excelUtil = new ExcelUtil<AutoPayEntity>();
 		OutputStream out = null;
 		try {
-			out = response.getOutputStream();// È¡µÃÊä³öÁ÷
+			out = response.getOutputStream();// å–å¾—è¾“å‡ºæµ
 			// out.flush();
-			response.reset();// Çå¿ÕÊä³öÁ÷
-			response.setHeader("Content-disposition", "attachment; filename="+ new String("×ÔÖú½É·Ñ±¨±í".getBytes("GB2312"), "8859_1")+ ".xls");// Éè¶¨Êä³öÎÄ¼şÍ·
-			response.setContentType("application/msexcel");// ¶¨ÒåÊä³öÀàĞÍ
+			response.reset();// æ¸…ç©ºè¾“å‡ºæµ
+			response.setHeader("Content-disposition", "attachment; filename="+ new String("è‡ªåŠ©ç¼´è´¹æŠ¥è¡¨".getBytes("GB2312"), "8859_1")+ ".xls");// è®¾å®šè¾“å‡ºæ–‡ä»¶å¤´
+			response.setContentType("application/msexcel");// å®šä¹‰è¾“å‡ºç±»å‹
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		String[] headers = { "Ò½ÔºÃû³Æ", "ÕïÁÆ¿¨", "Éí·İÖ¤", "¶©µ¥ºÅ", "Ö§¸¶½ğ¶î", "Ö§¸¶¿¨ºÅ","Ö§¸¶ÀàĞÍ", "Ö§¸¶Á÷Ë®", "Ö§¸¶Ê±¼ä" };
+		String[] headers = { "åŒ»é™¢åç§°", "è¯Šç–—å¡", "èº«ä»½è¯", "è®¢å•å·", "æ”¯ä»˜é‡‘é¢", "æ”¯ä»˜å¡å·","æ”¯ä»˜ç±»å‹", "æ”¯ä»˜æµæ°´", "æ”¯ä»˜æ—¶é—´" };
 		String[] columns = { "hospitalName", "medicalCardNo", "idCard","orderNo", "payMoney", "payCardNo", "payType", "payTradeLine","payDate" };
 		if ("on".equals(njWorkLog.getIdCard()))
 			njWorkLog.setHospitalName("1");
@@ -164,7 +164,7 @@ public class AutoPayController {
 		}
 		List<AutoPayEntity> dataset = autopayService.getWhereEntity(pojo);
 		try {
-			excelUtil.exportExcel("×ÔÖú½É·ÑÃ÷Ï¸±¨±í", headers, columns, dataset, out,"");
+			excelUtil.exportExcel("è‡ªåŠ©ç¼´è´¹æ˜ç»†æŠ¥è¡¨", headers, columns, dataset, out,"");
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}

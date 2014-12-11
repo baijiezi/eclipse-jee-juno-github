@@ -29,9 +29,9 @@ import com.sun.service.TransActionServiceI;
 import com.sun.service.UserServiceI;
 
 /**
- * ÈÕÆÚ:2014-03-11
- * ×÷Õß:caolei
- * ×÷ÓÃ:Ö÷ÒªÕë¶Ô¶©µ¥Ã÷Ï¸²éÑ¯
+ * æ—¥æœŸ:2014-03-11
+ * ä½œè€…:caolei
+ * ä½œç”¨:ä¸»è¦é’ˆå¯¹è®¢å•æ˜ç»†æŸ¥è¯¢
  * @author Administrator
  *
  */
@@ -53,9 +53,9 @@ public class TransController extends BaseController {
 	}
 	
 	/**
-	 * ÈÕÆÚ:2014-03-11
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:Ìø×ª¶©µ¥Ã÷Ï¸²éÑ¯Ò³Ãæ
+	 * æ—¥æœŸ:2014-03-11
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:è·³è½¬è®¢å•æ˜ç»†æŸ¥è¯¢é¡µé¢
 	 */
 	@RequestMapping(value="/transAction_UI",method=RequestMethod.GET)
 	public String transAction_UI(){
@@ -63,9 +63,9 @@ public class TransController extends BaseController {
 	}
 	
 	/**
-	 * ÈÕÆÚ:2014-03-11
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:²éÑ¯¶©µ¥Ã÷Ï¸
+	 * æ—¥æœŸ:2014-03-11
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:æŸ¥è¯¢è®¢å•æ˜ç»†
 	 * @return
 	 */
 	@RequestMapping(value="/transAction_query")
@@ -81,9 +81,9 @@ public class TransController extends BaseController {
 		return "transAction_UI";
 	}
 	/**
-	 * ÈÕÆÚ:2014-03-25
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:ÓÃÓÚµ¼³öexcelÊı¾İ
+	 * æ—¥æœŸ:2014-03-25
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:ç”¨äºå¯¼å‡ºexcelæ•°æ®
 	 */
 	@RequestMapping(value="/exportTrans")
 	public @ResponseBody String exportTrans(HttpServletResponse response, TransActionEntity njWorkLog,
@@ -97,15 +97,15 @@ public class TransController extends BaseController {
 		ExcelUtil<TransActionEntity> excelUtil = new ExcelUtil<TransActionEntity>();
 		OutputStream out = null;
 		try {
-			out = response.getOutputStream();// È¡µÃÊä³öÁ÷
+			out = response.getOutputStream();// å–å¾—è¾“å‡ºæµ
 			// out.flush();
-			response.reset();// Çå¿ÕÊä³öÁ÷
-			response.setHeader("Content-disposition", "attachment; filename="+ new String("Ô¤Ô¼¹ÒºÅÃ÷Ï¸±¨±í".getBytes("GB2312"), "8859_1")+ ".xls");// Éè¶¨Êä³öÎÄ¼şÍ·
-			response.setContentType("application/msexcel");// ¶¨ÒåÊä³öÀàĞÍ
+			response.reset();// æ¸…ç©ºè¾“å‡ºæµ
+			response.setHeader("Content-disposition", "attachment; filename="+ new String("é¢„çº¦æŒ‚å·æ˜ç»†æŠ¥è¡¨".getBytes("GB2312"), "8859_1")+ ".xls");// è®¾å®šè¾“å‡ºæ–‡ä»¶å¤´
+			response.setContentType("application/msexcel");// å®šä¹‰è¾“å‡ºç±»å‹
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		String[] headers = {"Ò½ÔºÃû³Æ","¶©µ¥ºÅ","ÕïÁÆ¿¨","¹ÒºÅ·Ñ","ÏÂµ¥Ê±¼ä","¾ÍÕïÊ±¼ä","ºÅÇò","¿ÆÊÒ","Ò½Éú","Éí·İÖ¤","ÊÖ»úºÅÂë","»¼ÕßĞÕÃû","ĞÔ±ğ","µØÖ·","Ö§¸¶¿¨ºÅ","Ö§¸¶ÀàĞÍ"};
+		String[] headers = {"åŒ»é™¢åç§°","è®¢å•å·","è¯Šç–—å¡","æŒ‚å·è´¹","ä¸‹å•æ—¶é—´","å°±è¯Šæ—¶é—´","å·çƒ","ç§‘å®¤","åŒ»ç”Ÿ","èº«ä»½è¯","æ‰‹æœºå·ç ","æ‚£è€…å§“å","æ€§åˆ«","åœ°å€","æ”¯ä»˜å¡å·","æ”¯ä»˜ç±»å‹"};
 		String[] columns = {"hospitalName","orderNo", "medicalCardNo","fee","orderTime", "visitTime", "serialNo","deptName","doctorName","idCard","mobile","patientName","patientSex","address","payCardNo","settlementType"};
 		if ("on".equals(njWorkLog.getPayCardNo()))
 			njWorkLog.setUserName("1");//setHospitalName("1");
@@ -119,7 +119,7 @@ public class TransController extends BaseController {
 		}
 		List<TransActionEntity> dataset = transActionServiceI.getWhereEntity(pojo);
 		try {
-			excelUtil.exportExcel("Ô¤Ô¼¹ÒºÅÃ÷Ï¸±¨±í", headers, columns, dataset, out,"");
+			excelUtil.exportExcel("é¢„çº¦æŒ‚å·æ˜ç»†æŠ¥è¡¨", headers, columns, dataset, out,"");
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}

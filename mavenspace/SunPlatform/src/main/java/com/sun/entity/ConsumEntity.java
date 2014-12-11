@@ -3,24 +3,24 @@ package com.sun.entity;
 import java.util.Date;
 
 /**
- * ×÷ÓÃ:Ïû·ÑÊµÌå
- * ÈÕÆÚ:2014-03-20
- * ×÷Õß:caolei
+ * ä½œç”¨:æ¶ˆè´¹å®ä½“
+ * æ—¥æœŸ:2014-03-20
+ * ä½œè€…:caolei
  * @author Administrator
  *
  */
 public class ConsumEntity {
-	public int id;					//Ö÷¼ü
-	public String userName;			//ÓÃ»§Ãû
-	public String optionMents;		//ÕË»§ÀàĞÍ
-	public String memberCard;		//¿µÖÚ¿¨ºÅ
-	public int fee;					//³äÖµ½ğ¶î
-	public String operId;			//²Ù×÷Ô±
-	public String tradeLine;		//ÖÕ¶ËÁ÷Ë®ºÅ
-	public String extOrder;			//Íâ²¿¶©µ¥ºÅ
-	public String payCardNo;		//Ö§¸¶¿¨ºÅ
-	public String states;			//×´Ì¬
-	public Date createTime;			//´´½¨Ê±¼ä 
+	public int id;					//ä¸»é”®
+	public String userName;			//ç”¨æˆ·å
+	public String optionMents;		//è´¦æˆ·ç±»å‹
+	public String memberCard;		//åº·ä¼—å¡å·
+	public int fee;					//å……å€¼é‡‘é¢
+	public String operId;			//æ“ä½œå‘˜
+	public String tradeLine;		//ç»ˆç«¯æµæ°´å·
+	public String extOrder;			//å¤–éƒ¨è®¢å•å·
+	public String payCardNo;		//æ”¯ä»˜å¡å·
+	public String states;			//çŠ¶æ€
+	public Date createTime;			//åˆ›å»ºæ—¶é—´ 
 	public int getId() {
 		return id;
 	}

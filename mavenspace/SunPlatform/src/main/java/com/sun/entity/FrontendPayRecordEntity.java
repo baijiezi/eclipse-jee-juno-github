@@ -3,31 +3,31 @@ package com.sun.entity;
 
 public class FrontendPayRecordEntity {
 	private Integer id;
-	private String frontOrderNo;	//È¥ÖØÊ±¼ä´Á
-	private String hospitalId;		//Ò½ÔºID
-	private String hospitalName;	//Ò½ÔºÃû³Æ
-	private String userName;		//ÓÃ»§Ãû
-	private String patientName;		//»¼ÕßĞÕÃû
-	private String medicalCardNo;	//ÕïÁÆ¿¨
-	private String mobile;			//ÊÖ»úºÅÂë
-	private String orderNo;			//¶©µ¥ºÅ
-	private String realPayFee;		 //Ö§¸¶½ğ¶î
-	private String payCardNo;		//Ö§¸¶¿¨ºÅ
-	private String payType;			//Ö§¸¶ÀàĞÍ
-	private String settlementType;	//½áËã·½Ê½
-	private String paymentId;	//Ö§¸¶ºÅ
-	private String payTranLine;//Ö§¸¶Á÷Ë®
-	private String systemPayTranLine;//ÏµÍ³Ö§¸¶Á÷Ë®
-	private String optionPayments;//Ö§¸¶ÇşµÀ
-	private String operId;			//ÖÕ¶ËID
-	private String terminalTranLine;//ÖÕ¶ËÁ÷Ë®
-	private String settleId;//½áËãID
-	private String payTime;//Ö§¸¶Ê±¼ä
-	private String states;//×´Ì¬
-	private String remark;//±¸×¢
-	private String startDate;//¿ªÊ¼ÈÕÆÚ
-	private String endDate;//½áÊøÈÕÆÚ
-	private String businessType;//ÒµÎñÀàĞÍ
+	private String frontOrderNo;	//å»é‡æ—¶é—´æˆ³
+	private String hospitalId;		//åŒ»é™¢ID
+	private String hospitalName;	//åŒ»é™¢åç§°
+	private String userName;		//ç”¨æˆ·å
+	private String patientName;		//æ‚£è€…å§“å
+	private String medicalCardNo;	//è¯Šç–—å¡
+	private String mobile;			//æ‰‹æœºå·ç 
+	private String orderNo;			//è®¢å•å·
+	private String realPayFee;		 //æ”¯ä»˜é‡‘é¢
+	private String payCardNo;		//æ”¯ä»˜å¡å·
+	private String payType;			//æ”¯ä»˜ç±»å‹
+	private String settlementType;	//ç»“ç®—æ–¹å¼
+	private String paymentId;	//æ”¯ä»˜å·
+	private String payTranLine;//æ”¯ä»˜æµæ°´
+	private String systemPayTranLine;//ç³»ç»Ÿæ”¯ä»˜æµæ°´
+	private String optionPayments;//æ”¯ä»˜æ¸ é“
+	private String operId;			//ç»ˆç«¯ID
+	private String terminalTranLine;//ç»ˆç«¯æµæ°´
+	private String settleId;//ç»“ç®—ID
+	private String payTime;//æ”¯ä»˜æ—¶é—´
+	private String states;//çŠ¶æ€
+	private String remark;//å¤‡æ³¨
+	private String startDate;//å¼€å§‹æ—¥æœŸ
+	private String endDate;//ç»“æŸæ—¥æœŸ
+	private String businessType;//ä¸šåŠ¡ç±»å‹
 	public String getBusinessType() {
 		return businessType;
 	}

@@ -37,18 +37,18 @@ public class ExamController {
 		this.userService = userService;
 	}
 	/**
-	 * ÈÕÆÚ:2014-03-11
-	 * ×÷Õß:caolei 
-	 * ×÷ÓÃ:Ìø×ªÕïÁÆ¿¨¼ÇÂ¼Ã÷Ï¸Ò³Ãæ
+	 * æ—¥æœŸ:2014-03-11
+	 * ä½œè€…:caolei 
+	 * ä½œç”¨:è·³è½¬è¯Šç–—å¡è®°å½•æ˜ç»†é¡µé¢
 	 */
 	@RequestMapping(value = "/examCard_UI")
 	public String examCard_UI() {
 		return "examCard_UI";
 	}
 	/**
-	 * ÈÕÆÚ:2014-09-18
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:²éÑ¯ÕïÁÆ¿¨¼ÇÂ¼
+	 * æ—¥æœŸ:2014-09-18
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:æŸ¥è¯¢è¯Šç–—å¡è®°å½•
 	 */
 	@RequestMapping(value="/examDelta")
 	public String examDelta(HttpServletRequest request,@ModelAttribute("pojo") ExamEntity pojo,HttpSession se,BaseConditionVO vo, Model model){
@@ -68,9 +68,9 @@ public class ExamController {
 		return "examCard_UI";
 	}
 	/**
-	 * ÈÕÆÚ:2014-10-27
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:µ¼³öÕïÁÆ¿¨Ã÷Ï¸
+	 * æ—¥æœŸ:2014-10-27
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:å¯¼å‡ºè¯Šç–—å¡æ˜ç»†
 	 * @return
 	 */
 	@RequestMapping(value = "/exprotExcel")
@@ -86,15 +86,15 @@ public class ExamController {
 		ExcelUtil<ExamEntity> excelUtil = new ExcelUtil<ExamEntity>();
 		OutputStream out = null;
 		try {
-			out = response.getOutputStream();// È¡µÃÊä³öÁ÷
+			out = response.getOutputStream();// å–å¾—è¾“å‡ºæµ
 			// out.flush();
-			response.reset();// Çå¿ÕÊä³öÁ÷
-			response.setHeader("Content-disposition", "attachment; filename="+ new String("ÕïÁÆ¿¨¼ÇÂ¼Ã÷Ï¸".getBytes("GB2312"), "8859_1")+ ".xls");// Éè¶¨Êä³öÎÄ¼şÍ·
-			response.setContentType("application/msexcel");// ¶¨ÒåÊä³öÀàĞÍ
+			response.reset();// æ¸…ç©ºè¾“å‡ºæµ
+			response.setHeader("Content-disposition", "attachment; filename="+ new String("è¯Šç–—å¡è®°å½•æ˜ç»†".getBytes("GB2312"), "8859_1")+ ".xls");// è®¾å®šè¾“å‡ºæ–‡ä»¶å¤´
+			response.setContentType("application/msexcel");// å®šä¹‰è¾“å‡ºç±»å‹
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		String[] headers = {"Ò½ÔºÃû³Æ","ÕïÁÆ¿¨","ĞÕÃû","ĞÔ±ğ","Éí·İÖ¤","ÊÖ»úºÅ","µØÖ·","ÖÕ¶Ë±àºÅ","·¢¿¨ÈÕÆÚ"};
+		String[] headers = {"åŒ»é™¢åç§°","è¯Šç–—å¡","å§“å","æ€§åˆ«","èº«ä»½è¯","æ‰‹æœºå·","åœ°å€","ç»ˆç«¯ç¼–å·","å‘å¡æ—¥æœŸ"};
 		String[] columns = {"hospitalName","medicalCardNo","patientName","patientSex","idCard","mobile","address","operId","createTime"};
 		if ("on".equals(njWorkLog.getIdCard()))
 			njWorkLog.setHospitalName("1");
@@ -108,7 +108,7 @@ public class ExamController {
 		}
 		List<ExamEntity> dataset = examService.getWhereEntity(pojo);
 		try {
-			excelUtil.exportExcel("ÕïÁÆ¿¨¼ÇÂ¼Ã÷Ï¸", headers, columns, dataset, out,"");
+			excelUtil.exportExcel("è¯Šç–—å¡è®°å½•æ˜ç»†", headers, columns, dataset, out,"");
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}

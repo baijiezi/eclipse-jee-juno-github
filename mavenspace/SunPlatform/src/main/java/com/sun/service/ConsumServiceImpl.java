@@ -29,9 +29,9 @@ public class ConsumServiceImpl implements ConsumServiceI {
 	}
 	
 	/**
-	 * ×÷ÓÃ:×ª·¢±¨ÎÄ
-	 * ÈÕÆÚ:2014-03-21
-	 * ×÷Õß:caolei
+	 * ä½œç”¨:è½¬å‘æŠ¥æ–‡
+	 * æ—¥æœŸ:2014-03-21
+	 * ä½œè€…:caolei
 	 * @throws IOException
 	 */
 	public String Communication(String json){
@@ -50,7 +50,7 @@ public class ConsumServiceImpl implements ConsumServiceI {
 			result=ConnUtil.ConnApiService(url, apikey, consumesecretKey, entity).toString();
 			String success="{\"success\":true,\"ExtOrder\":\"YX20232311111\",\"Password\":\"22222\",\"Total\":7}";
 			JSONObject job=JSONObject.fromObject(success);
-			if(job.getBoolean("success")==true){//´¦Àí³É¹¦µÇ¼Ç¼ÇÂ¼
+			if(job.getBoolean("success")==true){//å¤„ç†æˆåŠŸç™»è®°è®°å½•
 				//ConsumServiceImpl.toJson(Json).put(key, value)
 				ConsumEntity ce=new ConsumEntity();
 //				ce.setPayMentId("789555421");
@@ -60,7 +60,7 @@ public class ConsumServiceImpl implements ConsumServiceI {
 //				ce.setKzCardNo("987654321");
 				consumeMapper.insert(ce);
 			}else{
-				System.out.println("Ö§¸¶³öÏÖ´íÎó:"+result);
+				System.out.println("æ”¯ä»˜å‡ºç°é”™è¯¯:"+result);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class ConsumServiceImpl implements ConsumServiceI {
 		this.consumeMapper = consumeMapper;
 	}
 	/**
-	 * ×÷ÓÃ:×ª»»JSON¸ñÊ½
+	 * ä½œç”¨:è½¬æ¢JSONæ ¼å¼
 	 * @param Json
 	 * @return
 	 * @throws JSONException
@@ -91,13 +91,13 @@ public class ConsumServiceImpl implements ConsumServiceI {
 		map.put("traderId",jsonObj.get("TraderId"));
 		map.put("extOrder",jsonObj.get("ExtOrder"));
 		JSONObject js=JSONObject.fromObject(map);
-		System.out.println("×ª»»ºóµÄÊı¾İÎª:"+js.toString());
+		System.out.println("è½¬æ¢åçš„æ•°æ®ä¸º:"+js.toString());
 		return js;
 	}
 	/**
-	 * ×÷ÓÃ:×ª»»½ğ¶î ·Ö×ªÔª
-	 * ÈÕÆÚ:2014-03-21
-	 * ×÷Õß:caolei
+	 * ä½œç”¨:è½¬æ¢é‡‘é¢ åˆ†è½¬å…ƒ
+	 * æ—¥æœŸ:2014-03-21
+	 * ä½œè€…:caolei
 	 * @param total
 	 * @return
 	 */
@@ -105,7 +105,7 @@ public class ConsumServiceImpl implements ConsumServiceI {
 		String CURRENCY_FEN_REGEX="\\-?[0-9]+";
 		if(!total.matches(CURRENCY_FEN_REGEX)){
 			try {
-				throw new Exception("½ğ¶î¸ñÊ½ÓĞÎó");
+				throw new Exception("é‡‘é¢æ ¼å¼æœ‰è¯¯");
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

@@ -13,23 +13,23 @@ public class User {
 		this.userRoles = userRoles;
 	}
 
-	private String id;	//Ö÷¼üID
+	private String id;	//ä¸»é”®ID
 	
-	private String orgName;//²Ëµ¥À¸
+	private String orgName;//èœå•æ 
 
-	private String name;//ÓÃ»§Ãû
+	private String name;//ç”¨æˆ·å
 
-	private String password;//ÃÜÂë
+	private String password;//å¯†ç 
 	
-	private String user_level;//ÓÃ»§¼¶±ğ
+	private String user_level;//ç”¨æˆ·çº§åˆ«
 	
-	private String real_name;//ÕæÊµĞÕÃû
+	private String real_name;//çœŸå®å§“å
 	
-	private String department;//ËùÊô²¿ÃÅ
+	private String department;//æ‰€å±éƒ¨é—¨
 	
-	private String mobile;//ÊÖ»úºÅÂë
+	private String mobile;//æ‰‹æœºå·ç 
 
-	private String states;//×´Ì¬
+	private String states;//çŠ¶æ€
 
 	public String getId() {
 		return id;

@@ -1,33 +1,33 @@
 package com.sun.entity;
 
 /**
- * ×÷ÓÃ:×ÔÖú²¹½ÉÃ÷Ï¸
- * ×÷Õß:caolei
- * ÈÕÆÚ:ÈÕÆÚ:2014-03-11
+ * ä½œç”¨:è‡ªåŠ©è¡¥ç¼´æ˜ç»†
+ * ä½œè€…:caolei
+ * æ—¥æœŸ:æ—¥æœŸ:2014-03-11
  * @author Administrator 
  *
  */
 public class AutoPayEntity {
 	public int id;
-	public String hospitalName;	//Ò½ÔºÃû³Æ
-	public String medicalCardNo;//ÕïÁÆ¿¨
-	public String idCard;		//Éí·İÖ¤
-	public String orderNo;		//¶©µ¥ºÅ
-	public String payMoney;		//Ö§¸¶½ğ¶î
-	public String payCardNo;	//Ö§¸¶¿¨ºÅ
-	public String payType;		//Ö§¸¶ÀàĞÍ
-	public String payTradeLine;	//Ö§¸¶Á÷Ë®
-	public String payDate;		//Ö§¸¶Ê±¼ä
-	public String mobile;		//ÊÖ»úºÅÂë
-	public String userName;		//ÓÃ»§ĞÕÃû
-	public String startDate;		//¿ªÊ¼ÈÕÆÚ
-	public String endDate;		//½áÊøÈÕÆÚ
-	private String payTranLine;	//Ö§¸¶Á÷Ë®
-	private String systemPayTranLine;//ÏµÍ³²Î¿¼ºÅ
+	public String hospitalName;	//åŒ»é™¢åç§°
+	public String medicalCardNo;//è¯Šç–—å¡
+	public String idCard;		//èº«ä»½è¯
+	public String orderNo;		//è®¢å•å·
+	public String payMoney;		//æ”¯ä»˜é‡‘é¢
+	public String payCardNo;	//æ”¯ä»˜å¡å·
+	public String payType;		//æ”¯ä»˜ç±»å‹
+	public String payTradeLine;	//æ”¯ä»˜æµæ°´
+	public String payDate;		//æ”¯ä»˜æ—¶é—´
+	public String mobile;		//æ‰‹æœºå·ç 
+	public String userName;		//ç”¨æˆ·å§“å
+	public String startDate;		//å¼€å§‹æ—¥æœŸ
+	public String endDate;		//ç»“æŸæ—¥æœŸ
+	private String payTranLine;	//æ”¯ä»˜æµæ°´
+	private String systemPayTranLine;//ç³»ç»Ÿå‚è€ƒå·
 	public String frontOrderNo;
-	public String remark;//±¸×¢
-	public String states;//½»Ò××´Ì¬
-	public String operId;		//²Ù×÷Ô±
+	public String remark;//å¤‡æ³¨
+	public String states;//äº¤æ˜“çŠ¶æ€
+	public String operId;		//æ“ä½œå‘˜
 
 	
 

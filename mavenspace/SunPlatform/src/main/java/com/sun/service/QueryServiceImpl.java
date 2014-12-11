@@ -26,10 +26,10 @@ public class QueryServiceImpl implements QueryServiceI{
 			String consumesecretKey=proper.get("balancesecretkey").toString();
 			result=ConnUtil.getApiService(url, apikey, consumesecretKey).toString();
 			JSONObject job=JSONObject.fromObject(result);
-			if(job.getBoolean("success")==true){//´¦Àí³É¹¦µÇ¼Ç¼ÇÂ¼
-				System.out.println("²éÑ¯³É¹¦£¬·µ»ØµÄÊı¾İÎª£º"+result);
+			if(job.getBoolean("success")==true){//å¤„ç†æˆåŠŸç™»è®°è®°å½•
+				System.out.println("æŸ¥è¯¢æˆåŠŸï¼Œè¿”å›çš„æ•°æ®ä¸ºï¼š"+result);
 			}else{
-				System.out.println("²éÑ¯³öÏÖ´íÎó:"+result);
+				System.out.println("æŸ¥è¯¢å‡ºç°é”™è¯¯:"+result);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -38,15 +38,15 @@ public class QueryServiceImpl implements QueryServiceI{
 	}
 	
 	/**
-	 * ×÷ÓÃ:×ª»»URL
-	 * ÈÕÆÚ:2014-03-28
-	 * ×÷Õß:caolei
+	 * ä½œç”¨:è½¬æ¢URL
+	 * æ—¥æœŸ:2014-03-28
+	 * ä½œè€…:caolei
 	 */
 	public static String toUrl(String url,String json){
-		System.out.println("»ñÈ¡µÄURL£º"+url+";»ñÈ¡µÄJSON£º"+json);
+		System.out.println("è·å–çš„URLï¼š"+url+";è·å–çš„JSONï¼š"+json);
 		JSONObject jsonob=JSONObject.fromObject(json);
 		String newurl=url.replaceAll("\'id\'", jsonob.get("UserId").toString());
-		System.out.println("×ª»»ºóµÄURL£º"+newurl);
+		System.out.println("è½¬æ¢åçš„URLï¼š"+newurl);
 		return newurl;
 	}
 }

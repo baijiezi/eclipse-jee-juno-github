@@ -45,18 +45,18 @@ public class PayMentController {
 		this.payOrderService = payOrderService;
 	}
 	/**
-	 * ÈÕÆÚ:2014-03-11
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ£ºÌø×ª²éÑ¯²¹½É¶©µ¥Ã÷Ï¸Ò³Ãæ
+	 * æ—¥æœŸ:2014-03-11
+	 * ä½œè€…:caolei
+	 * ä½œç”¨ï¼šè·³è½¬æŸ¥è¯¢è¡¥ç¼´è®¢å•æ˜ç»†é¡µé¢
 	 */
 	@RequestMapping(value="/paymentorder_UI")
 	public String paymentorder_UI(){
 		return "paymentorder_UI";
 	}
 	/**
-	 * ÈÕÆÚ:2014-03-11
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:²éÑ¯²¹½É¶©µ¥Ã÷Ï¸Ò³Ãæ
+	 * æ—¥æœŸ:2014-03-11
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:æŸ¥è¯¢è¡¥ç¼´è®¢å•æ˜ç»†é¡µé¢
 	 */
 	@RequestMapping(value="/paymentorder")
 	public String paymentorder(HttpServletRequest request,@ModelAttribute("pojo") PayOrderEntity pojo,HttpSession se){
@@ -65,17 +65,17 @@ public class PayMentController {
 			pojo.setHospitalName(us.getDepartment());
 		}
 		List<PayOrderEntity> ls=payOrderService.getWhereEntity(pojo);
-		System.out.println("µ±Ç°Ò»¹²²éÑ¯³öÀ´:"+ls.size());
+		System.out.println("å½“å‰ä¸€å…±æŸ¥è¯¢å‡ºæ¥:"+ls.size());
 
 		request.setAttribute("ls",ls);
 		request.setAttribute("pojo",pojo);
-		System.out.println("Ö´ĞĞtransAction_Qury·½·¨");
+		System.out.println("æ‰§è¡ŒtransAction_Quryæ–¹æ³•");
 		return "paymentorder_UI";
 	}
 	/**
-	 * ÈÕÆÚ£º2014-03-25
-	 * ×÷Õß:caolei
-	 * ×÷ÓÃ:µ¼³öÃ÷Ï¸
+	 * æ—¥æœŸï¼š2014-03-25
+	 * ä½œè€…:caolei
+	 * ä½œç”¨:å¯¼å‡ºæ˜ç»†
 	 */
 	@RequestMapping(value="/exportPayMent")
 	public @ResponseBody String exportPayMent(HttpServletResponse response, PayOrderEntity njWorkLog,
@@ -89,15 +89,15 @@ public class PayMentController {
 		ExcelUtil<PayOrderEntity> excelUtil = new ExcelUtil<PayOrderEntity>();
 		OutputStream out = null;
 		try {
-			out = response.getOutputStream();// È¡µÃÊä³öÁ÷
+			out = response.getOutputStream();// å–å¾—è¾“å‡ºæµ
 			// out.flush();
-			response.reset();// Çå¿ÕÊä³öÁ÷
-			response.setHeader("Content-disposition", "attachment; filename="+ new String("²¹½É¶©µ¥Ã÷Ï¸±¨±í".getBytes("GB2312"), "8859_1")+ ".xls");// Éè¶¨Êä³öÎÄ¼şÍ·
-			response.setContentType("application/msexcel");// ¶¨ÒåÊä³öÀàĞÍ
+			response.reset();// æ¸…ç©ºè¾“å‡ºæµ
+			response.setHeader("Content-disposition", "attachment; filename="+ new String("è¡¥ç¼´è®¢å•æ˜ç»†æŠ¥è¡¨".getBytes("GB2312"), "8859_1")+ ".xls");// è®¾å®šè¾“å‡ºæ–‡ä»¶å¤´
+			response.setContentType("application/msexcel");// å®šä¹‰è¾“å‡ºç±»å‹
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		String[] headers = { "Ò½ÔºÃû³Æ", "¶©µ¥ºÅ", "ÕïÁÆ¿¨", "Éí·İÖ¤","ÊÖ»úºÅÂë", "¹ÒºÅ·Ñ","Ö§¸¶¿¨ºÅ", "ÕÊ»§ÀàĞÍ", "Ö§¸¶ÈÕÆÚ" };
+		String[] headers = { "åŒ»é™¢åç§°", "è®¢å•å·", "è¯Šç–—å¡", "èº«ä»½è¯","æ‰‹æœºå·ç ", "æŒ‚å·è´¹","æ”¯ä»˜å¡å·", "å¸æˆ·ç±»å‹", "æ”¯ä»˜æ—¥æœŸ" };
 		String[] columns = { "hospitalName", "orderNo", "medicalCardNo","idCard", "mobile", "fee", "payCardNo", "payMent","createTime" };
 		if ("on".equals(njWorkLog.getIdCard()))
 			njWorkLog.setHospitalName("1");
@@ -112,7 +112,7 @@ public class PayMentController {
 		}
 		List<PayOrderEntity> dataset = payOrderService.getWhereEntity(pojo);
 		try {
-			excelUtil.exportExcel("²¹½É¶©µ¥Ã÷Ï¸±¨±í", headers, columns, dataset, out,"");
+			excelUtil.exportExcel("è¡¥ç¼´è®¢å•æ˜ç»†æŠ¥è¡¨", headers, columns, dataset, out,"");
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}

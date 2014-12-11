@@ -2,15 +2,15 @@ package com.sun.controller;
 
 public class BaseController {
 	
-	protected Integer pageNum=1; // µ±Ç°ÊÇµÚ¼¸Ò³
+	protected Integer pageNum=1; // å½“å‰æ˜¯ç¬¬å‡ é¡µ
 
-	protected Integer totalCount=0; // ×ÜÌõÊı
+	protected Integer totalCount=0; // æ€»æ¡æ•°
 
-	protected Integer numPerPage=20; // Ã¿Ò³ÏÔÊ¾¶àÉÙÌõ
+	protected Integer numPerPage=20; // æ¯é¡µæ˜¾ç¤ºå¤šå°‘æ¡
 
-	protected String orderField; // ÅÅĞò×Ö¶Î
+	protected String orderField; // æ’åºå­—æ®µ
 	
-	protected String orderDirection; // ÅÅĞò·½Ïò
+	protected String orderDirection; // æ’åºæ–¹å‘
 
 	public Integer getPageNum() {
 		return pageNum;

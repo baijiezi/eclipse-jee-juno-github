@@ -17,9 +17,9 @@ import com.sun.entity.DrugsEntity;
 import com.sun.service.DrugsServiceI;
 
 /**
- * ÈÕÆÚ:2014-04-03
- * ×÷ÓÃ£º¶¨Ê±Ö´ĞĞÓÊ¼ş·¢ËÍ
- * ×÷Õß:caolei
+ * æ—¥æœŸ:2014-04-03
+ * ä½œç”¨ï¼šå®šæ—¶æ‰§è¡Œé‚®ä»¶å‘é€
+ * ä½œè€…:caolei
  * @author Administrator 
  *
  */
@@ -35,20 +35,20 @@ public class JobSendMail {
 	}
 	/**
 	 * <br>
-	 * ·½·¨ËµÃ÷£ºÖ÷·½·¨£¬ÓÃÓÚ²âÊÔ <br>
-	 * ÊäÈë²ÎÊı£º <br>
-	 * ·µ»ØÀàĞÍ£º 
+	 * æ–¹æ³•è¯´æ˜ï¼šä¸»æ–¹æ³•ï¼Œç”¨äºæµ‹è¯• <br>
+	 * è¾“å…¥å‚æ•°ï¼š <br>
+	 * è¿”å›ç±»å‹ï¼š 
 	 */
 	//@Scheduled(cron="0 0-59 18 * * ?")
 	@Scheduled(cron = "0 57 13 * * ?")
 	public void jobSend(){
 		
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//ÉèÖÃÈÕÆÚ¸ñÊ½
-		System.out.println("¿ªÊ¼Ö´ĞĞÊı¾İ×¥È¡:"+df.format(new Date()));
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//è®¾ç½®æ—¥æœŸæ ¼å¼
+		System.out.println("å¼€å§‹æ‰§è¡Œæ•°æ®æŠ“å–:"+df.format(new Date()));
 		SelfSrvTermbServiceSoap service = new SelfSrvTermbService().getSelfSrvTermbServiceSoap();
 		String inXml = "<request><machineno>898</machineno></request>";
 		System.out.println("***"+inXml+"**");
-		//String text="<Response><ResultCode>0</ResultCode><ErrorMsg>³É¹¦</ErrorMsg><ResultData><MedicineCode>1804000</MedicineCode><MedicineName>Ò¶ËáÆ¬ *</MedicineName><Specification>5mg*100             </Specification><OutpatientUnit>Æ¿        </OutpatientUnit><Price>0.0288</Price><PFPrice>0.0288</PFPrice><MedicineType>Î÷Ò©      </MedicineType><State>Ê¹ÓÃ</State><YBType /><WBCode>KST       </WBCode><PYCode>YSP       </PYCode></ResultData><ResultData><MedicineCode>1503400</MedicineCode><MedicineName>¼×ÑõÂÈÆÕ°·Æ¬ *</MedicineName><Specification>5mg*100             </Specification><OutpatientUnit>Æ¿        </OutpatientUnit><Price>0.0088</Price><PFPrice>0.0088</PFPrice><MedicineType>Î÷Ò©      </MedicineType><State>Ê¹ÓÃ</State><YBType /><WBCode>LRRUET    </WBCode><PYCode>JYLPAP    </PYCode></ResultData></Response>";
+		//String text="<Response><ResultCode>0</ResultCode><ErrorMsg>æˆåŠŸ</ErrorMsg><ResultData><MedicineCode>1804000</MedicineCode><MedicineName>å¶é…¸ç‰‡ *</MedicineName><Specification>5mg*100             </Specification><OutpatientUnit>ç“¶        </OutpatientUnit><Price>0.0288</Price><PFPrice>0.0288</PFPrice><MedicineType>è¥¿è¯      </MedicineType><State>ä½¿ç”¨</State><YBType /><WBCode>KST       </WBCode><PYCode>YSP       </PYCode></ResultData><ResultData><MedicineCode>1503400</MedicineCode><MedicineName>ç”²æ°§æ°¯æ™®èƒºç‰‡ *</MedicineName><Specification>5mg*100             </Specification><OutpatientUnit>ç“¶        </OutpatientUnit><Price>0.0088</Price><PFPrice>0.0088</PFPrice><MedicineType>è¥¿è¯      </MedicineType><State>ä½¿ç”¨</State><YBType /><WBCode>LRRUET    </WBCode><PYCode>JYLPAP    </PYCode></ResultData></Response>";
 		String result = service.gdaGetFeeitemDetail(inXml);//(inXml);
 //		System.out.println("************************");
 //		System.out.println(result);
@@ -57,19 +57,19 @@ public class JobSendMail {
 		List<HashMap> ls = ConnUtil.readStringXmlOut(result);
 //		for(int a=0;a<ls.size();a++){
 //			DrugsEntity de=new DrugsEntity();
-//            de.setMedicineCode(ls.get(a).get("MedicineCode").toString()); // ÄÃµ½Öµ
-//            de.setMedicineName(ls.get(a).get("MedicineName").toString()); // ÄÃµ½Öµ
-//            de.setSpecifiCation(ls.get(a).get("Unit").toString()); // ÄÃµ½Öµ
-//           // de.setOutpatienTunit(ls.get(a).get("OutpatientUnit").toString()); // ÄÃµ½Öµ
-//            de.setPrice(ls.get(a).get("Price").toString()); // ÄÃµ½Öµ
-//           // de.setPfPrice(ls.get(a).get("PFPrice").toString()); // ÄÃµ½Öµ
-//            de.setMedicineType(ls.get(a).get("MedicineType").toString()); // ÄÃµ½Öµ
-//            //de.setState(ls.get(a).get("State").toString()); // ÄÃµ½Öµ
-//            de.setWbCode(ls.get(a).get("WBCode").toString()); // ÄÃµ½Öµ
-//            de.setPyCode(ls.get(a).get("PYCode").toString()); // ÄÃµ½Öµ
+//            de.setMedicineCode(ls.get(a).get("MedicineCode").toString()); // æ‹¿åˆ°å€¼
+//            de.setMedicineName(ls.get(a).get("MedicineName").toString()); // æ‹¿åˆ°å€¼
+//            de.setSpecifiCation(ls.get(a).get("Unit").toString()); // æ‹¿åˆ°å€¼
+//           // de.setOutpatienTunit(ls.get(a).get("OutpatientUnit").toString()); // æ‹¿åˆ°å€¼
+//            de.setPrice(ls.get(a).get("Price").toString()); // æ‹¿åˆ°å€¼
+//           // de.setPfPrice(ls.get(a).get("PFPrice").toString()); // æ‹¿åˆ°å€¼
+//            de.setMedicineType(ls.get(a).get("MedicineType").toString()); // æ‹¿åˆ°å€¼
+//            //de.setState(ls.get(a).get("State").toString()); // æ‹¿åˆ°å€¼
+//            de.setWbCode(ls.get(a).get("WBCode").toString()); // æ‹¿åˆ°å€¼
+//            de.setPyCode(ls.get(a).get("PYCode").toString()); // æ‹¿åˆ°å€¼
 //            drugsService.insert(de);
 //		}
-		System.out.println("×¥È¡Íê³É:Ò»¹²×¥È¡¡¾"+ls.size()+"¡¿ÌõÊı¾İ");
+		System.out.println("æŠ“å–å®Œæˆ:ä¸€å…±æŠ“å–ã€"+ls.size()+"ã€‘æ¡æ•°æ®");
 	}
 }
 

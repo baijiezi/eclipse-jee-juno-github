@@ -15,15 +15,15 @@ public class BaseConditionVO {
 	private String startDate;
 	private String endDate;
 	
-	private String medicalCardNo;//ÕïÁÆ¿¨ºÅ
-	private String patientName;//»¼ÕßĞÕÃû
-	private String hospitalName;//Ò½ÔºÃû³Æ
-	private String payCardNo;//Ö§¸¶¿¨ºÅ
-	private String mobile;//ÊÖ»úºÅÂë
-	private String orderNo;//¶©µ¥ºÅ
+	private String medicalCardNo;//è¯Šç–—å¡å·
+	private String patientName;//æ‚£è€…å§“å
+	private String hospitalName;//åŒ»é™¢åç§°
+	private String payCardNo;//æ”¯ä»˜å¡å·
+	private String mobile;//æ‰‹æœºå·ç 
+	private String orderNo;//è®¢å•å·
 	private String userName;
-	public String jzstarTime;							//¾ÍÕï¿ªÊ¼ÈÕÆÚ
-	public String jzendTime;							//¾ÍÕï½áÊøÈÕÆÚ
+	public String jzstarTime;							//å°±è¯Šå¼€å§‹æ—¥æœŸ
+	public String jzendTime;							//å°±è¯Šç»“æŸæ—¥æœŸ
 	public String operId;
 	public String states;
 	

@@ -1,30 +1,30 @@
 package com.sun.entity;
 
 /**
- * ×÷ÓÃ:²¹½É¶©µ¥ÊµÌå
- * ×÷Õß:caolei
- * ÈÕÆÚ:2014-03-11
+ * ä½œç”¨:è¡¥ç¼´è®¢å•å®ä½“
+ * ä½œè€…:caolei
+ * æ—¥æœŸ:2014-03-11
  * @author Administrator
  *
  */
 public class PayOrderEntity {
-	public int id;//Ö÷¼üID
-	public String hospitalId;//Ò½ÔºID
-	public String hospitalName;//Ò½ÔºÃû³Æ
-	public String userName;//ÓÃ»§Ãû
-	public String patientName;//»¼ÕßĞÕÃû
-	public String medicalCardNo;//ÕïÁÆ¿¨ºÅ
-	public String mobile;//ÊÖ»úºÅÂë
-	public String idCard;//Éí·İÖ¤
-	public String orderNo;//¶©µ¥ºÅ
-	public String fee;//¹ÒºÅ·Ñ
-	public String payCardNo;//Ö§¸¶¿¨ºÅ
-	public String mentType;//½áËã·½Ê½
-	public String payMentId;//Ö§¸¶ºÅ
-	public String payMent;//ÕË»§ÀàĞÍ
-	public String operId;//²Ù×÷Ô±
-	public String status;//×´Ì¬
-	public String createTime;//´´½¨Ê±¼ä
+	public int id;//ä¸»é”®ID
+	public String hospitalId;//åŒ»é™¢ID
+	public String hospitalName;//åŒ»é™¢åç§°
+	public String userName;//ç”¨æˆ·å
+	public String patientName;//æ‚£è€…å§“å
+	public String medicalCardNo;//è¯Šç–—å¡å·
+	public String mobile;//æ‰‹æœºå·ç 
+	public String idCard;//èº«ä»½è¯
+	public String orderNo;//è®¢å•å·
+	public String fee;//æŒ‚å·è´¹
+	public String payCardNo;//æ”¯ä»˜å¡å·
+	public String mentType;//ç»“ç®—æ–¹å¼
+	public String payMentId;//æ”¯ä»˜å·
+	public String payMent;//è´¦æˆ·ç±»å‹
+	public String operId;//æ“ä½œå‘˜
+	public String status;//çŠ¶æ€
+	public String createTime;//åˆ›å»ºæ—¶é—´
 	public int getId() {
 		return id;
 	}

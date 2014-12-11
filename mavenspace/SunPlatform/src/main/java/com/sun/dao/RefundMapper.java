@@ -5,8 +5,8 @@ import java.util.List;
 import com.sun.entity.RefundEntity;
 
 /**
- * 作用:退款DAO
- * 日期:2014-03-28
+ * 浣滅敤:閫�娆綝AO
+ * 鏃ユ湡:2014-03-28
  * @author Administrator
  *
  */
