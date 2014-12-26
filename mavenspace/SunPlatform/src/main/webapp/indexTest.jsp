@@ -69,6 +69,7 @@
 		<script src="js/dwz.print.js" type="text/javascript"></script>
 		<!--<script src="bin/dwz.min.js" type="text/javascript"></script>-->
 		<script src="js/dwz.regional.zh.js" type="text/javascript"></script>
+		<script src="js/LodopFuncs.js" type="text/javascript"></script>
 
 		<script type="text/javascript">
 $(function(){

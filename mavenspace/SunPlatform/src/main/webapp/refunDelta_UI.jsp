@@ -61,7 +61,7 @@
 		</tbody>
 	</table>
     <!-- 分页条 -->
-    <%@include file="/inc/pageBar.jsp"%>
+    
 </div>
 <script>
 	$(document).ready(function(){

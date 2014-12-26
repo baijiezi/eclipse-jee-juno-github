@@ -20,6 +20,7 @@
 						<option value="">全部类型</option>
 						<option value="0" <c:if test="${pojo.states eq 0 }">selected='selected'</c:if>>扣费成功</option>
 						<option value="1" <c:if test="${pojo.states eq 1 }">selected='selected'</c:if>>扣费失败</option>
+						<option value="2" <c:if test="${pojo.states eq 2 }">selected='selected'</c:if>>已退费</option>
 					</select>
 				</td>
 			</tr>
@@ -49,7 +50,7 @@
 			 <li><a class="icon"  href="javascript:;" onclick="testConfirmMsg()"><span>导出EXCEL</span></a></li>
 		</ul>
 	</div>
-<table class="table" targetType="navTab" asc="asc" desc="desc" width="2000px" nowrapTD="false" layoutH="140">
+<table class="table" targetType="navTab" asc="asc" desc="desc" width="2050px" nowrapTD="false" layoutH="140">
 		<thead>
 			<tr>
 				<th>编号</th>
@@ -70,7 +71,9 @@
 				<th>支付时间</th>
 				<th>业务类型</th>
 				<th>交易状态</th>
-				<td>备注</td>
+				<th>备注</th>
+				<th weigh="20px">操作</th>
+				<th>操作备注</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -93,8 +96,10 @@
 					<td>${v.terminalTranLine}</td>
 					<td>${fn:substring(v.payTime,0,19)}</td>
 					<td>${v.businessType}</td>
-					<td><c:choose><c:when test="${v.states==0}">扣费成功</c:when><c:when test="${v.states==1}">扣费失败</c:when><c:otherwise>未知</c:otherwise></c:choose></td>
+					<td><c:choose><c:when test="${v.states==0}">扣费成功</c:when><c:when test="${v.states==1}">扣费失败</c:when><c:when test="${v.states==2}">已退费</c:when><c:otherwise>未知</c:otherwise></c:choose></td>
 					<td>${v.remark}</td>
+					<td weigh="20px"><c:choose><c:when test="${v.states==0}"><a title="确定要进行退费?" target="ajaxTodo" href="FrontendPay/frontendRef.do?id=${v.id}&states=${v.states}" class="btnDel">退费</a></c:when></c:choose></td>
+					<td>${v.operRemark}</td>
 				</tr>
 			</c:forEach>
 		</tbody>
@@ -147,7 +152,7 @@
 	    my_userName.attr('value', userName);
 	    var my_mobile = $('<input type="text" name="mobile" />');
 	    my_mobile.attr('value', mobile);
-	    var my_orderNo = $('<input type="text" name="orderNo" />');  
+	    var my_orderNo = $('<input type="text" name="orderNo" />');
 	    my_orderNo.attr('value', orderNo);
 	    // 附加到Form  
 	    form.append(my_startDate);

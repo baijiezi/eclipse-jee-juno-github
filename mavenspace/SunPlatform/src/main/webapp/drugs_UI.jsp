@@ -35,7 +35,7 @@
             <div class="midgoodspricenav" onselectstart='return false'>
             	<ul >
                 	<li onclick="submitCZ()">常规医疗项目</li>
-                    <li onclick="submitXY()">西药类</li>
+                    <li onclick="submitXY()">药品类</li>
                     <li onclick="submitHY()">化验类</li>
                     <li onclick="submitFS()">放射类</li>
                     <li onclick="submitCS()">超声类</li>

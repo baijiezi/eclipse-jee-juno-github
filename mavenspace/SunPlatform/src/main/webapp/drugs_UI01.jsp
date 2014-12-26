@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
 <meta content="telephone=no" name="format-detection">
-<title>西药数据</title>
+<title>医院物价公示</title>
 
 <link rel="stylesheet" type="text/css" href="./style/bootstrap.css" />
 <link rel="stylesheet" type="text/css" href="./style/bootstrap-theme.min.css" />
@@ -36,7 +36,7 @@
             <div class="midgoodspricenav" onselectstart='return false'>
             	<ul >
                 	<li onclick="submitCZ()">常规医疗项目</li>
-                    <li onclick="submitXY()" class="active" >西药类</li>
+                    <li onclick="submitXY()" class="active" >药品类</li>
                     <li onclick="submitHY()">化验类</li>
                     <li onclick="submitFS()">放射类</li>
                     <li onclick="submitCS()">超声类</li>
@@ -69,7 +69,7 @@
 	public static final String DRIVER = "com.mysql.jdbc.Driver";
 	public static final String USER = "test203";
 	public static final String PASS = "Xash6uYe";
-	public static final String URL = "jdbc:mysql://192.168.200.203:3306/frontend_server";
+	public static final String URL = "jdbc:mysql://192.168.200.203:3306/frontend_server?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull";
 	public static final int PAGESIZE = 100;
 	int pageCount;
 	int curPage = 1;
@@ -81,8 +81,10 @@
 	try{
 		Class.forName(DRIVER);
 		Connection con = DriverManager.getConnection(URL,USER,PASS);
-		String sql = "SELECT MEDICINENAME,YBTYPE,MEDICINETYPE,SPECIFICATION,PRICE,OUTPATIENTUNIT FROM FRONTEND_DRUGS";
+		String sql = "SELECT MEDICINENAME,YBTYPE,MEDICINETYPE,SPECIFICATION,PRICE,OUTPATIENTUNIT FROM FRONTEND_DRUGS WHERE MEDICINETYPE in(?,?)";
 		PreparedStatement stat = con.prepareStatement(sql,ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
+		stat.setString(1,"成药费");
+		stat.setString(2,"西药费");
 		ResultSet rs = stat.executeQuery();
 		rs.last();
 		int size = rs.getRow();
@@ -103,7 +105,7 @@
 			String medicinetype = rs.getString(3);
 			String specifiCation = rs.getString(4);
 			float sal = rs.getFloat(5);
-			String outpatienTunit = rs.getString(6);
+			String outpatienTunit = rs.getString(6)==null?"":rs.getString(6);
 			count++;
 			%>
 		<tr>
