@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
+import com.sun.entity.AutoDetailEntity;
 import com.sun.entity.AutoPayEntity;
 import com.sun.entity.ExamEntity;
 import com.sun.entity.FrontendPayRecordEntity;
@@ -36,6 +38,7 @@ import com.sun.entity.MannerEntity;
 import com.sun.entity.TransActionEntity;
 import com.sun309.frontend.db.model.FrontendBookingOrderModel;
 import com.sun309.frontend.db.model.FrontendConfirmAutoPayModel;
+import com.sun309.frontend.db.model.FrontendGetAutoPayOrdersModel;
 import com.sun309.frontend.db.model.FrontendMannerModel;
 import com.sun309.frontend.db.model.FrontendPayRecordModel;
 import com.sun309.frontend.db.model.FrontendRegUserModel;
@@ -49,6 +52,7 @@ import com.sun309.frontend.db.model.FrontendRegUserModel;
  * 
  */
 public class ConnUtil {
+	public static final String CURRENCY_FEN_REGEX = "\\-?[0-9]+";
 	public static String ConnApiService(String url,String ApiKey,String secretKey,String entity) {
 		String line="";
 		String date="2013-08-01 16:10:24";//new Date().toString();
@@ -303,6 +307,41 @@ public class ConnUtil {
 		frm.getUserName();
 		return mne;
 	}
+	
+	/**
+	 * 日期:2014-12-10
+	 * 作者:caolei
+	 * 作用:订单明细实体转换
+	 * @throws Exception
+	 */
+	public static AutoDetailEntity detailConvert(FrontendGetAutoPayOrdersModel fgap) throws Exception{
+		AutoDetailEntity ade=new AutoDetailEntity();
+		ade.setCure(fgap.getCure()==null?"":fgap.getCure());
+		ade.setDeptName(fgap.getDeptName()==null?"":fgap.getDeptName());
+		ade.setDoctorName(fgap.getDoctorName()==null?"":fgap.getDoctorName());
+		ade.setFrontOrderNo(fgap.getFrontOrderNo()==null?"":fgap.getFrontOrderNo());
+		ade.setHospitalId(fgap.getHospitalId()==null?"":fgap.getHospitalId()+"");
+		ade.setHospitalName(fgap.getHospitalName()==null?"":fgap.getHospitalName());
+		ade.setIdcard(fgap.getIdcard()==null?"":fgap.getIdcard());
+		ade.setMedicalCardNo(fgap.getMedicalCardNo()==null?"":fgap.getMedicalCardNo());
+		ade.setMedicalInsurance(fgap.getMedicalInsurance()==null?"":changeF2Y(fgap.getMedicalInsurance()));
+		ade.setMobile(fgap.getMobile()==null?"":fgap.getMobile());
+		ade.setOrderNo(fgap.getOrderNo()==null?"":fgap.getOrderNo());
+		ade.setPatientAge(fgap.getPatientAge()==null?"":fgap.getPatientAge()+"");
+		ade.setPatientName(fgap.getPatientName()==null?"":fgap.getPatientName());
+		ade.setPatientSex(fgap.getPatientSex()==null?"":fgap.getPatientSex()+"");
+		ade.setSelfFee(fgap.getSelfFee()==null?"":changeF2Y(fgap.getSelfFee()));
+		ade.setSettlementType(fgap.getSettlementType()==null?"":fgap.getSettlementType());
+		ade.setTotalFee(fgap.getTotalFee()==null?"":changeF2Y(fgap.getTotalFee()));
+		ade.setVisitDateTime(fgap.getVisitDateTime()==null?"":fgap.getVisitDateTime()+"");
+		return ade;
+	}
+	
+	/**
+	 * 
+	 * @param xml
+	 * @return
+	 */
 	public static List readStringXmlOut(String xml) {
 		List<HashMap> ls=new ArrayList();
        // Map map = new HashMap();
@@ -310,32 +349,26 @@ public class ConnUtil {
         try {
             doc = DocumentHelper.parseText(xml); // 将字符串转为XML
             Element rootElt = doc.getRootElement(); // 获取根节点
-            Iterator iter = rootElt.elementIterator("ResultData"); // 获取根节点下的子节点head
+            Iterator iter = rootElt.elementIterator("ResultData"); // 获取根节点下的子节点ResultData
             // 遍历head节点
             while (iter.hasNext()) {
-            	 Map map = new HashMap();
+            	Map map = new HashMap();
                 Element recordEle = (Element) iter.next();
-                String MedicineCode = recordEle.elementTextTrim("MedicineCode"); // 拿到head节点下的子节点title值
+                String MedicineCode = recordEle.elementTextTrim("MedicineCode"); // 拿到ResultData节点下的子节点MedicineCode值
                 map.put("MedicineCode", MedicineCode);
-               // System.out.println("MedicineCode:"+MedicineCode);
-                String MedicineName = recordEle.elementTextTrim("MedicineName"); // 拿到head节点下的子节点title值
+                String MedicineName = recordEle.elementTextTrim("MedicineName"); // 拿到ResultData节点下的子节点MedicineName值
                 map.put("MedicineName", MedicineName);
-               // System.out.println("MedicineName:"+MedicineName);
-                String Specification = recordEle.elementTextTrim("Specification"); // 拿到head节点下的子节点title值
+                String Specification = recordEle.elementTextTrim("Specification"); // 拿到ResultData节点下的子节点Specification值
                 map.put("Specification", Specification);
-                String Unit = recordEle.elementTextTrim("UNIT"); // 拿到head节点下的子节点title值
+                String Unit = recordEle.elementTextTrim("Unit"); // 拿到ResultData节点下的子节点Unit值
                 map.put("Unit", Unit);
-                String Price = recordEle.elementTextTrim("Price"); // 拿到head节点下的子节点title值
+                String Price = recordEle.elementTextTrim("Price"); // 拿到ResultData节点下的子节点Price值
                 map.put("Price", Price);
-//                String PFPrice = recordEle.elementTextTrim("PFPrice"); // 拿到head节点下的子节点title值
-//                map.put("PFPrice", PFPrice);
-                String MedicineType = recordEle.elementTextTrim("MedicineType"); // 拿到head节点下的子节点title值
+                String MedicineType = recordEle.elementTextTrim("MedicineType"); // 拿到ResultData节点下的子节点MedicineType值
                 map.put("MedicineType", MedicineType);
-//                String State = recordEle.elementTextTrim("State"); // 拿到head节点下的子节点title值
-//                map.put("State", State);
-                String WBCode = recordEle.elementTextTrim("WBCode"); // 拿到head节点下的子节点title值
+               String WBCode = recordEle.elementTextTrim("WBCode"); // 拿到ResultData节点下的子节点WBCode值
                 map.put("WBCode", WBCode);
-                String PYCode = recordEle.elementTextTrim("PYCode"); // 拿到head节点下的子节点title值
+                String PYCode = recordEle.elementTextTrim("PYCode"); // 拿到ResultData节点下的子节点PYCode值
                 map.put("PYCode", PYCode);
                 ls.add((HashMap) map);
             }
@@ -346,4 +379,35 @@ public class ConnUtil {
         }
         return ls;
     }
-}
+	
+	public static String changeF2Y(String amount) throws Exception{
+        if(!amount.toString().matches(CURRENCY_FEN_REGEX)) {    
+            throw new Exception("金额格式有误");    
+        }    
+        int flag = 0;    
+        String amString = amount.toString();    
+        if(amString.charAt(0)=='-'){    
+            flag = 1;    
+            amString = amString.substring(1);    
+        }    
+        StringBuffer result = new StringBuffer();    
+        if(amString.length()==1){    
+            result.append("0.0").append(amString);    
+        }else if(amString.length() == 2){    
+            result.append("0.").append(amString);    
+        }else{    
+            String intString = amString.substring(0,amString.length()-2);    
+            for(int i=1; i<=intString.length();i++){
+                if( (i-1)%3 == 0 && i !=1){
+                    result.append(",");
+                }
+                result.append(intString.substring(intString.length()-i,intString.length()-i+1));    
+            }
+            result.reverse().append(".").append(amString.substring(amString.length()-2));    
+        }    
+        if(flag == 1){    
+            return "-"+result.toString();    
+        }else{    
+            return result.toString();    
+        }    
+    }}

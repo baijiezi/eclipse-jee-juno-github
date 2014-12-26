@@ -2,11 +2,15 @@ package com.sun.controller;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import net.sf.json.JSONObject;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,10 +55,8 @@ public class FrontendPayController {
 		if(!us.getUser_level().equals("1")){
 			pojo.setHospitalName(us.getDepartment());
 		}
-		
 		List<FrontendPayRecordEntity> userList = frontendPayRecordService.searchUser(vo);
 		Integer totalCount = frontendPayRecordService.getCout(pojo);
-		
 		vo.setTotalCount(totalCount);
 		model.addAttribute("userList", userList);
 		request.setAttribute("totalCount", totalCount);
@@ -63,6 +65,37 @@ public class FrontendPayController {
 		model.addAttribute("url","FrontendPay/frontendPayDelta.do");
 		return "frontendPay_UI";
 	}
+	/**
+	 * 日期：2014-12-04
+	 * 作者:caolei
+	 * 作用:标识退款记录
+	 */
+	@RequestMapping(value = "/frontendRef")
+	public void frontendRef(HttpServletRequest request,@ModelAttribute("pojo")
+			FrontendPayRecordEntity pojo,HttpServletResponse response,HttpSession se){
+		User us=(User)se.getAttribute("user1");
+		Date date=new Date();
+		pojo.setOperRemark("此单已经被用户:"+us.getName()+";在"+(new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss")).format(new Date())+"执行退款");
+		int a = frontendPayRecordService.updateByPrimaryKeySelective(pojo);
+		JSONObject object=new JSONObject();
+		object.put("statusCode", "200");
+		object.put("message", "退款成功!");
+		object.put("navTabId", "");
+		object.put("rel", "");
+		object.put("callbackType", "");
+		object.put("forwardUrl", "");
+		response.setCharacterEncoding("utf-8");
+		PrintWriter out;
+		try {
+			out = response.getWriter();
+			out.print(object);
+			out.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	/**
 	 * 日期:2014-10-27
 	 * 作者:caolei

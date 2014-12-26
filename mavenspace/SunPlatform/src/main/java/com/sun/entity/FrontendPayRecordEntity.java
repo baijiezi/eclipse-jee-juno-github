@@ -28,6 +28,7 @@ public class FrontendPayRecordEntity {
 	private String startDate;//开始日期
 	private String endDate;//结束日期
 	private String businessType;//业务类型
+	private String operRemark;//操作备注
 	public String getBusinessType() {
 		return businessType;
 	}
@@ -183,6 +184,12 @@ public class FrontendPayRecordEntity {
 	}
 	public void setStartDate(String startDate) {
 		this.startDate = startDate;
+	}
+	public String getOperRemark() {
+		return operRemark;
+	}
+	public void setOperRemark(String operRemark) {
+		this.operRemark = operRemark;
 	}
 
 }

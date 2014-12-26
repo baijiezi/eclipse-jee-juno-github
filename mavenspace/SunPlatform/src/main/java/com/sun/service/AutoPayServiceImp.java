@@ -77,7 +77,7 @@ public class AutoPayServiceImp implements AutoPayServiceI {
 	}
 	public List<AutoPayEntity> searchAutoPay(BaseConditionVO vo) {
 		List<AutoPayEntity> bos = new ArrayList<AutoPayEntity>();
-		RowBounds rb = new RowBounds(vo.getStartIndex(), vo.getPageSize());
+		RowBounds rb = new RowBounds(vo.getStartIndex(),vo.getPageSize());
 		List<AutoPayEntity> pos = autoPayMapper.findPageBreakByCondition(vo, rb);
 		return pos;
 	}

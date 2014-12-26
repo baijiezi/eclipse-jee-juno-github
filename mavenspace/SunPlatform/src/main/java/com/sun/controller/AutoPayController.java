@@ -25,8 +25,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sun.common.BaseConditionVO;
 import com.sun.common.ExcelUtil;
+import com.sun.entity.AutoDetailEntity;
 import com.sun.entity.AutoPayEntity;
 import com.sun.entity.User;
+import com.sun.service.AutoDetailServiceI;
 import com.sun.service.AutoPayServiceI;
 import com.sun.service.UserServiceI;
 
@@ -36,7 +38,8 @@ public class AutoPayController {
 
 	private AutoPayServiceI autopayService;
 	private UserServiceI userService;
-
+	private AutoDetailServiceI autoDetailService;
+	
 	public AutoPayServiceI getAutopayService() {
 		return autopayService;
 	}
@@ -78,7 +81,7 @@ public class AutoPayController {
 		if(!us.getUser_level().equals("1")){
 			pojo.setHospitalName(us.getDepartment());
 		}
-		
+		//System.out.println("=="+pojo.getStates()+"====");
 		List<AutoPayEntity> ls = autopayService.searchAutoPay(vo);
 		Integer totalCount = autopayService.getCout(pojo);
 		vo.setTotalCount(totalCount);
@@ -88,6 +91,20 @@ public class AutoPayController {
 		model.addAttribute("pageSize", vo.getPageSize());
 		model.addAttribute("url","AutoPay/autoPayment.do");
 		return "autoPayment_UI";
+	}
+	
+	/**
+	 * 日期:2014-12-09
+	 * 作者:caolei
+	 * 作用:查询出提前选择项打印
+	 */
+	@RequestMapping(value="/finyPay")
+	public String autofinyPay(HttpServletRequest request,
+			@ModelAttribute("pojo")
+			AutoDetailEntity pojo,HttpSession se,Model model){
+		AutoDetailEntity ade=autoDetailService.getAutoByNo(pojo);
+		request.setAttribute("ade",ade);
+		return "autoDetail";
 	}
 
 	/**
@@ -174,5 +191,14 @@ public class AutoPayController {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public AutoDetailServiceI getAutoDetailService() {
+		return autoDetailService;
+	}
+	
+	@Autowired
+	public void setAutoDetailService(AutoDetailServiceI autoDetailService) {
+		this.autoDetailService = autoDetailService;
 	}
 }

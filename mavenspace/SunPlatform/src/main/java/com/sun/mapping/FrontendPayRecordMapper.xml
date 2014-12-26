@@ -26,6 +26,7 @@
 		<result column="STATES" property="states" jdbcType="VARCHAR" />
 		<result column="REMARK" property="remark" jdbcType="VARCHAR" />
 		<result column="BUSINESS_TYPE" property="businessType" jdbcType="VARCHAR" />
+		<result column="OPEREMARK" property="operRemark" jdbcType="VARCHAR" />
 	</resultMap>
 	
 	<insert id="insert" parameterType="com.sun.entity.FrontendPayRecordEntity">
@@ -82,7 +83,7 @@
 	</select>
 	
 	
-	<select id="getCout" parameterType="com.sun.entity.AutoPayEntity" resultType="Integer">
+	<select id="getCout" parameterType="com.sun.entity.FrontendPayRecordEntity" resultType="Integer">
 		 SELECT COUNT(1) from FRONTEND_PAY_RECORD ST
 		 <where>
 		  <if test="hospitalName!= null and hospitalName!= ''">
@@ -137,5 +138,14 @@
  		ORDER BY ID DESC;
 	</select>
 	
+	<update id="updateByPrimaryKeySelective" parameterType="com.sun.entity.FrontendPayRecordEntity">
+		update FRONTEND_PAY_RECORD
+		<set>
+			<if test="operRemark!= null and operRemark!= ''">
+				OPEREMARK = #{operRemark,jdbcType=VARCHAR},STATES=2
+			</if>
+		</set>
+		where ID = #{id,jdbcType=VARCHAR} and STATES=0
+	</update>
 	
 </mapper>

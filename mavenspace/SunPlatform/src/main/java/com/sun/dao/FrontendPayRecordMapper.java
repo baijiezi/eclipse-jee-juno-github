@@ -11,8 +11,7 @@ public interface FrontendPayRecordMapper {
 	List<FrontendPayRecordEntity> getWhereEntity(FrontendPayRecordEntity frontendPayRecordEntity);
 	int insert(FrontendPayRecordEntity frontendPayRecordEntity);
 	FrontendPayRecordEntity getExamById(FrontendPayRecordEntity frontendPayRecordEntity);
-	
 	List<FrontendPayRecordEntity> findPageBreakByCondition(BaseConditionVO vo, RowBounds rb);
-	int getCout(FrontendPayRecordEntity transActionEntity);
-	
+	int getCout(FrontendPayRecordEntity frontendPayRecordEntity);
+	int updateByPrimaryKeySelective(FrontendPayRecordEntity frontendPayRecordEntity);
 }

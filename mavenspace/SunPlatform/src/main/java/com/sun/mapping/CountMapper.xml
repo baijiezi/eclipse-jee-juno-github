@@ -14,7 +14,7 @@
 	</sql>
 
 	<select id="getBooking" resultMap="BaseResultMap" parameterType="com.sun.entity.CountEntity">
-		SELECT COUNT(*) as count,MAX(HOSPITAL_NAME) as hospitalName,SUM(FEE) as sumAmount,MAX('预约挂号') AS businessType FROM FRONTEND_BOOKING_ORDER ST
+		SELECT COUNT(*) as count,MAX(HOSPITAL_NAME) as hospitalName,ROUND(SUM(FEE),2) as sumAmount,MAX('预约挂号') AS businessType FROM FRONTEND_BOOKING_ORDER ST
 		 <where>
 		  <if test="hospitalName!= null and hospitalName!=''">
 		  	AND ST.HOSPITAL_NAME = #{hospitalName}
@@ -27,7 +27,7 @@
 	</select>
 
 	<select id="getAutoPay" resultMap="BaseResultMap" parameterType="com.sun.entity.CountEntity">
-		SELECT COUNT(*) AS COUNT,MAX(HOSPITAL_NAME) as hospitalName,SUM(REAL_PAY_FEE) as sumAmount,MAX('自助缴费') AS businessType FROM FRONTEND_CONFIRM_AUTO_PAY ST
+		SELECT COUNT(*) AS COUNT,MAX(HOSPITAL_NAME) as hospitalName,ROUND(SUM(REAL_PAY_FEE),2) as sumAmount,MAX('自助缴费') AS businessType FROM FRONTEND_CONFIRM_AUTO_PAY ST
 		 <where>
 		  <if test="hospitalName!= null and hospitalName!=''">
 		  	AND ST.HOSPITAL_NAME = #{hospitalName}
@@ -40,7 +40,7 @@
 	</select>
 	
 	<select id="getBookingTerminal" resultMap="BaseResultMap" parameterType="com.sun.entity.CountEntity">
-		SELECT COUNT(*) as count,MAX(HOSPITAL_NAME) as hospitalName,SUM(FEE) as sumAmount,MAX('预约挂号') AS businessType,MAX(OPER_ID) as terminalId,MAX(ORDER_DATE_TIME) AS paytime FROM FRONTEND_BOOKING_ORDER ST
+		SELECT COUNT(*) as count,MAX(HOSPITAL_NAME) as hospitalName,ROUND(SUM(FEE),2) as sumAmount,MAX('预约挂号') AS businessType,MAX(OPER_ID) as terminalId,MAX(ORDER_DATE_TIME) AS paytime FROM FRONTEND_BOOKING_ORDER ST
 		 <where>
 		  <if test="hospitalName!= null and hospitalName!=''">
 		  	AND ST.HOSPITAL_NAME = #{hospitalName}
@@ -56,7 +56,7 @@
 	</select>
 	
 	<select id="getAutoPayTerminal" resultMap="BaseResultMap" parameterType="com.sun.entity.CountEntity">
-		SELECT max(pay_time) as paytime,COUNT(*) AS COUNT,MAX(HOSPITAL_NAME) as hospitalName,SUM(REAL_PAY_FEE) as sumAmount,MAX('自助缴费') AS businessType,MAX(OPER_ID) as terminalId FROM FRONTEND_CONFIRM_AUTO_PAY ST
+		SELECT max(pay_time) as paytime,COUNT(*) AS COUNT,MAX(HOSPITAL_NAME) as hospitalName,ROUND(SUM(REAL_PAY_FEE),2) as sumAmount,MAX('自助缴费') AS businessType,MAX(OPER_ID) as terminalId FROM FRONTEND_CONFIRM_AUTO_PAY ST
 		 <where>
 		  <if test="hospitalName!= null and hospitalName!=''">
 		  	AND ST.HOSPITAL_NAME = #{hospitalName}

@@ -55,4 +55,10 @@ public class FrontendPayRecordServiceImpl implements FrontendPayRecordServiceI {
 		return pos;
 	}
 
+	public int updateByPrimaryKeySelective(
+			FrontendPayRecordEntity frontendPayRecordEntity) {
+		
+		return frontendPayRecordMapper.updateByPrimaryKeySelective(frontendPayRecordEntity);
+	}
+	
 }

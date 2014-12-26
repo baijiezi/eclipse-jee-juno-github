@@ -20,10 +20,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sun.common.ConnUtil;
+import com.sun.entity.AutoDetailEntity;
 import com.sun.entity.AutoPayEntity;
 import com.sun.entity.ExamEntity;
 import com.sun.entity.FrontendPayRecordEntity;
 import com.sun.entity.TransActionEntity;
+import com.sun.service.AutoDetailServiceI;
 import com.sun.service.AutoPayServiceI;
 import com.sun.service.ExamServiceI;
 import com.sun.service.FrontendPayRecordServiceI;
@@ -31,6 +33,7 @@ import com.sun.service.MannerServiceI;
 import com.sun.service.TransActionServiceI;
 import com.sun309.frontend.db.model.FrontendBookingOrderModel;
 import com.sun309.frontend.db.model.FrontendConfirmAutoPayModel;
+import com.sun309.frontend.db.model.FrontendGetAutoPayOrdersModel;
 import com.sun309.frontend.db.model.FrontendPayRecordModel;
 import com.sun309.frontend.db.model.FrontendRegUserModel;
 
@@ -48,6 +51,7 @@ public class ApiController {
 	private AutoPayServiceI autoPayService;
 	private FrontendPayRecordServiceI frontendPayRecordServiceI;
 	private MannerServiceI mannerService;
+	private AutoDetailServiceI autoDetailService;
 	public AutoPayServiceI getAutoPayService() {
 		return autoPayService;
 	}
@@ -97,7 +101,6 @@ public class ApiController {
 	        Object obj = objectInputStream.readObject();
 	        objectInputStream.close();
 	        System.out.println("接收到对象："+obj + "");
-	        //System.out.println("====="+((FrontendBookingOrderModel)obj).getAddress());
 			}catch(Exception ex){
 				ex.printStackTrace();
 				isIE = true;
@@ -157,7 +160,7 @@ public class ApiController {
 		            }else {
 		                response.setContentType("text/html;charset=UTF-8");
 		                PrintWriter out=response.getWriter();
-		                out.print("{\"Error\":\"1\",\"ErrorMessage\":\"接收失败\"}"); 
+		                out.print("{\"Error\":\"1\",\"ErrorMessage\":\"接收失败\"}");
 		                out.flush();
 		                out.close();
 		            }
@@ -182,7 +185,6 @@ public class ApiController {
 				json.append(refundLine);
 			}
 		} catch (IOException e) {
-			//logger.error("请求JOSN数据读取出错:"+e);
 			e.printStackTrace();
 		}
 		System.out.println("sunBooking已经接收到查询请求，请求的数据为:"+json);
@@ -259,7 +261,7 @@ public class ApiController {
 		        ObjectInputStream objectInputStream = new ObjectInputStream(new BufferedInputStream(inputStream));
 		        Object obj = objectInputStream.readObject();
 		        objectInputStream.close();
-		        System.out.println("接收到对象："+obj + "");
+		        System.out.println("接收到对象："+ obj + "");
 		        AutoPayEntity pojo=ConnUtil.autoPayConvert((FrontendConfirmAutoPayModel)obj);
 		        AutoPayEntity pojonull = autoPayService.getAutoById(pojo);
 		        if(pojonull==null){
@@ -429,6 +431,48 @@ public class ApiController {
 			}
 			return "";
 	}
+	@RequestMapping(value="/detailApi")
+	@ResponseBody
+	public String detailApi(HttpServletRequest request,HttpSession session,HttpServletResponse response){
+		boolean isIE = false;
+		System.out.println("===收到挂号订单请求detailApi开始处理====");
+		try{
+			try{
+				InputStream inputStream = request.getInputStream(); 
+		        ObjectInputStream objectInputStream = new ObjectInputStream(new BufferedInputStream(inputStream));
+		        Object obj = objectInputStream.readObject();
+		        objectInputStream.close();
+		        System.out.println("接收到对象："+obj + "");
+		        AutoDetailEntity pojo=ConnUtil.detailConvert((FrontendGetAutoPayOrdersModel)obj);
+		        AutoDetailEntity pojonull=autoDetailService.getAutoById(pojo);
+		        if(pojonull==null){
+		        	autoDetailService.insert(pojo);
+		        }else{
+		        	autoDetailService.updateByPrimaryKeySelective(pojo);
+		        }
+				}catch(Exception ex){
+					ex.printStackTrace();
+					isIE = true;
+				}
+				 if (!isIE) {
+		                // 输出
+		                ServletOutputStream outputStream = response.getOutputStream();
+		                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream);
+		                ObjectOutputStream objectOutputStream = new ObjectOutputStream(bufferedOutputStream);
+		                objectOutputStream.writeObject("{\"Error\":\"0\",\"ErrorMessage\":\"接收成功\"}");
+		                objectOutputStream.close();
+		            }else {
+		                response.setContentType("text/html;charset=UTF-8");
+		                PrintWriter out=response.getWriter();
+		                out.print("{\"Error\":\"1\",\"ErrorMessage\":\"接收失败\"}");
+		                out.flush();
+		                out.close();
+		            }
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			return "";
+	}
 	
 	public TransActionServiceI getTransActionService() {
 		return transActionService;
@@ -461,6 +505,13 @@ public class ApiController {
 	@Autowired
 	public void setMannerService(MannerServiceI mannerService) {
 		this.mannerService = mannerService;
+	}
+	public AutoDetailServiceI getAutoDetailService() {
+		return autoDetailService;
+	}
+	@Autowired
+	public void setAutoDetailService(AutoDetailServiceI autoDetailService) {
+		this.autoDetailService = autoDetailService;
 	}
 		
 }

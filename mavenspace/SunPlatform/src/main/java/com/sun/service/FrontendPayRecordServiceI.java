@@ -14,4 +14,6 @@ public interface FrontendPayRecordServiceI {
 	
 	List<FrontendPayRecordEntity> searchUser(BaseConditionVO vo);
 	int getCout(FrontendPayRecordEntity transActionEntity);
+	
+	int updateByPrimaryKeySelective(FrontendPayRecordEntity frontendPayRecordEntity);
 }

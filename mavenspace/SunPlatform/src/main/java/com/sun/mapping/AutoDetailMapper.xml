@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sun.dao.AutoPayMapper">
+	<resultMap id="BaseResultMap" type="com.sun.entity.AutoPayEntity">
+		<id column="ID" property="id" jdbcType="VARCHAR" />
+		<result column="HOSPITAL_NAME" property="hospitalName" jdbcType="VARCHAR" />
+		<result column="MEDICAL_CARD_NO" property="medicalCardNo" jdbcType="VARCHAR" />
+		<result column="ORDER_NO" property="orderNo" jdbcType="VARCHAR" />
+		<result column="REAL_PAY_FEE" property="payMoney" jdbcType="VARCHAR" />
+		<result column="PAY_CARD_NO" property="payCardNo" jdbcType="VARCHAR" />
+		<result column="OPTION_PAYMENTS" property="payType" jdbcType="VARCHAR" />
+		<result column="PAYMENT_ID" property="payTradeLine" jdbcType="VARCHAR" />
+		<result column="PAY_TIME" property="payDate" jdbcType="VARCHAR" />
+		<result column="MOBILE" property="mobile" jdbcType="VARCHAR" />
+		<result column="PATIENT_NAME" property="userName" jdbcType="VARCHAR" />
+		<result column="FRONT_ORDER_NO" property="frontOrderNo" jdbcType="VARCHAR" />
+		<result column="PAY_TRAN_LINE" property="payTranLine" jdbcType="VARCHAR" />
+		<result column="SYSTEM_PAY_TRAN_LINE" property="systemPayTranLine" jdbcType="VARCHAR" />
+		<result column="REMARK" property="remark" jdbcType="VARCHAR" />
+		<result column="STATES" property="states" jdbcType="VARCHAR" />
+		<result column="OPER_ID" property="operId" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+		HOSPITAL_ID,HOSPITAL_NAME,MEDICAL_CARD_NO
+	</sql>
+	
+	<select id="getAll" resultMap="BaseResultMap">
+		select HOSPITAL_ID, HOSPITAL_NAME, MEDICAL_CARD_NO, PATIENT_NAME,ORDER_NO,REAL_PAY_FEE,PAY_CARD_NO,OPTION_PAYMENTS,MOBILE,PAYMENT_ID,USER_NAME,PAY_TIME from FRONTEND_CONFIRM_AUTO_PAY
+	</select>
+	<select id="getWhereEntity" parameterType="com.sun.entity.AutoPayEntity" resultMap="BaseResultMap">
+		 SELECT * from FRONTEND_CONFIRM_AUTO_PAY ST
+		 <where>
+		  <if test="hospitalName!= null and hospitalName!= ''">
+		  	ST.HOSPITAL_NAME = #{hospitalName}
+		  </if>
+		  <if test="medicalCardNo!= null and medicalCardNo!= ''">
+		  	AND ST.MEDICAL_CARD_NO = #{medicalCardNo}
+		  </if>
+		  <if test="payCardNo!= null and payCardNo!= ''">
+		  	AND ST.PAY_CARD_NO = #{payCardNo}
+		  </if>
+		   <if test="mobile!= null and mobile!= ''">
+		  	AND ST.MOBILE = #{mobile}
+		  </if>
+		  <if test="orderNo!= null and orderNo!=''">
+		  	AND ST.ORDER_NO = #{orderNo}
+		  </if>
+		  <if test="userName!= null and userName!= ''">
+		  	AND ST.PATIENT_NAME = #{userName}
+		  </if>
+		  <if test="startDate!= null and startDate!= ''">
+		  	AND PAY_TIME BETWEEN #{startDate} AND #{endDate}
+		  </if>
+		  <if test="states!= null and states!= ''">
+		  	AND STATES = #{states}
+		  </if>
+ 		</where>
+ 		ORDER BY PAY_TIME DESC;
+	</select>
+	
+	<insert id="insert" parameterType="com.sun.entity.AutoPayEntity">
+		insert into FRONTEND_CONFIRM_AUTO_PAY (OPER_ID,SETTLE_ID,HOSPITAL_ID, HOSPITAL_NAME,
+		MEDICAL_CARD_NO,PATIENT_NAME,ORDER_NO,REAL_PAY_FEE,PAY_CARD_NO,OPTION_PAYMENTS,PAYMENT_ID,PAY_TIME,MOBILE,USER_NAME,FRONT_ORDER_NO,PAY_TRAN_LINE,SYSTEM_PAY_TRAN_LINE,REMARK,STATES)
+		values (#{operId,jdbcType=VARCHAR},#{id,jdbcType=VARCHAR},#{id,jdbcType=VARCHAR}, #{hospitalName,jdbcType=VARCHAR},#{medicalCardNo,jdbcType=VARCHAR},
+				#{idCard,jdbcType=VARCHAR},#{orderNo,jdbcType=VARCHAR}, #{payMoney,jdbcType=VARCHAR},#{payCardNo,jdbcType=VARCHAR},
+				#{payType,jdbcType=VARCHAR},#{payTradeLine,jdbcType=VARCHAR},#{payDate,jdbcType=VARCHAR},#{mobile,jdbcType=VARCHAR},#{userName,jdbcType=VARCHAR},
+				#{frontOrderNo,jdbcType=VARCHAR},#{payTranLine,jdbcType=VARCHAR},#{systemPayTranLine,jdbcType=VARCHAR},#{remark,jdbcType=VARCHAR},#{states,jdbcType=VARCHAR})
+	</insert>
+	
+	<select id="getAutoById" resultMap="BaseResultMap" parameterType="com.sun.entity.AutoPayEntity">
+		select 	
+		<include refid="Base_Column_List" /> from FRONTEND_CONFIRM_AUTO_PAY
+		where FRONT_ORDER_NO = #{frontOrderNo,jdbcType=VARCHAR}
+	</select>
+	
+	
+		<select id="getCout" parameterType="com.sun.entity.AutoPayEntity" resultType="Integer">
+		 SELECT COUNT(1) from FRONTEND_CONFIRM_AUTO_PAY ST
+		 <where>
+		  <if test="hospitalName!= null and hospitalName!= ''">
+		  	ST.HOSPITAL_NAME = #{hospitalName}
+		  </if>
+		  <if test="medicalCardNo!= null and medicalCardNo!= ''">
+		  	AND ST.MEDICAL_CARD_NO = #{medicalCardNo}
+		  </if>
+		  <if test="payCardNo!= null and payCardNo!= ''">
+		  	AND ST.PAY_CARD_NO = #{payCardNo}
+		  </if>
+		   <if test="mobile!= null and mobile!= ''">
+		  	AND ST.MOBILE = #{mobile}
+		  </if>
+		  <if test="orderNo!= null and orderNo!=''">
+		  	AND ST.ORDER_NO = #{orderNo}
+		  </if>
+		  <if test="userName!= null and userName!= ''">
+		  	AND ST.PATIENT_NAME = #{userName}
+		  </if>
+		  <if test="startDate!= null and startDate!= ''">
+		  	AND PAY_TIME BETWEEN #{startDate} AND #{endDate}
+		  </if>
+		  <if test="states!= null and states!= ''">
+		  	AND STATES = #{states}
+		  </if>
+ 		</where>
+	</select>
+	
+	<select id="findPageBreakByCondition" resultMap="BaseResultMap" parameterType="map">
+		 SELECT * FROM FRONTEND_CONFIRM_AUTO_PAY ST
+		 <where>
+		  <if test="hospitalName!= null and hospitalName!= ''">
+		  	ST.HOSPITAL_NAME = #{hospitalName}
+		  </if>
+		  <if test="medicalCardNo!= null and medicalCardNo!= ''">
+		  	AND ST.MEDICAL_CARD_NO = #{medicalCardNo}
+		  </if>
+		  <if test="payCardNo!= null and payCardNo!= ''">
+		  	AND ST.PAY_CARD_NO = #{payCardNo}
+		  </if>
+		   <if test="mobile!= null and mobile!= ''">
+		  	AND ST.MOBILE = #{mobile}
+		  </if>
+		  <if test="orderNo!= null and orderNo!=''">
+		  	AND ST.ORDER_NO = #{orderNo}
+		  </if>
+		  <if test="userName!= null and userName!= ''">
+		  	AND ST.PATIENT_NAME = #{userName}
+		  </if>
+		  <if test="startDate!= null and startDate!= ''">
+		  	AND PAY_TIME BETWEEN #{startDate} AND #{endDate}
+		  </if>
+		  <if test="states!= null and states!= ''">
+		  	AND STATES = #{states}
+		  </if>
+ 		</where>
+ 		ORDER BY PAY_TIME DESC;
+	</select>
+	
+</mapper>

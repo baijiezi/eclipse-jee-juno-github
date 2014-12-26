@@ -21,28 +21,27 @@ public class LonginInterceptor  implements HandlerInterceptor{
   
  
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response,  
-            Object arg2) throws Exception {  
+            Object arg2) throws Exception {
         String requestUrl = request.getRequestURI().replace(request.getContextPath(), "");
-        if(null != allowUrls && allowUrls.length>=1)  
+        if(null != allowUrls && allowUrls.length>=1)
             for(String url : allowUrls) {
                 if(requestUrl.contains(url)) {
                     return true;
                 }
             }
         User user = (User) request.getSession().getAttribute("user1");
-        if(user != null) {    
-            return true;  //返回true，则这个方面调用后会接着调用postHandle(),  afterCompletion()  
+        if(user != null) {
+            return true;  //返回true，则这个方面调用后会接着调用postHandle(),afterCompletion()
         }else{
             // 未登录  跳转到登录页面
-            throw new SessionTimeoutException();//返回到配置文件中定义的路径  
+            throw new SessionTimeoutException();//返回到配置文件中定义的路径
         }
     }
-    public void afterCompletion(HttpServletRequest arg0,  
-            HttpServletResponse arg1, Object arg2, Exception arg3)  
+    public void afterCompletion(HttpServletRequest arg0,
+            HttpServletResponse arg1, Object arg2, Exception arg3)
             throws Exception {
-    }  
-    public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1,  
-            Object arg2, ModelAndView arg3) throws Exception {  
-    }  
-  
-}  
+    }
+    public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1,
+            Object arg2, ModelAndView arg3) throws Exception {
+    }
+}
