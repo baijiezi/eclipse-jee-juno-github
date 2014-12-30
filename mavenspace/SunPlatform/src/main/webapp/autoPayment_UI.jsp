@@ -28,8 +28,8 @@
 				<td>交易状态:</td>
 				<td><select id="states" name="states" class="required combox">
 						<option value=""  <c:if test="${pojo.states eq '' }">selected='selected'</c:if>>全部类型</option>
-						<option value="0" <c:if test="${pojo.states eq 0 }">selected='selected'</c:if>>登记成功</option>
-						<option value="1" <c:if test="${pojo.states eq 1 }">selected='selected'</c:if>>登记失败</option>
+						<option value="0" <c:if test="${pojo.states eq '0' }">selected='selected'</c:if>>登记成功</option>
+						<option value="1" <c:if test="${pojo.states eq '1' }">selected='selected'</c:if>>登记失败</option>
 					</select>
 				</td>
 				<td>
