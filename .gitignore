@@ -1,3 +1,6 @@
 /mavenspace/.metadata
 /workspaces/.metadata
 /myworkspace/.metadata
+/mavenspace/SunPlatform/src/main/webapp/WEB-INF/classes
+/mavenspace/SunPlatform/target
+/mavenspace/SunPlatform/mybatis.log
