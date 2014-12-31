@@ -4,7 +4,7 @@
 </object> 
 <div class="pageContent">
 	<form id="form1" method="post" action="" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone);">
-		<div class="pageFormContent" layoutH="56">
+		<div class="pageFormContent" layoutH="50">
 			<h2><p align="center"><font face="verdana">佛山市南海区第三人民医院<br>门诊自助缴费凭证</font></p></h2>
 			<table width="500px">
 				<tr><td><nobr><label>系统参考号：<%out.println(request.getParameter("systemPayTranLine"));%></label></nobr></td></tr>
@@ -25,8 +25,12 @@
 				<tr><td><label>社保支付：${ade.medicalInsurance}</label></td><td><label>个人缴费：${ade.selfFee}</label></td></tr>
 			</table>
 			<div class="divider"></div>
-			<p>若需发票请凭此票到客服中心打印</p>
-			<p><a href="javascript:CheckIsInstall()">查看本机是否安装控件</a></p>
+			<p><%out.println(new String(request.getParameter("remark").getBytes("ISO-8859-1"),"utf-8"));%>
+				&nbsp;<br>
+				若需发票请凭此票到客服中心打印
+				&nbsp;<br>
+				<strong>注：本凭证取药、治疗、检查时需出示，切勿遗失。</strong>
+			</p>   
 		</div>
 			</form>
 		<div class="formBar">

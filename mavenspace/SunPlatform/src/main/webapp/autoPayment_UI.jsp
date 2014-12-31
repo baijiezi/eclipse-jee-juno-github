@@ -89,7 +89,7 @@
 					<td>${fn:substring(v.payDate,0,19)}</td>
 					<td><c:choose><c:when test="${v.states==0}">登记成功</c:when><c:when test="${v.states==1}">登记失败</c:when><c:otherwise>未知</c:otherwise></c:choose></td>
 					<td>${v.operId}</td>
-					<td><c:choose><c:when test="${v.states==0}"><a class="button" href="AutoPay/finyPay.do?orderNo=${v.orderNo}&paytime=${fn:substring(v.payDate,0,19)}&systemPayTranLine=${v.systemPayTranLine}&operId=${v.operId}&payMoney=${v.payMoney}&payCardNo=${v.payCardNo}&payTranLine=${v.payTranLine}" target="dialog" rel="dlg_page8" height="550"><span>查看明细</span></a></c:when><c:when test="${v.states==1}"></c:when><c:otherwise></c:otherwise></c:choose></td>
+					<td><c:choose><c:when test="${v.states==0}"><a class="button" href="AutoPay/finyPay.do?orderNo=${v.orderNo}&paytime=${fn:substring(v.payDate,0,19)}&systemPayTranLine=${v.systemPayTranLine}&operId=${v.operId}&payMoney=${v.payMoney}&payCardNo=${v.payCardNo}&payTranLine=${v.payTranLine}&remark=${v.remark}" target="dialog" rel="dlg_page8" height="580"><span>查看明细</span></a></c:when><c:when test="${v.states==1}"></c:when><c:otherwise></c:otherwise></c:choose></td>
 					<td style="width: 640px; cursor: default;">${v.remark}</td>
 				</tr>
 			</c:forEach>
