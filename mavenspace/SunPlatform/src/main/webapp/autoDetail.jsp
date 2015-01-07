@@ -25,7 +25,10 @@
 				<tr><td><label>社保支付：${ade.medicalInsurance}</label></td><td><label>个人缴费：${ade.selfFee}</label></td></tr>
 			</table>
 			<div class="divider"></div>
-			<p><%out.println(new String(request.getParameter("remark").getBytes("ISO-8859-1"),"utf-8"));%>
+			<p><%
+					if(request.getParameter("chinese").length()==4) out.println(new String(request.getParameter("remark").getBytes("ISO-8859-1"),"GB2312"));
+					else out.println(new String(request.getParameter("remark").getBytes("ISO-8859-1"),"UTF-8"));
+			   %>
 				&nbsp;<br>
 				若需发票请凭此票到客服中心打印
 				&nbsp;<br>
