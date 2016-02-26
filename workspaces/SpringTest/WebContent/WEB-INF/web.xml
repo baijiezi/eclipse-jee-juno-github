@@ -14,7 +14,7 @@
     	<param-value>/WEB-INF/conf/*.xml</param-value>
     </context-param>
     
-    <!-- 我们需要配置Servlet的配置文件，默认DispatcherServlet会加载
+    <!-- 我们需要配置Spring的配置文件，默认DispatcherServlet会加载
     WEB-INF/[DispatcherServlet的Servlet名字]-servlet.xml配置文件 -->
     <servlet>  
 	    <servlet-name>chapter2</servlet-name>  
