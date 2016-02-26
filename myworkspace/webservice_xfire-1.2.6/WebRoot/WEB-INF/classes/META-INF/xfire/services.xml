@@ -1,8 +1,0 @@
-<beans>
-  <service xmlns="http://xfire.codehaus.org/config/1.0">
-    <name>HelloService</name>
-    <namespace>http://smallnest.googlepages.com/HelloService</namespace>
-    <serviceClass>com.googlepages.smallnest.facet.HelloService</serviceClass>
-    <implementationClass>com.googlepages.smallnest.facet.HelloServiceImpl</implementationClass>
-  </service>
-</beans>
