@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<title>医院物价公示</title>
+
+<link rel="stylesheet" type="text/css" href="./style/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="./style/bootstrap-theme.min.css" />
+<link rel="stylesheet" type="text/css" href="./style/fsls.css" />
+<link rel="stylesheet" type="text/css" href="./style/dragdealer.css" />
+<script src="./js/SoftKey/vk_loader.js?vk_layout=CN%20Chinese%20Simpl.%20Pinyin&vk_skin=flat_gray"></script>
+<script src="js/SoftKey/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+<script src="./js/nanhai.js"></script>
+<script src="./js/dragdealer.js"></script>
+
+
+
+</head>
+<body >
+    <div class="container changebg" >
+        <div class="header" onselectstart='return false'>
+          <div class="toplogo"> </div>
+          <div class="toptime">
+            <p class="gettime">09:52:12</p>
+            <p class="getfullyear">2014年07月12日 星期日</p>
+          </div>
+        </div>
+        
+        <div class="mid midgoodsprice">
+			<div class="titt tittgoodsprice" onselectstart='return false'>
+    			<p>医院物价公示</p>
+  			</div>
+            <div class="midgoodspricenav" onselectstart='return false'>
+            	<ul >
+                	<li class="active">常规医疗项目</li>
+                    <li>西药类</li>
+                    <li>化验类</li>
+                    <li>放射类</li>
+                    <li>超声波</li>
+                </ul>
+            </div>
+            <div class="midgoodspricesearch">
+                <form action="" method="get">
+                	<div class="on_off_keyboard" onselectstart='return false'>打开/关闭键盘</div>
+                	<input type="text" name="searchname" class="searchcont" value="请输入名称快捷查找价格" id = 'txt_Search'>
+                    <input type="submit" value="查询" class="searchsubmit">
+                    <div class="clearsearch" onselectstart='return false'>清除记录</div>
+                    <div id="softkey"></div> 
+                </form>
+            </div>
+            <ul class="midgoodspriceconttittl" onselectstart='return false'>
+            	<li><span>编码</span></li>
+                <li><span>项目名称</span></li>
+                <li><span>医保类型</span></li>
+                <li><span>项目类型</span></li>
+                <li><span>规格</span></li>
+                <li><span>单价</span></li>
+                <li><span>单位</span></li>
+                <li><span class="thlast-child">备注</span></li>
+            </ul>
+            <div onselectstart='return false'>
+            <div class="midgoodspricecont dragdealer" id="demo-simple-slider">
+          		<table width="100%" border="0" cellspacing="0" class="handle" id="handle">
+                  <tr>
+                    <td><span>编码</span></td>
+                    <td><span>项目名称</span></td>
+                    <td><span>医保类型</span></td>
+                    <td><span>项目类型</span></td>
+                    <td><span>规格</span></td>
+                    <td><span>编码</span></td>
+                    <td><span>单位</span></td>
+                    <td><span class="thlast-child">备注</span></td>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                  </tr>
+                </table>
+
+            </div>
+            </div>
+        </div>
+    </div>
+<script>
+ $(function(){
+	 $('.searchcont').focus(function(){
+		 if($(this).val() == '请输入名称快捷查找价格')$(this).val(''); 
+		 $(this).css('color','#000'); 
+	 })
+	  $('.searchcont').blur(function(){
+		 if($(this).val() == '')$(this).val('请输入名称快捷查找价格'); 
+		  $(this).css('color','#999');
+	  })
+	  $('.on_off_keyboard').click(function(){
+		   VirtualKeyboard.toggle("txt_Search", "softkey"); 
+		   //$("#kb_langselector,#kb_mappingselector,#copyrights").css("display", "none");
+	  })
+	  $('.clearsearch').click(function(){
+		  $('.searchcont').val('');
+	  })
+	  $('.midgoodspricenav ul li').click(function(){
+		  $('.midgoodspricenav ul li').removeClass('active');
+		  $(this).addClass('active');
+	  })
+	  //document.onselectstart=function(){return true;} ;
+	  settittlewidth();
+	  
+ })
+ function settittlewidth(){
+	 for(var i=0;i<8;i++)
+	 $('.midgoodspriceconttittl li').eq(i).css('width',$('.midgoodspricecont table tr:first-child td').eq(i).outerWidth(true));
+	 var temp;
+	 if($('.handle').height()> $('#demo-simple-slider').height()){
+	 	//$('.handle').css({'position':'absolute','top':0})
+		temp = new Dragdealer('demo-simple-slider',{
+		horizontal: false,
+  		vertical: true,
+  		yPrecision:0
+	  })}else temp = null;
+ }
+</script>
+</body>
+    

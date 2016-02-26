@@ -1,0 +1,152 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<title>用户评价</title>
+<link rel="stylesheet" type="text/css" href="./style/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="./style/bootstrap-theme.min.css" />
+<link rel="stylesheet" type="text/css" href="./style/fsls.css" />
+<link rel="stylesheet" type="text/css" href="./style/dragdealer.css" />
+<script src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+<script src="./js/nanhai.js"></script> 
+</head>
+<body>
+    <div class="container changebg commentbg">
+        <div class="header">
+          <div class="toplogo"> </div>
+          <div class="toptime">
+            <p class="gettime">09:52:12</p>
+            <p class="getfullyear">2014年07月12日 星期日</p>
+          </div>
+        </div>
+        
+        <div class="mid midother midsurvey">
+        	<form action="manner/manner_IN.do" method="post">
+            	<div class="commenttitt">满意度调查</div>
+            	<div class="commentcont">
+                	
+                    <img src="img/icon_03.png" class="tittle">
+                    <ul>
+                    	<li>医生态度
+                        <input type="hidden" name="mannerDoctId" id="mannerDoctId" value="1">
+                        <img src="img/Satisfied_up.png" alt="1">
+                        <img src="img/general.png" alt="2">                
+                        <img src="img/Dissatisfied.png" alt="3">	
+                        </li>
+                        <li>护士态度
+                        <input type="hidden" name="mannerNursetId" id="mannerNursetId" value="1">
+                        <img src="img/Satisfied_up.png" alt="1">
+                        <img src="img/general.png" alt="2">                
+                        <img src="img/Dissatisfied.png" alt="3">		
+                        </li>
+                        <li>检查态度
+                        <input type="hidden" name="mannerCheckId" id="mannerCheckId" value="1">
+                        <img src="img/Satisfied_up.png" alt="1">
+                        <img src="img/general.png" alt="2">                
+                        <img src="img/Dissatisfied.png" alt="3">	
+                        </li>
+                        <li>药房态度
+                        <input type="hidden" name="mannerPhamacyId" id="mannerPhamacyId" value="1">
+                        <img src="img/Satisfied_up.png" alt="1">
+                        <img src="img/general.png" alt="2">                
+                        <img src="img/Dissatisfied.png" alt="3">	
+                        </li>
+                        <li>收费态度
+                        <input type="hidden" name="mannerChargeId" id="mannerChargeId" value="1">
+                        <img src="img/Satisfied_up.png" alt="1">
+                        <img src="img/general.png" alt="2">                
+                        <img src="img/Dissatisfied.png" alt="3">	
+                        </li>
+                    </ul>
+                </div>
+                <div class="commentcont">
+                	<!--<div class="tittle">就诊环境</div>-->
+                    <img src="img/icon_20.png" class="tittle">
+                    <input type="hidden" name="mannerVisitId" id="mannerVisitId" value="1">
+                    <ul class="commentcontbottom">
+                    	<li>
+                            <img src="img/blue_up.png" alt="满意" class="commentcontbottomimg">
+                            <p title="1">满意</p>
+                        </li>
+                        <li>
+                            <img src="img/blue.png" alt="一般" class="commentcontbottomimg">
+                            <p title="2">一般</p>  
+                        </li>
+                        <li>              
+                            <img src="img/blue.png" alt="不满意" class="commentcontbottomimg">
+                            <p title="3">不满意</p>		
+                        </li>
+                     </ul>
+                     <input type="hidden" name="hospitalName" id="hospitalName" value="里水医院">
+                 </div>
+                 <input type="hidden" name="medicalCardNo" id="medicalCardNo" value="">
+                 <input type="hidden" name="userName" id="userName" value="">
+                 <input type="hidden" name="mobile" id="mobile" value="">
+                 <input type="hidden" name="patientName" id="patientName" value="">
+                 <input type="hidden" name="operId" id="operId" value="">
+                 <input type="submit" class="commentsubmit" value="提交">
+            
+            
+            </form>
+        </div>
+    </div>
+<script>
+	$(function(){
+		$('.commentcont ul li img').click(function(){
+			$(this).parent().children('img').each(function(index, element) {
+				var temp = $(this).attr('src').split('_up.png')[0];
+				temp = temp.split('.png')[0]+'.png';
+				$(this).attr('src',temp);
+            });
+			$(this).parents('.commentcontbottom').children('li').children('img').each(function(index, element) {
+                var temp = $(this).attr('src').split('_up.png')[0];
+				temp = temp.split('.png')[0]+'.png';
+				$(this).attr('src',temp);
+            });
+			
+			$(this).attr('src',$(this).attr('src').split('.png')[0]+'_up.png');
+			$(this).parent().children('input').val($(this).attr('alt'))
+		});
+		$('.commentcont .commentcontbottom li p').click(function(){
+			$(this).parents('.commentcontbottom').children('li').children('img').each(function(index, element) {
+                var temp = $(this).attr('src').split('_up.png')[0];
+				temp = temp.split('.png')[0]+'.png';
+				$(this).attr('src',temp);
+            });
+			
+			$(this).parent().children('img').attr('src',$(this).parent().children('img').attr('src').split('.png')[0]+'_up.png');
+			$(this).parent().children('input').val($(this).attr('alt'))
+		});
+	})
+	$.extend({
+  getUrlVars: function(){
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+      hash = hashes[i].split('=');
+      vars.push(hash[0]);
+      vars[hash[0]] = hash[1];
+    }
+    return vars;
+  },
+  getUrlVar: function(name){
+    return $.getUrlVars()[name];
+  }
+});
+var medicalCardNo = $.getUrlVar('medicalCardNo');
+$("#medicalCardNo").val(medicalCardNo);
+var userName = $.getUrlVar('userName');
+$("#userName").val(userName);
+var mobile = $.getUrlVar('mobile');
+$("#mobile").val(mobile);
+var patientName = $.getUrlVar('patientName');
+$("#patientName").val(patientName);
+var operId = $.getUrlVar('operId');
+$("#operId").val(operId);
+</script>
+</body>
+    

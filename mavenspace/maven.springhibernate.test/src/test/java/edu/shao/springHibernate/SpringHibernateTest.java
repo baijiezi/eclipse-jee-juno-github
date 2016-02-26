@@ -15,13 +15,13 @@ public class SpringHibernateTest {
          ctx = new ClassPathXmlApplicationContext("db/applicationContext-hibernate.xml");
     }
 
-//    @Test
+    @Test
     public void testSave(){
         IUserService service=ctx.getBean("userService",IUserService.class);
         service.saveUser();
     }
     
-    @Test
+//    @Test
     public void testSaveThrowException() throws Exception{
         IUserService service=ctx.getBean("userService",IUserService.class);
         service.saveUserThrowException();
