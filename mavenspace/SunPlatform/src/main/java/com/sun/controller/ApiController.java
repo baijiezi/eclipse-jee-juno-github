@@ -8,6 +8,11 @@ import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -473,6 +478,60 @@ public class ApiController {
 			}
 			return "";
 	}
+	
+	
+	@RequestMapping(value="/getPayFailedRecord")
+	@ResponseBody
+	public String getPayFailedRecord(HttpServletRequest request,HttpSession session,HttpServletResponse response){
+
+		System.out.println("===收到挂号订单请求getPayFailedRecord开始处理====");
+		try{
+			String cardNo = request.getParameter("cardNo");
+			
+			Class.forName("org.gjt.mm.mysql.Driver").newInstance();
+		    String user = "root";
+		    String password = "123456";
+		    String url = new StringBuffer("jdbc:mysql://localhost/frontend_server?useUnicode=true&characterEncoding=utf8").toString();
+		    Connection conn= DriverManager.getConnection(url, user, password);
+		    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		    String today = format.format(new Date()); 
+//		    String sql = "SELECT * FROM `frontend_confirm_auto_pay` WHERE `PAY_TIME` > '" + today + " 00:00:00' AND `STATES` = 1 ";
+		    String sql = "SELECT * FROM `frontend_confirm_auto_pay` WHERE `STATES` = 1 ";
+		    if(cardNo!=null && !cardNo.equals("")){
+		    	sql = sql + "AND `MEDICAL_CARD_NO` = " + cardNo;
+		    }
+		    System.out.println(sql);
+		    ResultSet rs = conn.createStatement().executeQuery(sql);
+	    	StringBuffer sb = new StringBuffer();
+	    	sb.append("{\"Error\":\"0\",\"ErrorMessage\":\"接收成功\",\"data\":[");
+	    	while(rs.next()){
+	    		sb.append("{")
+		    		.append("\"CardNo\":").append("\"").append(rs.getString("MEDICAL_CARD_NO")).append("\",")
+                	.append("\"PayAmt\":").append("\"").append(rs.getString("REAL_PAY_FEE")).append("\",")
+                	.append("\"BankCardNo\":").append("\"").append(rs.getString("PAY_CARD_NO")).append("\",")
+                	.append("\"PayDate\":").append("\"").append(rs.getString("PAY_TIME")).append("\",")
+                	.append("\"ClinId\":").append("\"").append(rs.getString("ORDER_NO")).append("\",")
+                	.append("\"CureIdSet\":").append("\"").append(rs.getString("ORDER_NO")).append("\",")
+                	.append("\"UserId\":").append("\"").append(rs.getString("OPER_ID")).append("\",")
+                	.append("\"BankTranNo\":").append("\"").append(rs.getString("SYSTEM_PAY_TRAN_LINE")).append("\"，")
+                	.append("\"Remark\":").append("\"").append(rs.getString("REMARK")).append("\"")
+            	.append("}");
+	    	}
+	    	sb.append("]}");
+	    	// 输出 
+            System.out.println(sb.toString());
+            response.setContentType("text/html;charset=UTF-8");
+	    	ServletOutputStream outputStream = response.getOutputStream();
+            BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream);
+            bufferedOutputStream.write(sb.toString().getBytes("UTF-8"));
+            bufferedOutputStream.close();
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return "";
+	}
+	
 	
 	public TransActionServiceI getTransActionService() {
 		return transActionService;
