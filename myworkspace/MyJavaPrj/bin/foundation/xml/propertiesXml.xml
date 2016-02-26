@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<items att="100">
-    <item id="Sun01" name="内科" parentDeptId="0">
-    </item >
-    <item id="Sun02" name="外科" parentDeptId="0">
-    </item>
-</items>
